@@ -1,5 +1,6 @@
 <script>
-	import { HeroSection } from '$lib';
+	import { HeroSection, AboutMeSection } from '$lib';
 </script>
 
 <HeroSection />
+<AboutMeSection />

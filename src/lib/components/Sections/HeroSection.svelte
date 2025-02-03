@@ -11,7 +11,7 @@
 	<h3>Hello! I'm Kevin</h3>
 	<div class="underscore mb-m"></div>
 	<h1>I'm a JavaScript developer crafting</h1>
-	<h1 class="dark-grey">web experiences</h1>
+	<h1 class="dark-grey mb-l">web experiences.</h1>
 	<Button {onclick}>Let's talk</Button>
 </section>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SectionHeadline, Button } from '$lib';
+	import { ExperienceTable, SectionHeadline, Button } from '$lib';
 	import image from '$assets/about-me.jpg';
 	import { goto } from '$app/navigation';
 
@@ -32,6 +32,7 @@
 			<Button className="mt-m" {onclick}>Contact Me</Button>
 		</div>
 	</div>
+	<ExperienceTable />
 </section>
 
 <style>
@@ -42,13 +43,13 @@
 	}
 
 	.image {
-		width: 39%;
+		width: 35%;
 		border-radius: 20px;
 		object-fit: cover;
 	}
 
 	.text {
-		width: 61%;
+		width: 65%;
 		text-align: left;
 		margin-left: 20px;
 	}

@@ -39,22 +39,6 @@ export type SanityImageDimensions = {
 	aspectRatio?: number;
 };
 
-export type SanityImageHotspot = {
-	_type: 'sanity.imageHotspot';
-	x?: number;
-	y?: number;
-	height?: number;
-	width?: number;
-};
-
-export type SanityImageCrop = {
-	_type: 'sanity.imageCrop';
-	top?: number;
-	bottom?: number;
-	left?: number;
-	right?: number;
-};
-
 export type SanityFileAsset = {
 	_id: string;
 	_type: 'sanity.fileAsset';
@@ -75,6 +59,65 @@ export type SanityFileAsset = {
 	path?: string;
 	url?: string;
 	source?: SanityAssetSourceData;
+};
+
+export type Geopoint = {
+	_type: 'geopoint';
+	lat?: number;
+	lng?: number;
+	alt?: number;
+};
+
+export type Project = {
+	_id: string;
+	_type: 'project';
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	name: string;
+	company: string;
+	slug: Slug;
+	dateAccomplished: string;
+	image: RawImageContent;
+	content: Array<RawTextContent | RawImageContent>;
+	stack: Array<string>;
+};
+
+export type Slug = {
+	_type: 'slug';
+	current: string;
+	source: string;
+};
+
+export type WorkExperience = {
+	_id: string;
+	_type: 'workExperience';
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	jobTitle: string;
+	company: string;
+	companyImage: RawImageContent;
+	companyLink: string;
+	startDate: string;
+	endDate: string;
+	workDescription: Array<RawTextContent | RawImageContent>;
+};
+
+export type SanityImageCrop = {
+	_type: 'sanity.imageCrop';
+	top?: number;
+	bottom?: number;
+	left?: number;
+	right?: number;
+};
+
+export type SanityImageHotspot = {
+	_type: 'sanity.imageHotspot';
+	x?: number;
+	y?: number;
+	height?: number;
+	width?: number;
 };
 
 export type SanityImageAsset = {
@@ -100,6 +143,13 @@ export type SanityImageAsset = {
 	source?: SanityAssetSourceData;
 };
 
+export type SanityAssetSourceData = {
+	_type: 'sanity.assetSourceData';
+	name?: string;
+	id?: string;
+	url?: string;
+};
+
 export type SanityImageMetadata = {
 	_type: 'sanity.imageMetadata';
 	location?: Geopoint;
@@ -111,49 +161,78 @@ export type SanityImageMetadata = {
 	isOpaque?: boolean;
 };
 
-export type Geopoint = {
-	_type: 'geopoint';
-	lat?: number;
-	lng?: number;
-	alt?: number;
-};
-
-export type Slug = {
-	_type: 'slug';
-	current?: string;
-	source?: string;
-};
-
-export type SanityAssetSourceData = {
-	_type: 'sanity.assetSourceData';
-	name?: string;
-	id?: string;
-	url?: string;
-};
-
-export type DevExperience = {
-	_id: string;
-	_type: 'devExperience';
-	_createdAt: string;
-	_updatedAt: string;
-	_rev: string;
-	jobTitle?: string;
-	company?: string;
-	startDate?: string;
-	endDate?: string;
-};
-
 export type AllSanitySchemaTypes =
 	| SanityImagePaletteSwatch
 	| SanityImagePalette
 	| SanityImageDimensions
-	| SanityImageHotspot
-	| SanityImageCrop
 	| SanityFileAsset
-	| SanityImageAsset
-	| SanityImageMetadata
 	| Geopoint
+	| Project
 	| Slug
+	| WorkExperience
+	| SanityImageCrop
+	| SanityImageHotspot
+	| SanityImageAsset
 	| SanityAssetSourceData
-	| DevExperience;
+	| SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+
+interface RawTextContent {
+	children: Array<{
+		marks?: Array<string>;
+		text: string;
+		_type: 'span';
+		_key: string;
+	}>;
+	style: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+	listItem?: 'bullet' | 'number';
+	markDefs?: Array<{
+		href?: string;
+		_type: 'link';
+		_key: string;
+	}>;
+	level?: number;
+	_type: 'block';
+	_key: string;
+}
+
+interface RawImageContent {
+	asset: {
+		_ref: string;
+		_type: 'reference';
+		_weak?: boolean;
+		[internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+	};
+	hotspot?: SanityImageHotspot;
+	crop?: SanityImageCrop;
+	_type: 'image';
+}
+interface ProcessedWorkExperience {
+	jobTitle: string;
+	company: string;
+	companyImageUrl: string;
+	companyLink: string;
+	startDate: string;
+	endDate?: string;
+	workDescription: Array<ProcessedTextContent | ProcessedImageContent>;
+}
+interface ProcessedProject {
+	name: string;
+	company: string;
+	dateAccomplished: string;
+	stack: string[];
+	projectImageUrl: string;
+	slug: string;
+	content: Array<ProcessedTextContent | ProcessedImageContent>;
+}
+
+interface ProcessedTextContent {
+	type: 'text';
+	style: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+	textToRender: string;
+}
+
+interface ProcessedImageContent {
+	type: 'image';
+	url: string;
+}

@@ -2,8 +2,10 @@
 	import { HeroSection, AboutMeSection } from '$lib';
 
 	const { data } = $props();
-	$inspect(data);
+	let { workExperience, projects } = data;
+	$inspect(workExperience);
+	$inspect(projects);
 </script>
 
 <HeroSection />
-<AboutMeSection />
+<AboutMeSection {workExperience} />

@@ -1,3 +1,7 @@
+:root {
+	--green: #6e8f89;
+}
+
 *,
 *::after,
 *::before {

@@ -17,7 +17,12 @@
 						{job.jobTitle}
 					</h3>
 					<div class="company-and-date">
-						<p>{job.company}</p>
+						<a href={job.companyLink}>
+							<div class="company-description">
+								<img src={job.companyImageUrl} alt={job.company} />
+								<p>{job.company}</p>
+							</div>
+						</a>
 						<p class="dark-grey">
 							{job.startDate.slice(0, 7)}
 							{#if job.endDate}
@@ -31,14 +36,14 @@
 			</li>
 		{/each}
 	</ul>
-	<h2 class="headline">Past work <br /> Experience</h2>
+	<h2 class="headline">Past work <br /> <span class="dark-grey">Experience</span></h2>
 </section>
 
 <style>
 	.work-experience {
 		display: flex;
 		justify-content: space-between;
-		width: 100;
+		width: 100%;
 	}
 	.work-experience-list {
 		width: 50%;
@@ -59,5 +64,18 @@
 	.company-and-date {
 		display: flex;
 		justify-content: space-between;
+	}
+	.company-description {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.company-description img {
+		width: 30px;
+		height: 30px;
+		border-radius: 20px;
+		object-fit: cover;
+		cursor: pointer;
+		margin-right: 8px;
 	}
 </style>

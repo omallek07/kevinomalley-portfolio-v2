@@ -3,4 +3,13 @@
 	let { children } = $props();
 </script>
 
-{@render children()}
+<div class="layout">
+	{@render children()}
+</div>
+
+<style>
+	.layout {
+		width: 100%;
+		height: 100%;
+	}
+</style>

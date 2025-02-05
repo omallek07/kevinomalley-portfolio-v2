@@ -1,5 +1,5 @@
 <script>
-	import { HeroSection, AboutMeSection } from '$lib';
+	import { HeroSection, AboutMeSection, MyWorkSection } from '$lib';
 
 	const { data } = $props();
 	let { workExperience, projects } = data;
@@ -9,3 +9,4 @@
 
 <HeroSection />
 <AboutMeSection {workExperience} />
+<MyWorkSection {projects} />

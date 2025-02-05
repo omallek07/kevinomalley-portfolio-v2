@@ -1,5 +1,6 @@
 :root {
 	--green: #6e8f89;
+	--red: #b26580;
 }
 
 *,
@@ -90,6 +91,14 @@ p {
 /* UTILITY CLASSES */
 .dark-grey {
 	color: #5e5e5e;
+}
+
+.red {
+	color: var(--red);
+}
+
+.green {
+	color: var(--green);
 }
 
 .default-margin {

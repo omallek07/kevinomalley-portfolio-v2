@@ -73,4 +73,11 @@ export function processProjectEntries(rawProject: Project) {
 	return processedProject;
 }
 
+export function getTagFromSanityStyle(style: ProcessedTextContent['style']): string {
+	if (style === 'normal') {
+		return 'p';
+	} else {
+		return style;
+	}
+}
 export default sanityClient;

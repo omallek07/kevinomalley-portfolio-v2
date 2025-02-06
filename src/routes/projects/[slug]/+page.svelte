@@ -1,6 +1,57 @@
 <script lang="ts">
+	import { getTagFromSanityStyle } from '$lib/utils/sanity.js';
 	const { data } = $props();
-	$inspect(data);
+	const { company, name, dateAccomplished, stack, projectImageUrl, content } = data.project;
 </script>
 
-<h2>HRLLo d</h2>
+<main class="default-margin project-page">
+	<h4>{company}</h4>
+	<div class="underscore"></div>
+	<h2 class="mb-s">{name}</h2>
+	<img src={projectImageUrl} alt={name} class="project-image" />
+	<div class="project-container mt-m">
+		<div class="meta-data">
+			<h3 class="semi-bold">Date</h3>
+			<p>{dateAccomplished.slice(0, 7)}</p>
+			<h3 class="semi-bold mt-m">Tech Stack</h3>
+			{#each stack as skill}
+				<li>{skill}</li>
+			{/each}
+		</div>
+		<div class="project-text">
+			{#each content as block}
+				{#if block.type === 'text'}
+					<svelte:element this={getTagFromSanityStyle(block.style)}>
+						{block.textToRender}
+					</svelte:element>
+				{:else}
+					<img class="content-image" src={block.url} alt="" />
+				{/if}
+			{/each}
+		</div>
+	</div>
+</main>
+
+<style>
+	img {
+		border-radius: 20px;
+	}
+	.project-page {
+		padding-top: 80px;
+		padding-bottom: 140px;
+	}
+	.project-image {
+		width: 100%;
+		max-height: 450px;
+		object-fit: cover;
+	}
+	.content-image {
+		width: 100%;
+	}
+	.project-container {
+		display: flex;
+	}
+	.meta-data {
+		min-width: 200px;
+	}
+</style>

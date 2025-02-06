@@ -68,6 +68,19 @@ export type Geopoint = {
 	alt?: number;
 };
 
+export type Skill = {
+	_id: string;
+	_type: 'skill';
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	skillsList?: Array<{
+		name?: string;
+		iconClass?: string;
+		_key: string;
+	}>;
+};
+
 export type Project = {
 	_id: string;
 	_type: 'project';

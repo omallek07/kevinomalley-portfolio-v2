@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getTagFromSanityStyle } from '$lib/utils/sanity.js';
 	const { data } = $props();
+	$inspect(data);
 	const { company, name, dateAccomplished, stack, projectImageUrl, content } = data.project;
 </script>
 
@@ -53,5 +54,8 @@
 	}
 	.meta-data {
 		min-width: 200px;
+	}
+	.project-text p {
+		font-size: 20px;
 	}
 </style>

@@ -44,24 +44,23 @@
 		border-radius: 20px;
 		object-fit: cover;
 		cursor: pointer;
+		box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.5);
+		transition: all 600ms ease;
+	}
+	img:hover {
+		transform: translateY(-15px) scale(1.04);
+		box-shadow: 0px 19px 10px 0px rgba(0, 0, 0, 0.2);
 	}
 	.more-projects-container {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
-	img {
-		filter: grayscale(0.85);
-		transition: filter 500ms ease-in;
-	}
-	img:hover {
-		filter: grayscale(0.1);
-	}
 	.more-projects-container img {
-		height: 350px;
+		height: 250px;
 	}
 	.main-project img {
-		max-height: 450px;
+		max-height: 350px;
 	}
 	.project {
 		width: 40%;

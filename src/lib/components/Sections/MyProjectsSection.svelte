@@ -27,7 +27,7 @@
 {/snippet}
 
 <section class="mt-l">
-	<SectionHeadline sectionName="my-work">My Work</SectionHeadline>
+	<SectionHeadline sectionName="my-projects">My Projects</SectionHeadline>
 	<div class="default-margin projects-container mt-m">
 		{@render projectDisplay(mainProject, true)}
 		<div class="more-projects-container">

@@ -5,15 +5,32 @@
 	let contactEmail = $state('');
 	let contactMessage = $state('');
 	let isFormInvalid = $state(false);
+	let isEmailSent = $state(false);
+	let showErrorMessage = $state(false);
 
-	function onSubmit(event: Event) {
+	async function onSubmit(event: Event) {
 		event.preventDefault();
 		if (!contactName || !contactEmail || !contactMessage) {
 			isFormInvalid = true;
 			return;
 		}
-		console.log(contactName, contactEmail, contactMessage);
-		console.log('Form submitted', event);
+
+		const response = await fetch('/api/send-mail', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				name: contactName,
+				email: contactEmail,
+				message: contactMessage
+			})
+		});
+		if (response.ok) {
+			isEmailSent = true;
+		} else {
+			showErrorMessage = true;
+		}
 	}
 
 	$effect(() => {
@@ -26,29 +43,42 @@
 <section class="mt-l">
 	<SectionHeadline sectionName="contact-form">Contact Me</SectionHeadline>
 	<div class="form-container default-margin mt-m">
-		<form>
-			<input
-				type="text"
-				class="text-input mb-m"
-				class:input-error={isFormInvalid}
-				placeholder="Your Name"
-				bind:value={contactName}
-			/>
-			<input
-				type="email"
-				class:input-error={isFormInvalid}
-				class="text-input mb-m"
-				placeholder="Your Email"
-				bind:value={contactEmail}
-			/>
-			<textarea
-				class="text-input mb-m"
-				class:input-error={isFormInvalid}
-				placeholder="Your Message"
-				bind:value={contactMessage}
-			></textarea>
-			<Button onclick={onSubmit}>Submit</Button>
-		</form>
+		{#if isEmailSent}
+			<div class="spinner-container">
+				<h3>Thank you for getting in contact with me. I'll usually reply within 48 hours.</h3>
+			</div>
+		{:else if showErrorMessage}
+			<h3>
+				We seem to have trouble with our server at the moment. Please send me an email directly to <a
+					class="link"
+					href="mailto:kevin@kevinomalley.dev">kevin@kevinomalley.dev</a
+				>
+			</h3>
+		{:else}
+			<form>
+				<input
+					type="text"
+					class="text-input mb-m"
+					class:input-error={isFormInvalid}
+					placeholder="Your Name"
+					bind:value={contactName}
+				/>
+				<input
+					type="email"
+					class:input-error={isFormInvalid}
+					class="text-input mb-m"
+					placeholder="Your Email"
+					bind:value={contactEmail}
+				/>
+				<textarea
+					class="text-input mb-m"
+					class:input-error={isFormInvalid}
+					placeholder="Your Message"
+					bind:value={contactMessage}
+				></textarea>
+				<Button onclick={onSubmit}>Submit</Button>
+			</form>
+		{/if}
 		<div class="form-text">
 			<h3 class="bold mb-s">Feel free to reach out!</h3>
 			<p>
@@ -57,7 +87,6 @@
 			</p>
 		</div>
 	</div>
-	<div class="spinner"></div>
 </section>
 
 <style>

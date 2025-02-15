@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_CONTACT_ME_LINK } from '$env/static/public';
 	import { Button, SectionHeadline } from '$lib';
 
 	let contactName = $state('');
@@ -41,7 +42,7 @@
 </script>
 
 <section class="mt-l">
-	<SectionHeadline sectionName="contact-form">Contact Me</SectionHeadline>
+	<SectionHeadline sectionName={PUBLIC_CONTACT_ME_LINK.slice(2)}>Contact Me</SectionHeadline>
 	<div class="form-container default-margin mt-m">
 		{#if isEmailSent}
 			<div class="spinner-container">

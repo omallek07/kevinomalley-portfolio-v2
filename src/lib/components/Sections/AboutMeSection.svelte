@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_ABOUT_ME_LINK } from '$env/static/public';
 	import { ExperienceTable, SectionHeadline, Button } from '$lib';
 	import image from '$assets/about-me.jpg';
 	import { goto } from '$app/navigation';
@@ -16,25 +17,23 @@
 </script>
 
 <section class="about-me mt-l">
-	<SectionHeadline sectionName={'about-me'}>About Me</SectionHeadline>
+	<SectionHeadline sectionName={PUBLIC_ABOUT_ME_LINK.slice(2)}>About Me</SectionHeadline>
 	<div class="mt-m content-container default-margin">
 		<img src={image} alt="About Me" class="image" />
 		<div class="text">
 			<p>
-				Hey, I'm Kevin, the driving force behind my freelancing agency specializing in web
-				development and data science.
+				Thank you for stopping by! I'm Kevin, a JavaScript developer with a passion for creating web
+				experiences.
 			</p>
 			<p>
-				With years of hands-on experience tackling real-world coding challenges and meeting diverse
-				client needs, I've built a deep understanding of the tech landscape. But beyond coding, my
-				true passion lies in teaching. I've had the privilege of guiding hundreds of aspiring
-				developers, focusing on making coding both practical and accessible. My goal is to translate
-				complex concepts into actionable skills that you can apply right away.
+				With over 7 years of experience in the industry, I've had the opportunity to work on a
+				variety of projects and collaborate with talented teams. I've learned that the key to
+				success is a combination of technical knowledge, creativity, and a willingness to learn and
+				adapt.
 			</p>
 			<p>
-				Through my courses, I’m committed to sharing the insights and lessons I’ve learned in the
-				field, so you can skip the pitfalls and fast-track your development journey. If you're eager
-				to learn from real-world experience and practical know-how, let's dive in together.
+				When I'm not coding, you can find me exploring the great outdoors, reading a good book, or
+				working on my latest DIY project.
 			</p>
 			<Button className="mt-m" {onclick}>Contact Me</Button>
 		</div>

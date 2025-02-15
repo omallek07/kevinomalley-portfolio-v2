@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_MY_PROJECTS_LINK } from '$env/static/public';
 	import type { ProcessedProject } from '$lib/types/sanity';
 	import SectionHeadline from '$lib/components/SectionHeadline.svelte';
 
@@ -7,8 +8,9 @@
 	}
 
 	let { projects }: Props = $props();
-	const mainProject = projects[0];
-	const additionalProjects = projects.slice(1);
+	const mainProjectName = 'Cleverdocs';
+	const mainProject = projects.find((project) => project.name === mainProjectName);
+	const additionalProjects = projects.filter((project) => project.name !== mainProjectName);
 </script>
 
 {#snippet projectDisplay(project: ProcessedProject, isMainProject: boolean = false)}
@@ -27,9 +29,11 @@
 {/snippet}
 
 <section class="mt-l">
-	<SectionHeadline sectionName="my-projects">My Projects</SectionHeadline>
+	<SectionHeadline sectionName={PUBLIC_MY_PROJECTS_LINK.slice(2)}>My Projects</SectionHeadline>
 	<div class="default-margin projects-container mt-m">
-		{@render projectDisplay(mainProject, true)}
+		{#if mainProject}
+			{@render projectDisplay(mainProject, true)}
+		{/if}
 		<div class="more-projects-container">
 			{#each additionalProjects as project}
 				{@render projectDisplay(project)}
@@ -73,9 +77,11 @@
 	.btn-to-article {
 		display: block;
 		font-size: 40px;
-		border: 1px solid black;
-		border-radius: 40px;
 		padding: 0 24px;
+		transition: all 300ms ease;
+	}
+	.btn-to-article:hover {
+		transform: scale(1.2);
 	}
 	.company {
 		font-size: 18px;

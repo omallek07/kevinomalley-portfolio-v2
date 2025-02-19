@@ -8,6 +8,7 @@
 	let isFormInvalid = $state(false);
 	let isEmailSent = $state(false);
 	let showErrorMessage = $state(false);
+	let isLoading = $state(false);
 
 	async function onSubmit(event: Event) {
 		event.preventDefault();
@@ -16,6 +17,7 @@
 			return;
 		}
 
+		isLoading = true;
 		const response = await fetch('/api/send-mail', {
 			method: 'POST',
 			headers: {
@@ -27,6 +29,7 @@
 				message: contactMessage
 			})
 		});
+		//isLoading = false;
 		if (response.ok) {
 			isEmailSent = true;
 		} else {
@@ -47,6 +50,11 @@
 		{#if isEmailSent}
 			<div class="spinner-container">
 				<h3>Thank you for getting in contact with me. I'll usually reply within 48 hours.</h3>
+			</div>
+		{:else if isLoading}
+			<div class="spinner-container">
+				<div class="spinner"></div>
+				<h3>Sending your message...</h3>
 			</div>
 		{:else if showErrorMessage}
 			<h3>

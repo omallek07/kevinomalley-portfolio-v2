@@ -1,42 +1,86 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
+	import { linear } from 'svelte/easing';
 	import type { ProcessedWorkExperience } from '$lib/types/sanity';
+	import { getTagFromSanityStyle } from '$lib/utils/sanity';
 
 	interface Props {
 		workExperience: ProcessedWorkExperience[];
 	}
-
 	let { workExperience }: Props = $props();
+
+	let openedWorkDescriptionIndex = $state(-1);
+
+	let handleShowWorkDescription = (index: number) => {
+		if (openedWorkDescriptionIndex === index) {
+			openedWorkDescriptionIndex = -1;
+		} else {
+			openedWorkDescriptionIndex = index;
+		}
+	};
+
+	$inspect(workExperience);
 </script>
 
 <section class="default-margin work-experience mt-m">
 	<ul class="work-experience-list">
-		{#each workExperience as job}
+		{#each workExperience as job, index}
 			<li class="work-item">
 				<article>
 					<h3 class="semi-bold mb-xs">
 						{job.jobTitle}
 					</h3>
-					<div class="company-and-date">
-						<a href={job.companyLink}>
+					<div class="flex-space-between">
+						<a
+							href={job.companyLink}
+							target="_blank"
+							rel="noopener
+							noreferrer"
+						>
 							<div class="company-description">
 								<img src={job.companyImageUrl} alt={job.company} />
 								<p>{job.company}</p>
 							</div>
 						</a>
-						<p class="dark-grey">
-							{job.startDate.slice(0, 7)}
-							{#if job.endDate}
-								/ {job.endDate.slice(0, 7)}
-							{:else}
-								/ present
-							{/if}
-						</p>
+						<button class="flex button" onclick={() => handleShowWorkDescription(index)}>
+							<p class="dates dark-grey">
+								{job.startDate.slice(0, 7)}
+								{#if job.endDate}
+									/ {job.endDate.slice(0, 7)}
+								{:else}
+									/ present
+								{/if}
+							</p>
+							<span class="button-icon">{openedWorkDescriptionIndex === index ? '△' : '▽'}</span
+							></button
+						>
 					</div>
+					{#if job.workDescription.length}
+						{#if openedWorkDescriptionIndex === index}
+							<div
+								transition:slide={{
+									easing: linear,
+									duration: 150
+								}}
+								class="work-description mt-s"
+							>
+								{#each job.workDescription as block}
+									{#if block.type === 'text'}
+										<svelte:element this={getTagFromSanityStyle(block.style)}>
+											{block.textToRender}
+										</svelte:element>
+									{:else}
+										<img class="content-image" src={block.url} alt="" />
+									{/if}
+								{/each}
+							</div>
+						{/if}
+					{/if}
 				</article>
 			</li>
 		{/each}
 	</ul>
-	<h2 class="headline">Past work <br /> <span class="dark-grey">Experience</span></h2>
+	<h2 class="headline">Work <br /> <span class="dark-grey">Experience</span></h2>
 </section>
 
 <style>
@@ -61,9 +105,17 @@
 	.work-item p {
 		margin-bottom: 0;
 	}
-	.company-and-date {
+	.dates {
+		margin-right: 5px;
+	}
+	.flex {
+		display: flex;
+		align-items: center;
+	}
+	.flex-space-between {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 	}
 	.company-description {
 		display: flex;
@@ -77,5 +129,13 @@
 		object-fit: cover;
 		cursor: pointer;
 		margin-right: 8px;
+	}
+
+	.button {
+		font-family: 'Inter Tight', sans-serif;
+	}
+
+	.button-icon {
+		font-size: 11px;
 	}
 </style>

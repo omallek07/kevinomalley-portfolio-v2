@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { getTagFromSanityStyle } from '$lib/utils/sanity.js';
+	import { PortableText } from '$lib';
+
 	const { data } = $props();
 	$inspect(data);
 	const { company, name, dateAccomplished, stack, projectImageUrl, content } = data.project;
+	$inspect(content);
 </script>
 
 <main class="default-margin project-page">
@@ -20,15 +22,7 @@
 			{/each}
 		</div>
 		<div class="project-text">
-			{#each content as block}
-				{#if block.type === 'text'}
-					<svelte:element this={getTagFromSanityStyle(block.style)}>
-						{block.textToRender}
-					</svelte:element>
-				{:else}
-					<img class="content-image" src={block.url} alt="" />
-				{/if}
-			{/each}
+			<PortableText value={content} />
 		</div>
 	</div>
 </main>

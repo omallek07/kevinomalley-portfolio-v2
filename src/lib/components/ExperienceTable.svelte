@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
+	import { PortableText } from '$lib';
 	import type { ProcessedWorkExperience } from '$lib/types/sanity';
-	import { getTagFromSanityStyle } from '$lib/utils/sanity';
 
 	interface Props {
 		workExperience: ProcessedWorkExperience[];
@@ -64,15 +64,7 @@
 								}}
 								class="work-description mt-s"
 							>
-								{#each job.workDescription as block}
-									{#if block.type === 'text'}
-										<svelte:element this={getTagFromSanityStyle(block.style)}>
-											{block.textToRender}
-										</svelte:element>
-									{:else}
-										<img class="content-image" src={block.url} alt="" />
-									{/if}
-								{/each}
+								<PortableText value={job.workDescription} />
 							</div>
 						{/if}
 					{/if}

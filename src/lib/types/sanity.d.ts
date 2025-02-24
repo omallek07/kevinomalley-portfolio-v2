@@ -92,7 +92,7 @@ export type Project = {
 	slug: Slug;
 	dateAccomplished: string;
 	image: RawImageContent;
-	content: Array<RawTextContent | RawImageContent>;
+	content: Array<RawImageContent | RawTextContent>;
 	stack: Array<string>;
 };
 
@@ -114,7 +114,7 @@ export type WorkExperience = {
 	companyLink: string;
 	startDate: string;
 	endDate: string;
-	workDescription: Array<RawTextContent | RawImageContent>;
+	workDescription: Array<RawImageContent | RawTextContent>;
 };
 
 export type SanityImageCrop = {
@@ -191,13 +191,13 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 interface RawTextContent {
-	children: Array<{
+	children?: Array<{
 		marks?: Array<string>;
-		text: string;
+		text?: string;
 		_type: 'span';
 		_key: string;
 	}>;
-	style: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+	style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
 	listItem?: 'bullet' | 'number';
 	markDefs?: Array<{
 		href?: string;
@@ -210,7 +210,7 @@ interface RawTextContent {
 }
 
 interface RawImageContent {
-	asset: {
+	asset?: {
 		_ref: string;
 		_type: 'reference';
 		_weak?: boolean;
@@ -219,6 +219,7 @@ interface RawImageContent {
 	hotspot?: SanityImageHotspot;
 	crop?: SanityImageCrop;
 	_type: 'image';
+	_key: string;
 }
 interface ProcessedWorkExperience {
 	jobTitle: string;
@@ -227,7 +228,7 @@ interface ProcessedWorkExperience {
 	companyLink: string;
 	startDate: string;
 	endDate?: string;
-	workDescription: Array<ProcessedTextContent | ProcessedImageContent>;
+	workDescription: Array<RawImageContent | RawTextContent>;
 }
 interface ProcessedProject {
 	name: string;
@@ -236,16 +237,5 @@ interface ProcessedProject {
 	stack: string[];
 	projectImageUrl: string;
 	slug: string;
-	content: Array<ProcessedTextContent | ProcessedImageContent>;
-}
-
-interface ProcessedTextContent {
-	type: 'text';
-	style: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
-	textToRender: string;
-}
-
-interface ProcessedImageContent {
-	type: 'image';
-	url: string;
+	content: Array<RawImageContent | RawTextContent>;
 }

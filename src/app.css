@@ -2,6 +2,7 @@
 	font-size: 62.5%;
 	--green: #6e8f89;
 	--red: #b26580;
+	--dark-grey: #5e5e5e;
 }
 
 *,
@@ -109,7 +110,7 @@ p {
 
 /* UTILITY CLASSES */
 .dark-grey {
-	color: #5e5e5e;
+	color: var(--dark-grey);
 }
 
 .red {
@@ -122,8 +123,8 @@ p {
 
 .default-margin {
 	margin-left: 15vw;
-	margin-right: 20vw;
-	max-width: 95rem;
+	margin-right: 15vw;
+	max-width: 100rem;
 }
 
 .underscore {

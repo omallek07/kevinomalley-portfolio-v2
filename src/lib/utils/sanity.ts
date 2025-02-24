@@ -5,10 +5,7 @@ import type {
 	WorkExperience,
 	ProcessedProject,
 	ProcessedWorkExperience,
-	RawTextContent,
-	RawImageContent,
-	ProcessedTextContent,
-	ProcessedImageContent
+	RawImageContent
 } from '$lib/types/sanity';
 
 const config: ClientConfig = {
@@ -21,25 +18,27 @@ const config: ClientConfig = {
 const sanityClient = createClient(config);
 const builder = ImageUrlBuilder(sanityClient);
 
-function processContent(content: RawTextContent | RawImageContent) {
-	if (content._type === 'block') {
-		// process text content
-		const processedTextContent: ProcessedTextContent = {
-			type: 'text',
-			style: content.style,
-			textToRender: content.children.map((elem) => elem.text).join('\n')
-		};
-		return processedTextContent;
-	} else {
-		// process image content
-		const imageUrl = builder.image(content).url();
-		const processedImage: ProcessedImageContent = {
-			type: 'image',
-			url: imageUrl
-		};
-		return processedImage;
-	}
-}
+// function processContent(content: RawTextContent | RawImageContent) {
+// 	if (content._type === 'block') {
+// 		// process text content
+// 		const processedTextContent: ProcessedTextContent = {
+// 			type: 'text',
+// 			style: content.style,
+// 			textToRender: content.children.map((elem) => elem.text).join('\n')
+// 		};
+// 		return processedTextContent;
+// 	} else {
+// 		// process image content
+// 		const imageUrl = builder.image(content).url();
+// 		const processedImage: ProcessedImageContent = {
+// 			type: 'image',
+// 			url: imageUrl
+// 		};
+// 		return processedImage;
+// 	}
+// }
+
+export const imageBuilder = (image: RawImageContent) => builder.image(image).url();
 
 export function processWorkExperienceEntries(rawExperience: WorkExperience) {
 	const companyImageUrl = builder.image(rawExperience.companyImage).url();
@@ -51,7 +50,7 @@ export function processWorkExperienceEntries(rawExperience: WorkExperience) {
 		startDate: rawExperience.startDate,
 		endDate: rawExperience.endDate,
 		companyImageUrl,
-		workDescription: rawExperience.workDescription.map(processContent)
+		workDescription: rawExperience.workDescription
 	};
 
 	return processedExperience;
@@ -67,17 +66,9 @@ export function processProjectEntries(rawProject: Project) {
 		stack: rawProject.stack,
 		slug: rawProject.slug.current,
 		projectImageUrl,
-		content: rawProject.content.map(processContent)
+		content: rawProject.content
 	};
 
 	return processedProject;
-}
-
-export function getTagFromSanityStyle(style: ProcessedTextContent['style']): string {
-	if (style === 'normal') {
-		return 'p';
-	} else {
-		return style;
-	}
 }
 export default sanityClient;

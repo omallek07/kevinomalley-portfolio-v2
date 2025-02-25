@@ -38,6 +38,7 @@
 	"dependencies": {
 		"@sanity/image-url": "^1.1.0",
 		"@sendgrid/mail": "^8.1.4",
-		"sanity": "^3.74.0"
+		"sanity": "^3.74.0",
+		"svelte-intersection-observer": "^1.0.0"
 	}
 }

@@ -1,15 +1,8 @@
 <script lang="ts">
 	import { PUBLIC_ABOUT_ME_LINK, PUBLIC_CONTACT_ME_LINK } from '$env/static/public';
-	import { ExperienceTable, SectionHeadline, Button } from '$lib';
+	import { SectionHeadline, Button } from '$lib';
 	import image from '$assets/about-me.jpg';
 	import { goto } from '$app/navigation';
-	import type { ProcessedWorkExperience } from '$lib/types/sanity';
-
-	interface Props {
-		workExperience: ProcessedWorkExperience[];
-	}
-
-	let { workExperience }: Props = $props();
 
 	function onclick() {
 		goto(PUBLIC_CONTACT_ME_LINK);

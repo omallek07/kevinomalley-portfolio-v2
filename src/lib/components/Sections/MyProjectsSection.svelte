@@ -48,12 +48,12 @@
 		border-radius: 20px;
 		object-fit: cover;
 		cursor: pointer;
-		box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 1);
 		transition: all 600ms ease;
 	}
 	img:hover {
 		transform: translateY(-15px) scale(1.04);
-		box-shadow: 0px 19px 10px 0px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 16px 10px 0px rgba(0, 0, 0, 0.5);
 	}
 	.more-projects-container {
 		display: flex;

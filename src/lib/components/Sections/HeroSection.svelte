@@ -35,7 +35,7 @@
 	});
 </script>
 
-<section class="pt-l pb-l border-bt-line white-bg">
+<section class="pt-l pb-l bg-white">
 	<div class="default-margin">
 		{#each heroLabels as { label, color }, labelIndex}
 			<div class="hero-item" aria-label={label}>

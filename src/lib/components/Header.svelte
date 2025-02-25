@@ -13,7 +13,7 @@
 	}
 </script>
 
-<nav class="navbar border-bt-line">
+<nav class="navbar">
 	<div class="navbar-container default-margin">
 		<a href="/" class="logo">KO</a>
 		<div class="navbar-links">

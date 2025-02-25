@@ -13,7 +13,7 @@
 </script>
 
 <HeroSection />
-<AboutMeSection {workExperience} />
+<AboutMeSection />
 <ExperienceSection {workExperience} />
 <MyProjectsSection {projects} />
 <SkillsSection {skills} />

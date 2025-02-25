@@ -124,11 +124,18 @@
 	textarea,
 	input {
 		width: 100%;
-		background-color: rgba(0, 0, 0, 0.035);
+		background-color: var(--white-1);
 		border-radius: 8px;
 		padding: 4px 12px;
 		outline: none;
 		border: none;
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+		transition: box-shadow 400s ease-out;
+	}
+
+	textarea:focus-visible,
+	input:focus-visible {
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.7);
 	}
 
 	input {

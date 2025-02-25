@@ -117,7 +117,7 @@
 	.company-description img {
 		width: 30px;
 		height: 30px;
-		border-radius: 20px;
+		border-radius: 4px;
 		object-fit: cover;
 		cursor: pointer;
 		margin-right: 8px;

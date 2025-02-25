@@ -10,19 +10,19 @@
 
 	const heroLabels: Record<string, string>[] = [
 		{
-			label: "Kevin O'Malley",
-			color: '#F03819'
+			label: "Kevin O'Malley    ",
+			color: 'red'
 		},
 		{
 			label: 'Software Engineer',
-			color: '#FFFFFF'
+			color: 'dark-grey'
 		}
 	];
 
 	let highlightedIndexes = $state([0, 0]);
 
 	$effect(() => {
-		const initialInterval = 1000;
+		const initialInterval = 600;
 		setInterval(() => {
 			highlightedIndexes.forEach(
 				(_, index) =>
@@ -35,14 +35,14 @@
 	});
 </script>
 
-<section class="hero-section">
+<section class="pt-l pb-l border-bt-line white-bg">
 	<div class="default-margin">
 		{#each heroLabels as { label, color }, labelIndex}
 			<div class="hero-item" aria-label={label}>
 				{#each label.split('') as letter, index}
 					<span
 						class="hero-label"
-						style="color: {index <= highlightedIndexes[labelIndex] ? color : 'inherit'}"
+						style="color: {index <= highlightedIndexes[labelIndex] ? `var(--${color}` : 'inherit'}"
 					>
 						{letter}
 					</span>
@@ -53,19 +53,17 @@
 </section>
 
 <style>
-	.hero-section {
-		padding-top: 40px;
-	}
 	.hero-item {
 		display: flex;
 		flex-wrap: nowrap;
-		color: var(--dark-grey);
+		color: hsla(0, 0%, 93%, 0);
+		filter: drop-shadow(0 0 0.2rem black);
 	}
 	.hero-label {
 		font-size: 8rem;
 		font-weight: bold;
 		white-space: nowrap;
 		margin-right: 0.5rem;
-		transition: color 1s ease-in-out;
+		transition: color 600ms ease-in-out;
 	}
 </style>

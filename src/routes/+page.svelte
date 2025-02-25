@@ -3,6 +3,7 @@
 		HeroSection,
 		AboutMeSection,
 		MyProjectsSection,
+		ExperienceSection,
 		SkillsSection,
 		ContactSection
 	} from '$lib';
@@ -13,6 +14,7 @@
 
 <HeroSection />
 <AboutMeSection {workExperience} />
+<ExperienceSection {workExperience} />
 <MyProjectsSection {projects} />
 <SkillsSection {skills} />
 <ContactSection />

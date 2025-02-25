@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_ABOUT_ME_LINK } from '$env/static/public';
+	import { PUBLIC_ABOUT_ME_LINK, PUBLIC_CONTACT_ME_LINK } from '$env/static/public';
 	import { ExperienceTable, SectionHeadline, Button } from '$lib';
 	import image from '$assets/about-me.jpg';
 	import { goto } from '$app/navigation';
@@ -12,11 +12,11 @@
 	let { workExperience }: Props = $props();
 
 	function onclick() {
-		goto('/contact-form');
+		goto(PUBLIC_CONTACT_ME_LINK);
 	}
 </script>
 
-<section class="about-me mt-l">
+<section class="about-me mt-m mb-l">
 	<SectionHeadline sectionName={PUBLIC_ABOUT_ME_LINK.slice(2)}>About Me</SectionHeadline>
 	<div class="mt-m content-container default-margin">
 		<img src={image} alt="About Me" class="image" />
@@ -38,7 +38,6 @@
 			<Button className="mt-m" {onclick}>Contact Me</Button>
 		</div>
 	</div>
-	<ExperienceTable {workExperience} />
 </section>
 
 <style>
@@ -52,6 +51,7 @@
 		width: 35%;
 		border-radius: 20px;
 		object-fit: cover;
+		filter: drop-shadow(0 0 1rem black);
 	}
 
 	.text {

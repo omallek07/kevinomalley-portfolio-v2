@@ -13,27 +13,31 @@
 	}
 </script>
 
-<nav class="navbar default-margin">
-	<a href="/" class="logo">KO</a>
-	<div class="navbar-links">
-		<a href={PUBLIC_ABOUT_ME_LINK} class="nav-link">
-			<span class="nav-link-bar"></span>
-			<span class="nav-link-label semi-bold">About Me</span>
-		</a>
-		<a href={PUBLIC_MY_PROJECTS_LINK} class="nav-link">
-			<span class="nav-link-bar"></span>
-			<span class="nav-link-label semi-bold">Projects</span>
-		</a>
-		<Button onclick={goToContactForm} className="nav-bar">Contact Me</Button>
+<nav class="navbar border-bt-line">
+	<div class="navbar-container default-margin">
+		<a href="/" class="logo">KO</a>
+		<div class="navbar-links">
+			<a href={PUBLIC_ABOUT_ME_LINK} class="nav-link">
+				<span class="nav-link-bar"></span>
+				<span class="nav-link-label semi-bold">About Me</span>
+			</a>
+			<a href={PUBLIC_MY_PROJECTS_LINK} class="nav-link">
+				<span class="nav-link-bar"></span>
+				<span class="nav-link-label semi-bold">Projects</span>
+			</a>
+			<Button onclick={goToContactForm} className="nav-bar">Contact Me</Button>
+		</div>
 	</div>
 </nav>
 
 <style>
 	.navbar {
+		padding: 20px 0;
+	}
+	.navbar-container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 20px 0;
 	}
 	.logo {
 		font-size: 35px;
@@ -53,7 +57,7 @@
 		font-size: 22px;
 	}
 	.nav-link-bar {
-		background-color: yellow;
+		background-color: var(--red);
 		transform: translateY(36px);
 		border-radius: 4px;
 		position: absolute;

@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { Skill } from '$lib/types/sanity';
+	import type { SkillItem } from '$lib/types/sanity';
 	import { SectionHeadline } from '$lib';
 
 	interface Props {
-		skills: Skill[];
+		skills: SkillItem[];
 	}
-	let { skills } = $props();
+	let { skills }: Props = $props();
 </script>
 
-<div class="mt-l">
+<section class="pt-m pb-m border-bt-line border-top-line white-bg">
 	<SectionHeadline sectionName="skills">Skills</SectionHeadline>
 	<div class="wrapper default-margin">
 		<div class="skills-container mt-m">
@@ -20,7 +20,7 @@
 			{/each}
 		</div>
 	</div>
-</div>
+</section>
 
 <style>
 	.wrapper {

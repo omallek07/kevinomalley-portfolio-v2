@@ -81,6 +81,12 @@ export type Skill = {
 	}>;
 };
 
+export type SkillItem = {
+	name?: string;
+	iconClass?: string;
+	_key: string;
+};
+
 export type Project = {
 	_id: string;
 	_type: 'project';

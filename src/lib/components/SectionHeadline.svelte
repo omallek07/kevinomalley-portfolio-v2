@@ -26,9 +26,6 @@
 	.headline {
 		transition: all 400ms ease-in;
 	}
-	.focus {
-		color: var(--red);
-	}
 	.underscore.focus {
 		background-color: var(--red);
 		width: 100%;

@@ -28,9 +28,9 @@
 	</article>
 {/snippet}
 
-<section class="mt-l">
+<section class="pt-l bg-dark">
 	<SectionHeadline sectionName={PUBLIC_MY_PROJECTS_LINK.slice(2)}>My Projects</SectionHeadline>
-	<div class="default-margin projects-container mt-m">
+	<div class="default-margin projects-container mt-l">
 		{#if mainProject}
 			{@render projectDisplay(mainProject, true)}
 		{/if}
@@ -45,15 +45,15 @@
 <style>
 	img {
 		width: 100%;
-		border-radius: 20px;
+		border-radius: 5px;
 		object-fit: cover;
 		cursor: pointer;
-		box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 1);
+		box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
 		transition: all 600ms ease;
 	}
 	img:hover {
 		transform: translateY(-15px) scale(1.04);
-		box-shadow: 0px 16px 10px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 20px 10px -10px rgba(0, 0, 0, 0.5);
 	}
 	.more-projects-container {
 		display: flex;

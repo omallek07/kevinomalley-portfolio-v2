@@ -10,6 +10,6 @@
 	let { workExperience }: Props = $props();
 </script>
 
-<section class="pt-m pb-m bg-white">
+<section class="pt-m pb-m bg-white box-shadow-both box-shadow-bottom">
 	<ExperienceTable {workExperience} />
 </section>

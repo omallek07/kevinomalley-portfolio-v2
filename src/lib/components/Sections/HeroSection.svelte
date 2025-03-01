@@ -1,16 +1,9 @@
 <script lang="ts">
-	import { PUBLIC_CONTACT_ME_LINK } from '$env/static/public';
-	import { goto } from '$app/navigation';
-	import { fade } from 'svelte/transition';
-	import { Button } from '$lib';
-
-	function onclick() {
-		goto(PUBLIC_CONTACT_ME_LINK);
-	}
+	const stringLength = 17;
 
 	const heroLabels: Record<string, string>[] = [
 		{
-			label: "Kevin O'Malley    ",
+			label: "Kevin O'Malley",
 			color: 'red'
 		},
 		{
@@ -19,32 +12,27 @@
 		}
 	];
 
-	let highlightedIndexes = $state([0, 0]);
+	let highlightedIndex: number = $state(0);
 
 	$effect(() => {
 		const initialInterval = 600;
-		setInterval(() => {
-			highlightedIndexes.forEach(
-				(_, index) =>
-					(highlightedIndexes[index] =
-						highlightedIndexes[index] === heroLabels[index].label.split('').length
-							? 0
-							: highlightedIndexes[index] + 1)
-			);
-		}, initialInterval);
+		setInterval(
+			() => (highlightedIndex = highlightedIndex === stringLength ? 0 : highlightedIndex + 1),
+			initialInterval
+		);
 	});
 </script>
 
-<section class="pt-l pb-l bg-white">
+<section class="pt-l pb-l hero box-shadow-bottom">
 	<div class="default-margin">
 		{#each heroLabels as { label, color }, labelIndex}
 			<div class="hero-item" aria-label={label}>
-				{#each label.split('') as letter, index}
+				{#each Array(stringLength).fill(null) as _, index}
 					<span
 						class="hero-label"
-						style="color: {index <= highlightedIndexes[labelIndex] ? `var(--${color}` : 'inherit'}"
+						style="color: {index <= highlightedIndex ? `var(--${color}` : 'inherit'}"
 					>
-						{letter}
+						{label[index] ?? ' '}
 					</span>
 				{/each}
 			</div>
@@ -65,5 +53,30 @@
 		white-space: nowrap;
 		margin-right: 0.5rem;
 		transition: color 600ms ease-in-out;
+	}
+	.hero {
+		overflow: auto;
+		background: linear-gradient(
+			315deg,
+			rgb(246, 206, 7) 3%,
+			rgba(60, 132, 206, 1) 38%,
+			rgba(48, 238, 226, 1) 68%,
+			rgb(255, 153, 89) 98%
+		);
+		animation: gradient 15s ease infinite;
+		background-size: 400% 400%;
+		background-attachment: fixed;
+	}
+
+	@keyframes gradient {
+		0% {
+			background-position: 0% 0%;
+		}
+		50% {
+			background-position: 100% 100%;
+		}
+		100% {
+			background-position: 0% 0%;
+		}
 	}
 </style>

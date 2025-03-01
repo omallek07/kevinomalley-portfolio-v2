@@ -24,7 +24,7 @@
 	});
 </script>
 
-<section class="pt-m pb-m bg-white">
+<section class="pt-m pb-m bg-white box-shadow-both">
 	<SectionHeadline sectionName="skills">Skills</SectionHeadline>
 	<div class="wrapper default-margin">
 		<div class="skills-container mt-m">

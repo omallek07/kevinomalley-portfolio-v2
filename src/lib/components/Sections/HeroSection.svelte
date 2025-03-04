@@ -48,7 +48,7 @@
 		filter: drop-shadow(0 0 0.2rem black);
 	}
 	.hero-label {
-		font-size: 8rem;
+		font-size: 3.5rem;
 		font-weight: bold;
 		white-space: nowrap;
 		margin-right: 0.5rem;
@@ -66,6 +66,19 @@
 		animation: gradient 15s ease infinite;
 		background-size: 400% 400%;
 		background-attachment: fixed;
+	}
+
+	/* Larger screens */
+	@media (min-width: 768px) {
+		.hero-label {
+			font-size: 5rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.hero-label {
+			font-size: 8rem;
+		}
 	}
 
 	@keyframes gradient {

@@ -46,7 +46,7 @@
 
 <section class="mt-l">
 	<SectionHeadline sectionName={PUBLIC_CONTACT_ME_LINK.slice(2)}>Contact Me</SectionHeadline>
-	<div class="form-container default-margin mt-m">
+	<div class="wrapper default-margin mt-m">
 		{#if isEmailSent}
 			<div class="spinner-container">
 				<h3>Thank you for getting in contact with me. I'll usually reply within 48 hours.</h3>
@@ -67,7 +67,7 @@
 			<form>
 				<input
 					type="text"
-					class="text-input mb-m"
+					class="text-input"
 					class:input-error={isFormInvalid}
 					placeholder="Your Name"
 					bind:value={contactName}
@@ -75,17 +75,19 @@
 				<input
 					type="email"
 					class:input-error={isFormInvalid}
-					class="text-input mb-m"
+					class="text-input"
 					placeholder="Your Email"
 					bind:value={contactEmail}
 				/>
 				<textarea
-					class="text-input mb-m"
+					class="text-input"
 					class:input-error={isFormInvalid}
 					placeholder="Your Message"
 					bind:value={contactMessage}
 				></textarea>
-				<Button onclick={onSubmit}>Submit</Button>
+				<div class="btn-wrapper">
+					<Button onclick={onSubmit}>Submit</Button>
+				</div>
 			</form>
 		{/if}
 		<div class="form-text">
@@ -100,23 +102,25 @@
 
 <style>
 	section {
-		padding-bottom: 140px;
+		padding-bottom: 7rem;
 	}
-	.form-container {
+	.wrapper {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
 	}
 	.form-text {
-		width: 30%;
+		width: 90%;
 	}
 	form {
 		display: flex;
+		width: 100%;
 		flex-direction: column;
 		align-items: flex-start;
-		width: 45%;
+		margin-top: 4rem;
 	}
 	form * {
-		font-size: 20px;
+		font-size: 2rem;
 		font-family: 'Inter Tight', sans-serif;
 		font-weight: 500;
 		color: black;
@@ -127,6 +131,7 @@
 		background-color: var(--white-1);
 		border-radius: 8px;
 		padding: 4px 12px;
+		margin-bottom: 3rem;
 		outline: none;
 		border: none;
 		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
@@ -135,20 +140,25 @@
 
 	textarea:focus-visible,
 	input:focus-visible {
-		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.7);
+		outline: 2px solid var(--red);
 	}
 
 	input {
-		height: 48px;
+		height: 4.8rem;
 	}
 	textarea {
-		height: 120px;
-		margin-bottom: 40px;
+		height: 12rem;
 	}
 	textarea:placeholder,
 	input:placeholder {
-		font-size: 20px;
+		font-size: clamp(2rem, 3vw, 2.2rem);
 		font-weight: 400;
+	}
+
+	.btn-wrapper {
+		width: 100%;
+		text-align: right;
+		margin-bottom: 2rem;
 	}
 
 	.input-error {
@@ -167,6 +177,34 @@
 		margin-right: 8px;
 		animation: spin 1s linear infinite;
 	}
+	.spinner-container {
+		display: flex;
+	}
+
+	@media (min-width: 1024px) {
+		section {
+			padding-bottom: 14rem;
+		}
+		.wrapper {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+		form {
+			width: 45%;
+			margin-top: 0;
+		}
+
+		.form-text {
+			width: 30%;
+		}
+
+		.btn-wrapper {
+			margin-bottom: 0;
+			text-align: left;
+		}
+	}
+
 	@keyframes spin {
 		0% {
 			transform: rotate(0deg);
@@ -174,8 +212,5 @@
 		100% {
 			transform: rotate(360deg);
 		}
-	}
-	.spinner-container {
-		display: flex;
 	}
 </style>

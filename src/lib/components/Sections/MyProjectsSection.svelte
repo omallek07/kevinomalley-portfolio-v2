@@ -61,13 +61,13 @@
 		justify-content: space-between;
 	}
 	.more-projects-container img {
-		height: 250px;
+		height: 25rem;
 	}
 	.main-project img {
-		max-height: 350px;
+		max-height: 35rem;
 	}
 	.project {
-		width: 40%;
+		width: 100%;
 	}
 	.project-info {
 		display: flex;
@@ -76,15 +76,21 @@
 	}
 	.btn-to-article {
 		display: block;
-		font-size: 40px;
-		padding: 0 24px;
+		font-size: 4rem;
+		padding: 0 2.4rem;
 		transition: all 300ms ease;
 	}
 	.btn-to-article:hover {
 		transform: scale(1.2);
 	}
 	.company {
-		font-size: 18px;
+		font-size: 1.8rem;
 		margin-bottom: 0;
+	}
+
+	@media (min-width: 1024px) {
+		.project {
+			width: 40%;
+		}
 	}
 </style>

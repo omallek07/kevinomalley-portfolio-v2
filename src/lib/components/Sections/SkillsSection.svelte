@@ -50,12 +50,12 @@
 		align-items: center;
 	}
 	.skills-container {
-		width: 90%;
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		row-gap: 18px;
-		column-gap: 18px;
+		row-gap: 2rem;
+		column-gap: 1.4rem;
 	}
 
 	.skill-container {
@@ -66,11 +66,11 @@
 
 	.skill-container span {
 		padding-top: 3px;
-		font-size: 1.2rem;
+		font-size: clamp(1.2rem, 3vw, 1.4rem);
 	}
 
 	i {
-		font-size: 80px;
+		font-size: 6rem;
 		color: black;
 	}
 	.skill-container i,
@@ -86,6 +86,18 @@
 	.skill-container.animate i {
 		animation-name: flip_animation;
 		animation-duration: 1s;
+	}
+
+	@media (min-width: 1024px) {
+		i {
+			font-size: 8rem;
+		}
+
+		.skills-container {
+			width: 90%;
+			row-gap: 1.8rem;
+			column-gap: 1.8rem;
+		}
 	}
 
 	@keyframes flip_animation {

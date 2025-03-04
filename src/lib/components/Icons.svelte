@@ -6,9 +6,8 @@
 </script>
 
 <div class="icons">
-	<div class="icon">
-		<a href={PUBLIC_GITHUB_LINK} target="_blank"
-			>\
+	<div class="icon icon-round">
+		<a href={PUBLIC_GITHUB_LINK} target="_blank">
 			<img src={githubIcon} alt="Github" class="icon-img" /></a
 		>
 	</div>
@@ -22,7 +21,8 @@
 <style>
 	.icons {
 		display: flex;
-		gap: 1.5rem;
+		align-items: center;
+		gap: 2rem;
 		padding: 0 1rem;
 	}
 
@@ -30,6 +30,15 @@
 		height: 50px;
 		width: 50px;
 		cursor: pointer;
+		transition: all 250ms ease;
+	}
+	.icon-round {
+		border-radius: 50%;
+	}
+
+	.icon:hover {
+		background: var(--green);
+		transform: scale(1.2);
 	}
 
 	.icon-img {

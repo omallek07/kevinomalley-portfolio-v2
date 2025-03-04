@@ -9,9 +9,9 @@
 
 	let { children, sectionName }: Props = $props();
 
+	console.log('children', children);
 	let element: HTMLDivElement | undefined = $state();
 	let intersecting: boolean = $state(false);
-	$inspect(intersecting);
 </script>
 
 <IntersectionObserver {element} bind:intersecting>

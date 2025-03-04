@@ -28,8 +28,10 @@
 				When I'm not coding, you can find me exploring the great outdoors, reading a good book, or
 				working on my latest DIY project.
 			</p>
-			<Button className="mt-m" {onclick}>Contact Me</Button>
-			<Icons />
+			<div class="flex mt-m">
+				<Button {onclick}>Contact Me</Button>
+				<Icons />
+			</div>
 		</div>
 	</div>
 	<div class="wave"></div>
@@ -38,34 +40,40 @@
 </section>
 
 <style>
+	/* Mobile-first (default styles) */
 	.about-me {
 		overflow: hidden;
 		position: relative;
 	}
 	.content-container {
 		display: flex;
-		justify-content: space-between;
-		align-items: stretch;
 	}
 
 	.image {
-		width: 35%;
-		border-radius: 20px;
+		width: 10rem;
+		height: 10rem;
+		border-radius: 0.5rem;
 		object-fit: cover;
-		filter: drop-shadow(0 0 1rem black);
+		filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
 	}
 
 	.text {
 		width: 65%;
 		text-align: left;
-		margin-left: 5rem;
+		margin-left: 2.5rem;
+	}
+
+	.flex {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.wave {
 		background: rgb(255 255 255 / 25%);
 		border-radius: 1000% 1000% 0 0;
 		position: absolute;
-		width: 300%;
+		width: 100%;
 		height: 15em;
 		animation: wave 10s -3s linear infinite;
 		transform: translate3d(0, 0, 0);
@@ -85,6 +93,42 @@
 		bottom: -2.5em;
 		animation: wave 20s -1s reverse infinite;
 		opacity: 0.9;
+	}
+
+	/* Larger screens */
+	@media (min-width: 768px) {
+		.content-container {
+			justify-content: space-between;
+			align-items: stretch;
+		}
+
+		.text {
+			width: 65%;
+			margin-left: 5rem;
+		}
+
+		.image {
+			width: 35%;
+			height: auto;
+			border-radius: 2rem;
+			filter: drop-shadow(0 0 1rem black);
+		}
+
+		.wave {
+			width: 150%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text {
+			width: 65%;
+		}
+		.image {
+			width: 35%;
+		}
+		.wave {
+			width: 200%;
+		}
 	}
 
 	@keyframes wave {

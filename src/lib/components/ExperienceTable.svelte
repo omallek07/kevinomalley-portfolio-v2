@@ -22,7 +22,7 @@
 	$inspect(workExperience);
 </script>
 
-<section class="default-margin work-experience mt-m">
+<section class="work-experience default-margin">
 	<ul class="work-experience-list">
 		{#each workExperience as job, index}
 			<li class="work-item">
@@ -72,20 +72,12 @@
 			</li>
 		{/each}
 	</ul>
-	<h2 class="headline">Work <br /> <span class="dark-grey">Experience</span></h2>
 </section>
 
 <style>
-	.work-experience {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-	}
 	.work-experience-list {
-		width: 50%;
-	}
-	.headline {
-		text-align: right;
+		width: 100%;
+		margin-top: 2rem;
 	}
 	.work-item {
 		border-bottom: 1px solid #f0eded;
@@ -129,5 +121,19 @@
 
 	.button-icon {
 		font-size: 11px;
+	}
+
+	/* Larger screens */
+	@media (min-width: 768px) {
+		.work-experience-list {
+			width: 80%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.work-experience-list {
+			width: 50%;
+			margin-top: 0;
+		}
 	}
 </style>

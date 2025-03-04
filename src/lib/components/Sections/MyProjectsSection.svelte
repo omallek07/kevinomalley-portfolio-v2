@@ -14,23 +14,23 @@
 </script>
 
 {#snippet projectDisplay(project: ProcessedProject, isMainProject: boolean = false)}
-	<article class={`${isMainProject ? 'main-project' : 'project'} mb-m`}>
+	<article class={`${isMainProject ? 'main-project mb-l' : 'project mb-m'} card`}>
 		<a href={`/projects/${project.slug}`}>
 			<img src={project.projectImageUrl} alt={project.name} />
-		</a>
-		<div class="project-info mt-s">
-			<div class="title-and-company">
-				<h3 class="semi-bold">{project.name}</h3>
-				<p class="company dark-grey">{project.company}</p>
+			<div class="project-info mt-s">
+				<div class="title-and-company">
+					<h3 class="semi-bold">{project.name}</h3>
+					<p class="company dark-grey">{project.company}</p>
+				</div>
+				<button class="btn-to-article">→</button>
 			</div>
-			<a href={`/projects/${project.slug}`} class="btn-to-article">→</a>
-		</div>
+		</a>
 	</article>
 {/snippet}
 
 <section class="section bg-dark">
 	<SectionHeadline headline="My Projects" id={PUBLIC_MY_PROJECTS_LINK.slice(2)} />
-	<div class="default-margin projects-container">
+	<div class="default-margin projects-container mt-m">
 		{#if mainProject}
 			{@render projectDisplay(mainProject, true)}
 		{/if}
@@ -45,15 +45,8 @@
 <style>
 	img {
 		width: 100%;
-		border-radius: 5px;
 		object-fit: cover;
 		cursor: pointer;
-		box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
-		transition: all 600ms ease;
-	}
-	img:hover {
-		transform: translateY(-15px) scale(1.04);
-		box-shadow: 0px 20px 10px -10px rgba(0, 0, 0, 0.5);
 	}
 	.more-projects-container {
 		display: flex;
@@ -69,18 +62,33 @@
 	.project {
 		width: 100%;
 	}
+
+	.card {
+		overflow: hidden;
+		background: var(--white);
+		transition: all 600ms ease;
+		outline: 1px solid var(--red);
+		border-radius: 5px;
+	}
+	.card:hover {
+		transform: translate(2rem, -1rem) scale(1.04);
+		box-shadow: -4px 4px 3px 0px hsl(from var(--red) h s l / 60%);
+	}
+
 	.project-info {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-radius: 5px;
+		padding: 1rem 2rem;
 	}
 	.btn-to-article {
 		display: block;
+		font-family: inherit;
 		font-size: 4rem;
-		padding: 0 2.4rem;
 		transition: all 300ms ease;
 	}
-	.btn-to-article:hover {
+	.card:hover .btn-to-article {
 		transform: scale(1.2);
 	}
 	.company {

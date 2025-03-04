@@ -5,8 +5,7 @@
 	--green: #6e8f89;
 	--red: #b26580;
 	--dark-grey: #5e5e5e;
-	--white-1: #fff;
-	--white-2: #f7f7f7;
+	--white: #fff;
 	--light-grey: #f2f2f2;
 
 	/* Utility */
@@ -30,7 +29,7 @@
 *::before {
 	margin: 0;
 	padding: 0;
-	box-sizing: inherit;
+	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -64,7 +63,7 @@ button {
 
 html {
 	background:
-		radial-gradient(farthest-side at top left, var(--white-1), transparent),
+		radial-gradient(farthest-side at top left, var(--white), transparent),
 		radial-gradient(farthest-side at bottom left, var(--dark-grey), transparent),
 		radial-gradient(farthest-corner at bottom right, #d6dee4, transparent) #ebf3f9;
 	background-attachment: fixed;
@@ -133,11 +132,6 @@ li {
 
 p {
 	margin-bottom: 1rem;
-}
-
-input,
-textarea {
-	box-sizing: border-box;
 }
 
 .link {

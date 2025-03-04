@@ -9,9 +9,9 @@
 	}
 </script>
 
-<section class="about-me pt-m pb-l">
-	<SectionHeadline sectionName={PUBLIC_ABOUT_ME_LINK.slice(2)}>About Me</SectionHeadline>
-	<div class="mt-m content-container default-margin">
+<section class="section about-me">
+	<SectionHeadline headline="About Me" id={PUBLIC_ABOUT_ME_LINK.slice(2)} />
+	<div class="content-container default-margin">
 		<img src={image} alt="About Me" class="image" />
 		<div class="text">
 			<p>

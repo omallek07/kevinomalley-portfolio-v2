@@ -1,22 +1,22 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
 
 	interface Props {
-		children: Snippet;
-		sectionName: string;
+		headline: string;
+		id: string;
 	}
 
-	let { children, sectionName }: Props = $props();
+	let { headline, id }: Props = $props();
 
-	console.log('children', children);
 	let element: HTMLDivElement | undefined = $state();
 	let intersecting: boolean = $state(false);
 </script>
 
 <IntersectionObserver {element} bind:intersecting>
-	<div class="default-margin" id={sectionName}>
-		<h2 class="headline" bind:this={element} class:focus={intersecting}>{@render children()}</h2>
+	<div class="default-margin pt-m pb-m" {id}>
+		<h2 class="headline" bind:this={element} class:focus={intersecting}>
+			{headline}
+		</h2>
 		<div class="underscore" class:focus={intersecting}></div>
 	</div>
 </IntersectionObserver>

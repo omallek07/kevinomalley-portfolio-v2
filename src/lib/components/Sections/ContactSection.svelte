@@ -44,9 +44,9 @@
 	});
 </script>
 
-<section class="mt-l">
-	<SectionHeadline sectionName={PUBLIC_CONTACT_ME_LINK.slice(2)}>Contact Me</SectionHeadline>
-	<div class="wrapper default-margin mt-m">
+<section class="section">
+	<SectionHeadline headline="Contact Me" id={PUBLIC_CONTACT_ME_LINK.slice(2)} />
+	<div class="wrapper default-margin">
 		{#if isEmailSent}
 			<div class="spinner-container">
 				<h3>Thank you for getting in contact with me. I'll usually reply within 48 hours.</h3>

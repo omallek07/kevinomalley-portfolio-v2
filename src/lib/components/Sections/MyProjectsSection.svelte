@@ -28,9 +28,9 @@
 	</article>
 {/snippet}
 
-<section class="pt-l bg-dark">
-	<SectionHeadline sectionName={PUBLIC_MY_PROJECTS_LINK.slice(2)}>My Projects</SectionHeadline>
-	<div class="default-margin projects-container mt-l">
+<section class="section bg-dark">
+	<SectionHeadline headline="My Projects" id={PUBLIC_MY_PROJECTS_LINK.slice(2)} />
+	<div class="default-margin projects-container">
 		{#if mainProject}
 			{@render projectDisplay(mainProject, true)}
 		{/if}

@@ -65,7 +65,7 @@
 
 	@media (min-width: 1024px) {
 		.nav-link-bar {
-			transform: translateY(36px);
+			transform: translateY(38px);
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -74,7 +74,7 @@
 			transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 		}
 		.navbar-links {
-			gap: 1rem 3rem;
+			gap: 1rem 4rem;
 		}
 		.nav-link {
 			overflow: hidden;

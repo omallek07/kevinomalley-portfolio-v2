@@ -23,8 +23,8 @@
 	});
 </script>
 
-<section class="pt-l pb-l hero box-shadow-bottom">
-	<div class="default-margin">
+<section class="hero box-shadow-bottom">
+	<div class="default-margin pt-m pb-m">
 		{#each heroLabels as { label, color }, labelIndex}
 			<div class="hero-item" aria-label={label}>
 				{#each Array(stringLength).fill(null) as _, index}

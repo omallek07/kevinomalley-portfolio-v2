@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { SkillItem } from '$lib/types/sanity';
+	import { PUBLIC_MY_SKILLS_LINK } from '$env/static/public';
+
 	import { SectionHeadline } from '$lib';
 
 	interface Props {
@@ -24,8 +26,8 @@
 	});
 </script>
 
-<section class="pt-m pb-m bg-white box-shadow-both">
-	<SectionHeadline sectionName="skills">Skills</SectionHeadline>
+<section class="section bg-white box-shadow-both">
+	<SectionHeadline headline="Skills" id={PUBLIC_MY_SKILLS_LINK.slice(2)} />
 	<div class="wrapper default-margin">
 		<div class="skills-container mt-m">
 			{#each skills as skill, idx}

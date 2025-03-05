@@ -66,13 +66,15 @@
 	.card {
 		overflow: hidden;
 		background: var(--white);
-		transition: all 600ms ease;
+		transition:
+			transform 600ms ease,
+			box-shadow 1s ease;
 		outline: 1px solid var(--red);
 		border-radius: 5px;
 	}
 	.card:hover {
-		transform: translate(2rem, -1rem) scale(1.04);
-		box-shadow: -4px 4px 3px 0px hsl(from var(--red) h s l / 60%);
+		transform: scale(1.1);
+		box-shadow: 0px 7px 6px -2px hsl(from var(--red) h s l / 60%);
 	}
 
 	.project-info {

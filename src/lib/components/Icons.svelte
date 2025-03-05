@@ -22,13 +22,13 @@
 	.icons {
 		display: flex;
 		align-items: center;
-		gap: 2rem;
+		gap: 1.5rem;
 		padding: 0 1rem;
 	}
 
 	.icon {
-		height: 50px;
-		width: 50px;
+		height: 40px;
+		width: 40px;
 		cursor: pointer;
 		transition: all 250ms ease;
 	}
@@ -48,5 +48,22 @@
 		/* width: 35%;
 		border-radius: 20px;
 		filter: drop-shadow(0 0 1rem black); */
+	}
+
+	@media (min-width: 768px) {
+		.icon {
+			width: 45px;
+			height: 45px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.icons {
+			gap: 2rem;
+		}
+		.icon {
+			width: 50px;
+			height: 50px;
+		}
 	}
 </style>

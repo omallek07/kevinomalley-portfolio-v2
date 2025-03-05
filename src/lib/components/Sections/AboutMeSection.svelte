@@ -1,8 +1,13 @@
 <script lang="ts">
+	import IntersectionObserver from 'svelte-intersection-observer';
+	import { fly, fade } from 'svelte/transition';
 	import { PUBLIC_ABOUT_ME_LINK, PUBLIC_CONTACT_ME_LINK } from '$env/static/public';
 	import { SectionHeadline, Icons, Button } from '$lib';
 	import image from '$assets/about-me.jpg';
 	import { goto } from '$app/navigation';
+
+	let element: HTMLDivElement | undefined = $state();
+	let intersecting: boolean = $state(false);
 
 	function onclick() {
 		goto(PUBLIC_CONTACT_ME_LINK);
@@ -11,32 +16,36 @@
 
 <section class="section about-me">
 	<SectionHeadline headline="About Me" id={PUBLIC_ABOUT_ME_LINK.slice(2)} />
-	<div class="content-container default-margin">
-		<img src={image} alt="About Me" class="image" />
-		<div class="text">
-			<p>
-				Thank you for stopping by! I'm Kevin, a JavaScript developer with a passion for creating web
-				experiences.
-			</p>
-			<p>
-				With over 7 years of experience in the industry, I've had the opportunity to work on a
-				variety of projects and collaborate with talented teams. I've learned that the key to
-				success is a combination of technical knowledge, creativity, and a willingness to learn and
-				adapt.
-			</p>
-			<p>
-				When I'm not coding, you can find me exploring the great outdoors, reading a good book, or
-				working on my latest DIY project.
-			</p>
-			<div class="flex mt-m">
-				<Button {onclick}>Contact Me</Button>
-				<Icons />
+	<IntersectionObserver {element} bind:intersecting>
+		<div bind:this={element} class="content-container default-margin" class:fade-in={intersecting}>
+			<div class="image-container">
+				<img src={image} alt="About Me" class="image" />
+			</div>
+			<div class="text">
+				<p>
+					Thank you for stopping by! I'm Kevin, a JavaScript developer with a passion for creating
+					web experiences.
+				</p>
+				<p>
+					With over 7 years of experience in the industry, I've had the opportunity to work on a
+					variety of projects and collaborate with talented teams. I've learned that the key to
+					success is a combination of technical knowledge, creativity, and a willingness to learn
+					and adapt.
+				</p>
+				<p>
+					When I'm not coding, you can find me exploring the great outdoors, reading a good book, or
+					working on my latest DIY project.
+				</p>
+				<div class="flex mt-m">
+					<Button {onclick}>Contact Me</Button>
+					<Icons />
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="wave"></div>
-	<div class="wave"></div>
-	<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+	</IntersectionObserver>
 </section>
 
 <style>
@@ -45,22 +54,28 @@
 		overflow: hidden;
 		position: relative;
 	}
-	.content-container {
-		display: flex;
-	}
 
-	.image {
+	.image-container {
 		width: 10rem;
 		height: 10rem;
 		border-radius: 0.5rem;
 		object-fit: cover;
-		filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
+		float: left;
+		margin-right: 1rem;
+		overflow: hidden;
 	}
 
-	.text {
-		width: 65%;
-		text-align: left;
-		margin-left: 2.5rem;
+	.image {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	.content-container {
+		position: relative;
+	}
+	.fade-in {
+		animation: fadeIn 2s 1;
 	}
 
 	.flex {
@@ -68,7 +83,6 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-
 	.wave {
 		background: rgb(255 255 255 / 25%);
 		border-radius: 1000% 1000% 0 0;
@@ -97,21 +111,14 @@
 
 	/* Larger screens */
 	@media (min-width: 768px) {
+		.image-container {
+			width: 200px;
+			height: 200px;
+		}
+
 		.content-container {
 			justify-content: space-between;
 			align-items: stretch;
-		}
-
-		.text {
-			width: 65%;
-			margin-left: 5rem;
-		}
-
-		.image {
-			width: 35%;
-			height: auto;
-			border-radius: 2rem;
-			filter: drop-shadow(0 0 1rem black);
 		}
 
 		.wave {
@@ -120,11 +127,21 @@
 	}
 
 	@media (min-width: 1024px) {
-		.text {
-			width: 65%;
+		.content-container {
+			display: flex;
 		}
-		.image {
+		.text {
+			text-align: left;
+			width: 65%;
+			margin-left: 5rem;
+		}
+		.image-container {
 			width: 35%;
+			height: auto;
+			border-radius: 2rem;
+			filter: drop-shadow(0 0 1rem black);
+			float: none;
+			margin-right: 0;
 		}
 		.wave {
 			width: 200%;
@@ -150,6 +167,18 @@
 
 		100% {
 			transform: translateX(1);
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateX(50%);
+		}
+
+		100% {
+			opacity: 100%;
+			transform: translateX(0);
 		}
 	}
 </style>

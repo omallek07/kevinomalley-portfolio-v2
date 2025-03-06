@@ -41,10 +41,8 @@
 
 <IntersectionObserver
 	{element}
-	once
 	bind:intersecting
 	on:observe={(e) => {
-		console.log('e', e);
 		const {
 			detail: { isIntersecting }
 		} = e;
@@ -52,6 +50,10 @@
 		if (isIntersecting && !initialAnimationShown) {
 			showInitialAnimation = true;
 			initialAnimationShown = true;
+		}
+		if (!isIntersecting) {
+			showInitialAnimation = false;
+			initialAnimationShown = false;
 		}
 	}}
 >

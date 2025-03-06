@@ -41,6 +41,10 @@
 		transform: scale(1.2);
 	}
 
+	.icon-round:hover {
+		border: 1px solid black;
+	}
+
 	.icon-img {
 		width: 100%;
 		height: 100%;

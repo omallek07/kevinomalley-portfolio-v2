@@ -47,6 +47,7 @@
 		filter: drop-shadow(0 0 0.2rem black);
 	}
 	.hero-label {
+		min-width: 2rem;
 		font-size: 3.5rem;
 		font-weight: bold;
 		white-space: nowrap;

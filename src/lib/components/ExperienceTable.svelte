@@ -103,6 +103,10 @@
 	.work-item p {
 		margin-bottom: 0;
 	}
+
+	.company-description:hover p {
+		text-decoration: underline;
+	}
 	.flex {
 		display: flex;
 		align-items: center;

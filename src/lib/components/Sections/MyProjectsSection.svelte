@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IntersectionObserver from 'svelte-intersection-observer';
 	import { PUBLIC_MY_PROJECTS_LINK } from '$env/static/public';
 	import type { ProcessedProject } from '$lib/types/sanity';
 	import SectionHeadline from '$lib/components/SectionHeadline.svelte';
@@ -8,16 +9,34 @@
 	}
 
 	let { projects }: Props = $props();
+
 	const mainProjectName = 'Cleverdocs';
 	const mainProject = projects.find((project) => project.name === mainProjectName);
 	const additionalProjects = projects.filter((project) => project.name !== mainProjectName);
+
+	let hoveredProject = $state('');
+	let element: HTMLDivElement | undefined = $state();
+	let intersecting: boolean = $state(false);
+
+	function handleHoveredProject(projectName: string, isMouseOver: boolean) {
+		hoveredProject = isMouseOver ? projectName : '';
+	}
 </script>
 
 {#snippet projectDisplay(project: ProcessedProject, isMainProject: boolean = false)}
-	<article class={`${isMainProject ? 'main-project mb-l' : 'project mb-m'} card`}>
-		<a href={`/projects/${project.slug}`}>
+	<article
+		class:shrink={!isMainProject && hoveredProject && project.name !== hoveredProject}
+		class={`${isMainProject ? 'main-project mb-l' : 'project mb-m'} card`}
+	>
+		<a
+			href={`/projects/${project.slug}`}
+			onfocus={() => handleHoveredProject(project.name, true)}
+			onblur={() => handleHoveredProject(project.name, false)}
+			onmouseover={() => handleHoveredProject(project.name, true)}
+			onmouseleave={() => handleHoveredProject(project.name, false)}
+		>
 			<img src={project.projectImageUrl} alt={project.name} />
-			<div class="project-info mt-s">
+			<div class="project-info">
 				<div class="title-and-company">
 					<h3 class="semi-bold">{project.name}</h3>
 					<p class="company dark-grey">{project.company}</p>
@@ -28,25 +47,35 @@
 	</article>
 {/snippet}
 
-<section class="section bg-dark">
-	<SectionHeadline headline="My Projects" id={PUBLIC_MY_PROJECTS_LINK.slice(2)} />
-	<div class="default-margin projects-container mt-m">
-		{#if mainProject}
-			{@render projectDisplay(mainProject, true)}
-		{/if}
-		<div class="more-projects-container">
-			{#each additionalProjects as project}
-				{@render projectDisplay(project)}
-			{/each}
+<IntersectionObserver {element} bind:intersecting>
+	<section class="section bg-dark">
+		<SectionHeadline headline="My Projects" id={PUBLIC_MY_PROJECTS_LINK.slice(2)} />
+		<div
+			bind:this={element}
+			class:fade-in={intersecting}
+			class="default-margin projects-container mt-m"
+		>
+			{#if mainProject}
+				{@render projectDisplay(mainProject, true)}
+			{/if}
+			<div class="more-projects-container">
+				{#each additionalProjects as project}
+					{@render projectDisplay(project)}
+				{/each}
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+</IntersectionObserver>
 
 <style>
 	img {
 		width: 100%;
 		object-fit: cover;
 		cursor: pointer;
+	}
+
+	.fade-in {
+		animation: fadeIn 2s 1;
 	}
 	.more-projects-container {
 		display: flex;
@@ -77,12 +106,16 @@
 		box-shadow: 0px 7px 6px -2px hsl(from var(--red) h s l / 60%);
 	}
 
+	.card.shrink {
+		transform: scale(0.9);
+	}
+
 	.project-info {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		border-radius: 5px;
-		padding: 1rem 2rem;
+		padding: 1.5rem 2rem;
 	}
 	.btn-to-article {
 		display: block;
@@ -101,6 +134,16 @@
 	@media (min-width: 1024px) {
 		.project {
 			width: 40%;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 100%;
 		}
 	}
 </style>

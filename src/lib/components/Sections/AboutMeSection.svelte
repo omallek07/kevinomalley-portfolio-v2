@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { fly, fade } from 'svelte/transition';
+
 	import { PUBLIC_ABOUT_ME_LINK, PUBLIC_CONTACT_ME_LINK } from '$env/static/public';
 	import { SectionHeadline, Icons, Button } from '$lib';
 	import image from '$assets/about-me.jpg';
@@ -14,9 +14,10 @@
 	}
 </script>
 
-<section class="section about-me">
-	<SectionHeadline headline="About Me" id={PUBLIC_ABOUT_ME_LINK.slice(2)} />
-	<IntersectionObserver {element} bind:intersecting>
+<IntersectionObserver {element} bind:intersecting>
+	<section class="section about-me">
+		<SectionHeadline headline="About Me" id={PUBLIC_ABOUT_ME_LINK.slice(2)} />
+
 		<div bind:this={element} class="content-container default-margin" class:fade-in={intersecting}>
 			<div class="image-container">
 				<img src={image} alt="About Me" class="image" />
@@ -45,8 +46,8 @@
 		<div class="wave"></div>
 		<div class="wave"></div>
 		<div class="wave"></div>
-	</IntersectionObserver>
-</section>
+	</section>
+</IntersectionObserver>
 
 <style>
 	/* Mobile-first (default styles) */

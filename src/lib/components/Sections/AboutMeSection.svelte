@@ -75,7 +75,7 @@
 		position: relative;
 	}
 	.fade-in {
-		animation: fadeIn 2s 1;
+		animation: fadeIn 1.5s 1;
 	}
 
 	.flex {
@@ -139,6 +139,7 @@
 			width: 35%;
 			height: auto;
 			border-radius: 2rem;
+			-webkit-filter: drop-shadow(0 0 1rem black);
 			filter: drop-shadow(0 0 1rem black);
 			float: none;
 			margin-right: 0;
@@ -173,7 +174,7 @@
 	@keyframes fadeIn {
 		0% {
 			opacity: 0;
-			transform: translateX(50%);
+			transform: translateX(33%);
 		}
 
 		100% {

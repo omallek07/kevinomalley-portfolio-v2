@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IntersectionObserver from 'svelte-intersection-observer';
 	import type { SkillItem } from '$lib/types/sanity';
 	import { PUBLIC_MY_SKILLS_LINK } from '$env/static/public';
 
@@ -10,6 +11,10 @@
 	let { skills }: Props = $props();
 
 	let animatedSkills: number[] = $state([]);
+	let element: HTMLDivElement | undefined = $state();
+	let intersecting: boolean = $state(false);
+	let showInitialAnimation = $state(false);
+	let initialAnimationShown = $state(false);
 
 	function handleAnimateSkill(idx: number) {
 		if (animatedSkills.includes(idx)) return;
@@ -24,26 +29,51 @@
 			animatedSkills = currentAnimatedSkills;
 		}, 1000);
 	});
+
+	$effect(() => {
+		if (showInitialAnimation) {
+			setTimeout(() => {
+				showInitialAnimation = false;
+			}, 1000);
+		}
+	});
 </script>
 
-<section class="section bg-white box-shadow-both">
-	<SectionHeadline headline="Skills" id={PUBLIC_MY_SKILLS_LINK.slice(2)} />
-	<div class="wrapper default-margin">
-		<div class="skills-container mt-m">
-			{#each skills as skill, idx}
-				<div
-					onmouseenter={() => handleAnimateSkill(idx)}
-					class="skill-container"
-					class:animate={animatedSkills.includes(idx)}
-					role="presentation"
-				>
-					<i class={skill.iconClass}></i>
-					<span>{skill.name}</span>
-				</div>
-			{/each}
+<IntersectionObserver
+	{element}
+	once
+	bind:intersecting
+	on:observe={(e) => {
+		console.log('e', e);
+		const {
+			detail: { isIntersecting }
+		} = e;
+
+		if (isIntersecting && !initialAnimationShown) {
+			showInitialAnimation = true;
+			initialAnimationShown = true;
+		}
+	}}
+>
+	<section class="section bg-white box-shadow-both">
+		<SectionHeadline headline="Skills" id={PUBLIC_MY_SKILLS_LINK.slice(2)} />
+		<div class="wrapper default-margin">
+			<div bind:this={element} class="skills-container mt-m">
+				{#each skills as skill, idx}
+					<div
+						onmouseenter={() => handleAnimateSkill(idx)}
+						class="skill-container"
+						class:animate={animatedSkills.includes(idx) || showInitialAnimation}
+						role="presentation"
+					>
+						<i class={skill.iconClass}></i>
+						<span>{skill.name}</span>
+					</div>
+				{/each}
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+</IntersectionObserver>
 
 <style>
 	.wrapper {

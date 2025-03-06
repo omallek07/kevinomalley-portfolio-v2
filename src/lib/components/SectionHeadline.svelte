@@ -24,7 +24,7 @@
 <style>
 	.underscore,
 	.headline {
-		transition: all 400ms ease-in;
+		transition: all 500ms ease-in;
 	}
 	.underscore.focus {
 		background-color: var(--red);

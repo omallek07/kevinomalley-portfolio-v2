@@ -15,10 +15,9 @@
 	let highlightedIndex: number = $state(0);
 
 	$effect(() => {
-		const initialInterval = 600;
 		setInterval(
 			() => (highlightedIndex = highlightedIndex === stringLength ? 0 : highlightedIndex + 1),
-			initialInterval
+			500
 		);
 	});
 </script>

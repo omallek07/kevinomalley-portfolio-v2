@@ -41,26 +41,32 @@
 		display: none;
 	}
 
+	@media (min-width: 768px) {
+		.circles-container {
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 20%;
+			height: 100%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.circles-container {
+			width: 50%;
+		}
+	}
+
 	.circles li {
 		position: absolute;
 		display: block;
 		list-style: none;
 		width: 20px;
 		height: 20px;
-		background: var(--red);
+		background: var(--green);
 		animation: circles 25s linear infinite;
 		bottom: -150px;
-	}
-
-	@media (min-width: 1024px) {
-		.circles-container {
-			display: block;
-			position: absolute;
-			right: 0;
-			top: 0;
-			width: 50%;
-			height: 100%;
-		}
 	}
 
 	.circles li:nth-child(1) {

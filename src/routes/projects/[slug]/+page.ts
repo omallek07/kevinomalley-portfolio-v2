@@ -8,7 +8,7 @@ export const load: PageLoad = async ({ params }) => {
 	const { slug } = params;
 
 	const rawProjects: Project[] = await sanityClient.fetch(
-		`*[_type == "project" && slug.current == $slug]`,
+		`*[_type == "project" && slug == $slug]`,
 		{
 			slug
 		}

@@ -95,17 +95,11 @@ export type Project = {
 	_rev: string;
 	name: string;
 	company: string;
-	slug: Slug;
+	slug: string;
 	dateAccomplished: string;
 	image: RawImageContent;
 	content: Array<RawImageContent | RawTextContent>;
 	stack: Array<string>;
-};
-
-export type Slug = {
-	_type: 'slug';
-	current: string;
-	source: string;
 };
 
 export type WorkExperience = {

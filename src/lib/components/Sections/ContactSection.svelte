@@ -146,12 +146,20 @@
 		outline: none;
 		border: none;
 		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
-		transition: box-shadow 400s ease-out;
+		transition: box-shadow 400ms ease;
+	}
+
+	textarea {
+		padding-top: 1rem;
 	}
 
 	textarea:focus-visible,
 	input:focus-visible {
-		outline: 2px solid var(--red);
+		box-shadow: 0px 1px 4px 2px var(--red);
+	}
+
+	textarea {
+		resize: none;
 	}
 
 	input {

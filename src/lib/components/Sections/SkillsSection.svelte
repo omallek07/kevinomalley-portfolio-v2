@@ -84,7 +84,7 @@
 		align-items: center;
 	}
 	.skills-container {
-		width: 100%;
+		width: 90%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -128,7 +128,7 @@
 		}
 
 		.skills-container {
-			width: 90%;
+			width: 85%;
 			row-gap: 1.8rem;
 			column-gap: 1.8rem;
 		}

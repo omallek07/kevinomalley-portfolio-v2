@@ -26,7 +26,7 @@
 {#snippet projectDisplay(project: ProcessedProject, isMainProject: boolean = false)}
 	<article
 		class:shrink={!isMainProject && hoveredProject && project.name !== hoveredProject}
-		class={`${isMainProject ? 'main-project mb-l' : 'project mb-m'} card`}
+		class={`${isMainProject ? 'main-project' : 'project'} card`}
 	>
 		<a
 			href={`/projects/${project.slug}`}
@@ -48,12 +48,12 @@
 {/snippet}
 
 <IntersectionObserver {element} bind:intersecting>
-	<section class="section bg-dark">
+	<section class="my-projects-section section bg-dark">
 		<SectionHeadline headline="My Projects" id={PUBLIC_MY_PROJECTS_LINK.slice(2)} />
 		<div
 			bind:this={element}
 			class:fade-in={intersecting}
-			class="default-margin projects-container mt-m"
+			class="default-margin projects-container mt-s"
 		>
 			{#if mainProject}
 				{@render projectDisplay(mainProject, true)}
@@ -82,6 +82,7 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
+
 	.more-projects-container img {
 		height: 25rem;
 	}
@@ -100,12 +101,15 @@
 			box-shadow 1s ease;
 		outline: 1px solid var(--red);
 		border-radius: 5px;
+		margin-bottom: 3rem;
+	}
+	.card:not(.main-project):last-child {
+		margin-bottom: 0;
 	}
 	.card:hover {
 		transform: scale(1.1);
 		box-shadow: 0px 7px 6px -2px hsl(from var(--red) h s l / 60%);
 	}
-
 	.card.shrink {
 		transform: scale(0.9);
 	}
@@ -130,8 +134,15 @@
 		font-size: 1.8rem;
 		margin-bottom: 0;
 	}
-
 	@media (min-width: 1024px) {
+		.card.main-project {
+			margin-bottom: 3rem;
+		}
+		.card:not(.main-project),
+		.card:not(.main-project):last-of-type {
+			margin-top: 2rem;
+			margin-bottom: 0rem;
+		}
 		.project {
 			width: 40%;
 		}

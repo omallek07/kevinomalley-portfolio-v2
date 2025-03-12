@@ -47,7 +47,6 @@
 		filter: drop-shadow(0 0 0.2rem black);
 	}
 	.hero-label {
-		min-width: 2rem;
 		font-size: 3.5rem;
 		font-weight: bold;
 		white-space: nowrap;
@@ -71,12 +70,14 @@
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.hero-label {
+			min-width: 1rem;
 			font-size: 5rem;
 		}
 	}
 
 	@media (min-width: 1024px) {
 		.hero-label {
+			min-width: 2rem;
 			font-size: 8rem;
 		}
 	}

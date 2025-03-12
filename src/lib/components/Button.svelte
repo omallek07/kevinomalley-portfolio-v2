@@ -6,7 +6,7 @@
 		className?: string;
 	}
 
-	let { children, className, ...props }: ButtonProps = $props();
+	let { children, className = '', ...props }: ButtonProps = $props();
 </script>
 
 <button class={`btn ${className}`} {...props}>

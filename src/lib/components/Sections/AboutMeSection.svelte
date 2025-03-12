@@ -22,20 +22,33 @@
 			<div class="image-container">
 				<img src={image} alt="About Me" class="image" />
 			</div>
-			<div class="text">
+			<div class="text flow">
 				<p>
-					Thank you for stopping by! I'm Kevin, a JavaScript developer with a passion for creating
-					web experiences.
+					Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full Stack
+					JavaScript development and a passion for creating.
 				</p>
 				<p>
-					With over 7 years of experience in the industry, I've had the opportunity to work on a
-					variety of projects and collaborate with talented teams. I've learned that the key to
-					success is a combination of technical knowledge, creativity, and a willingness to learn
-					and adapt.
+					Over the past 8 years, I pivoted from a career in psychology into the world of technology.
+					My journey started with a complete immersion of JavaScript in <a
+						class="link"
+						href="https://www.fullstackacademy.com/"
+						target="_blank">Fullstack Academy</a
+					> and has led me through a variety of professional fields - international e-commerce, trivia
+					entertainment, and billing and insurance in the Healthcare industry.
 				</p>
 				<p>
-					When I'm not coding, you can find me exploring the great outdoors, reading a good book, or
-					working on my latest DIY project.
+					When I'm not coding, you can find me spending my free time with my two boys, Liam and
+					Charlie, or continuously expanding my knowledge in software development through personal
+					projects and online courses. For example, to better learn <a
+						class="link"
+						href="https://svelte.dev/"
+						target="_blank">Svelte</a
+					>, I built my
+					<a
+						class="link"
+						target="_blank"
+						href="https://github.com/omallek07/kevinomalley-portfolio-v2">portfolio</a
+					> with it!
 				</p>
 				<div class="flex mt-m">
 					<Button {onclick}>Contact Me</Button>
@@ -56,6 +69,14 @@
 		position: relative;
 	}
 
+	.link {
+		text-decoration: none;
+	}
+
+	.link:hover {
+		text-decoration: underline;
+	}
+
 	.image-container {
 		width: 10rem;
 		height: 10rem;
@@ -64,6 +85,7 @@
 		float: left;
 		margin-right: 1rem;
 		overflow: hidden;
+		border: 1px solid var(--red);
 	}
 
 	.image {
@@ -98,23 +120,12 @@
 		z-index: -1;
 	}
 
-	.wave:nth-of-type(2) {
-		bottom: -1.25em;
-		animation: wave 18s linear reverse infinite;
-		opacity: 0.8;
-	}
-
-	.wave:nth-of-type(3) {
-		bottom: -2.5em;
-		animation: wave 20s -1s reverse infinite;
-		opacity: 0.9;
-	}
-
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.image-container {
 			width: 200px;
 			height: 200px;
+			border: 1px solid var(--dark-grey);
 		}
 
 		.content-container {
@@ -133,21 +144,34 @@
 		}
 		.text {
 			text-align: left;
-			width: 65%;
+			width: 70%;
 			margin-left: 5rem;
 		}
 		.image-container {
-			width: 35%;
+			width: 30%;
 			height: auto;
 			border-radius: 2rem;
-			-webkit-filter: drop-shadow(0 0 1rem black);
-			filter: drop-shadow(0 0 1rem black);
+			-webkit-filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
+			filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
 			float: none;
 			margin-right: 0;
+			border: none;
 		}
 		.wave {
 			width: 200%;
 		}
+	}
+
+	.wave:nth-of-type(2) {
+		bottom: -1.25em;
+		animation: wave 18s linear reverse infinite;
+		opacity: 0.8;
+	}
+
+	.wave:nth-of-type(3) {
+		bottom: -2.5em;
+		animation: wave 20s -1s reverse infinite;
+		opacity: 0.9;
 	}
 
 	@keyframes wave {

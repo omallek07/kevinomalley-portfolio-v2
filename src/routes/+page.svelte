@@ -5,7 +5,8 @@
 		MyProjectsSection,
 		ExperienceSection,
 		SkillsSection,
-		ContactSection
+		ContactSection,
+		BackToTop
 	} from '$lib';
 
 	const { data } = $props();
@@ -18,3 +19,4 @@
 <MyProjectsSection {projects} />
 <SkillsSection {skills} />
 <ContactSection />
+<BackToTop />

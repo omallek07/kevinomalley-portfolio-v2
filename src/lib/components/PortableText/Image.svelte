@@ -13,7 +13,7 @@
 
 {#if imageUrl}
 	<figure>
-		<img src={imageUrl} alt={'Image'} />
+		<img class="portable-img" src={imageUrl} alt={'Image'} />
 	</figure>
 {/if}
 
@@ -25,5 +25,7 @@
 		width: 100%;
 		max-height: 450px;
 		object-fit: cover;
+		border-radius: 6px;
+		border: 1px solid black;
 	}
 </style>

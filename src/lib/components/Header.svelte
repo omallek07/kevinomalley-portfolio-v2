@@ -15,7 +15,9 @@
 
 <nav class="navbar box-shadow-bottom">
 	<div class="navbar-wrapper default-margin">
-		<a href="/" class="logo">KO</a>
+		<a href="/" class="logo">
+			<span data-text="KO">KO</span>
+		</a>
 		<div class="navbar-links">
 			<a href={PUBLIC_ABOUT_ME_LINK} class="nav-link">
 				<span class="nav-link-bar"></span>
@@ -41,10 +43,6 @@
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 1rem;
-	}
-	.logo {
-		font-size: 3.5rem;
-		font-weight: bold;
 	}
 	.navbar-links {
 		display: flex;
@@ -89,6 +87,38 @@
 		}
 		.nav-link:hover .nav-link-bar {
 			transform: translateY(0px);
+		}
+	}
+	.logo span {
+		font-size: 4rem;
+		letter-spacing: 0.25rem;
+		position: relative;
+		color: black;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.logo:hover span::before {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		color: var(--red);
+		border-right: 2px solid var(--red);
+		overflow: hidden;
+		animation: animate 1s linear 1;
+	}
+
+	@keyframes animate {
+		0%,
+		10%,
+		100% {
+			width: 0;
+		}
+		70%,
+		90% {
+			width: 100%;
 		}
 	}
 </style>

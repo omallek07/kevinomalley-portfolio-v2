@@ -64,7 +64,7 @@ export function processProjectEntries(rawProject: Project) {
 		company: rawProject.company,
 		dateAccomplished: rawProject.dateAccomplished,
 		stack: rawProject.stack,
-		slug: rawProject.slug.current,
+		slug: rawProject.slug,
 		projectImageUrl,
 		content: rawProject.content
 	};

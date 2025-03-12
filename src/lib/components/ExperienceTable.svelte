@@ -95,10 +95,10 @@
 	}
 	.work-item {
 		border-bottom: 1px solid var(--light-grey);
-		padding-bottom: 12px;
+		padding-bottom: 1.2rem;
 	}
 	.work-item:not(:first-of-type) {
-		padding-top: 16px;
+		padding-top: 1.6rem;
 	}
 	.work-item p {
 		margin-bottom: 0;
@@ -143,7 +143,7 @@
 	}
 
 	.dates {
-		margin-right: 1.8rem;
+		margin-right: 2rem;
 	}
 
 	.button-icon {

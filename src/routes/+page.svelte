@@ -13,6 +13,10 @@
 	let { workExperience, projects, skills } = data;
 </script>
 
+<svelte:head>
+	<title>Kevin O'Malley</title>
+</svelte:head>
+
 <HeroSection />
 <AboutMeSection />
 <ExperienceSection {workExperience} />

@@ -15,6 +15,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>{name}</title>
+</svelte:head>
+
 <main class="project-page">
 	<div class="default-margin project-container">
 		<h4>{company}</h4>

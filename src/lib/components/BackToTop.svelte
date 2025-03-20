@@ -1,4 +1,10 @@
-<button class="backToTop"> &#8679; </button>
+<script lang="ts">
+	function onClick() {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+</script>
+
+<button onclick={onClick} class="backToTop"> &#8679; </button>
 
 <style>
 	.backToTop {

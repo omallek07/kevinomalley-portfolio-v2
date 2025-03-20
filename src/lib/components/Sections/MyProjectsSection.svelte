@@ -107,11 +107,11 @@
 		margin-bottom: 0;
 	}
 	.card:hover {
-		transform: scale(1.1);
+		transform: scale(1.05);
 		box-shadow: 0px 7px 6px -2px hsl(from var(--red) h s l / 60%);
 	}
 	.card.shrink {
-		transform: scale(0.9);
+		transform: scale(0.95);
 	}
 
 	.project-info {
@@ -133,6 +133,15 @@
 	.company {
 		font-size: 1.8rem;
 		margin-bottom: 0;
+	}
+
+	@media (min-width: 768px) {
+		.card:hover {
+			transform: scale(1.1);
+		}
+		.card.shrink {
+			transform: scale(0.9);
+		}
 	}
 	@media (min-width: 1024px) {
 		.card.main-project {

@@ -56,7 +56,7 @@
 
 <style>
 	aside {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		right: 0;
 		z-index: 15;
@@ -83,12 +83,12 @@
 	}
 
 	.nav-link {
-		font-size: 5rem;
+		font-size: 3.5rem;
 	}
 
 	.list-item {
 		position: relative;
-		margin-bottom: 3rem;
+		margin-bottom: 3.5rem;
 	}
 
 	.list-item::before {
@@ -104,6 +104,19 @@
 	.list-item button {
 		position: relative;
 		transition: background-size 0.45s 0.04s;
+		font-family:
+			'Inter Tight',
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			Roboto,
+			Oxygen,
+			Ubuntu,
+			Cantarell,
+			'Open Sans',
+			'Helvetica Neue',
+			sans-serif;
 	}
 
 	.list-item button::before {
@@ -129,19 +142,6 @@
 		color: transparent;
 		background-clip: text;
 		-webkit-background-clip: text;
-		font-family:
-			'Inter Tight',
-			system-ui,
-			-apple-system,
-			BlinkMacSystemFont,
-			'Segoe UI',
-			Roboto,
-			Oxygen,
-			Ubuntu,
-			Cantarell,
-			'Open Sans',
-			'Helvetica Neue',
-			sans-serif;
 	}
 
 	.list-item-two::before {

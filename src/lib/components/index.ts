@@ -8,3 +8,4 @@ export { default as SectionHeadline } from './SectionHeadline.svelte';
 export { default as ExperienceTable } from './ExperienceTable.svelte';
 export { default as Icons } from './Icons.svelte';
 export { default as BackToTop } from './BackToTop.svelte';
+export { default as CirclesBg } from './CirclesBg.svelte';

@@ -56,6 +56,7 @@
 	.navbar {
 		position: relative;
 		padding: 2rem 0;
+		z-index: 2;
 	}
 	.hamburger {
 		position: absolute;

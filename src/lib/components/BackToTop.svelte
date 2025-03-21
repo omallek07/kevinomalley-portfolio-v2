@@ -1,17 +1,40 @@
 <script lang="ts">
+	const showOnPx = 400;
+	let showBtn = $state(false);
+
 	function onClick() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
+
+	function scrollContainer() {
+		return document.documentElement || document.body;
+	}
+
+	function handleOnScroll() {
+		if (!scrollContainer()) {
+			return;
+		}
+
+		if (scrollContainer().scrollTop > showOnPx) {
+			showBtn = true;
+		} else {
+			showBtn = false;
+		}
+	}
 </script>
 
-<button onclick={onClick} class="backToTop"> &#8679; </button>
+<svelte:window on:scroll={handleOnScroll} />
+
+{#if showBtn}
+	<button onclick={onClick} class="backToTop"> &#8679; </button>
+{/if}
 
 <style>
 	.backToTop {
 		position: fixed;
-		bottom: 22%;
-		right: 3%;
-		font-size: 50px;
+		bottom: 2rem;
+		right: 2rem;
+		font-size: 4rem;
 		z-index: 10;
 		background: var(--green);
 		opacity: 0.4;
@@ -27,22 +50,9 @@
 		color: var(--green);
 	}
 
-	/**
-Breakpoints:
-------------
-sm: min-width: 640px; //small device
-md: min-width: 768px; // medium device
-lg: min-width: 1024px; // large device
-xl: min-width: 1280px; // extra large device
-2xl: min-width: 1536px; // 2 x extra large device
-**/
-
-	/* @media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1280px) {
 		.backToTop {
-			background: none;
-			box-shadow: none;
-			bottom: 70px;
-			right: 20px;
+			font-size: 8rem;
 		}
-	} */
+	}
 </style>

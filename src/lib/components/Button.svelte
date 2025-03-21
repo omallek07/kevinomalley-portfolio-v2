@@ -63,6 +63,7 @@
 			right: 0;
 			transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 			border: 2px solid var(--green);
+			box-shadow: 0px 1px 0px 1px var(--green);
 		}
 
 		.btn-label {
@@ -77,6 +78,14 @@
 
 		.small-btn .btn-bar {
 			transform: translateY(40px);
+		}
+
+		.go-back .btn-bar {
+			transform: translateY(0px) translateX(100%);
+			box-shadow: none;
+		}
+		.go-back:hover .btn-bar {
+			transform: translateX(0px);
 		}
 	}
 </style>

@@ -34,12 +34,13 @@
 				message: contactMessage
 			})
 		});
-		//isLoading = false;
-		if (response.ok) {
-			isEmailSent = true;
-		} else {
-			showErrorMessage = true;
-		}
+		setTimeout(() => {
+			if (response.ok) {
+				isEmailSent = true;
+			} else {
+				showErrorMessage = true;
+			}
+		}, 500);
 	}
 
 	$effect(() => {
@@ -54,21 +55,21 @@
 		<SectionHeadline headline="Contact Me" id={PUBLIC_CONTACT_ME_LINK.slice(2)} />
 		<div bind:this={element} class:fade-in={intersecting} class="wrapper default-margin">
 			{#if isEmailSent}
-				<div class="spinner-container">
-					<h3>Thank you for getting in contact with me. I'll usually reply within 48 hours.</h3>
+				<div class="message-container">
+					<p>Thank you for getting in contact with me. I'll usually reply within 48 hours.</p>
 				</div>
 			{:else if isLoading}
-				<div class="spinner-container">
+				<div class="message-container">
 					<div class="spinner"></div>
-					<h3>Sending your message...</h3>
+					<p>Sending your message...</p>
 				</div>
 			{:else if showErrorMessage}
-				<h3>
-					We seem to have trouble with our server at the moment. Please send me an email directly to <a
-						class="link"
-						href="mailto:kevin@kevinomalley.dev">kevin@kevinomalley.dev</a
-					>
-				</h3>
+				<div class="message-container error">
+					<p>
+						We seem to have trouble with our server at the moment. Please send me an email directly
+						to <a class="link" href="mailto:kevin@kevinomalley.dev">kevin@kevinomalley.dev</a>
+					</p>
+				</div>
 			{:else}
 				<form>
 					<input
@@ -128,7 +129,7 @@
 		width: 100%;
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: 4rem;
+		margin-top: 2rem;
 	}
 	form * {
 		font-size: 2rem;
@@ -190,14 +191,24 @@
 		border: 4px solid rgba(0, 0, 0, 0.1);
 		border-left-color: black;
 		border-radius: 50%;
-		width: 16px;
-		height: 16px;
+		width: 2.3rem;
+		height: 2.3rem;
 		display: inline-block;
-		margin-right: 8px;
+		margin-right: 1.5rem;
 		animation: spin 1s linear infinite;
 	}
-	.spinner-container {
+
+	.message-container {
 		display: flex;
+		width: 90%;
+		margin: 3rem 0;
+		align-items: center;
+	}
+	.message-container p {
+		margin-bottom: 0;
+	}
+	.message-container.error {
+		color: var(--red);
 	}
 
 	@media (min-width: 1024px) {
@@ -221,6 +232,11 @@
 		.btn-wrapper {
 			margin-bottom: 0;
 			text-align: left;
+		}
+
+		.spinner {
+			width: 4rem;
+			height: 4rem;
 		}
 	}
 

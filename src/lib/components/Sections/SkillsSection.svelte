@@ -84,12 +84,12 @@
 		align-items: center;
 	}
 	.skills-container {
-		width: 90%;
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		row-gap: 2rem;
-		column-gap: 1.4rem;
+		row-gap: 1rem;
+		column-gap: 3rem;
 	}
 
 	.skill-container {
@@ -122,13 +122,20 @@
 		animation-duration: 1s;
 	}
 
+	@media (min-width: 768px) {
+		.skills-container {
+			row-gap: 2rem;
+			column-gap: 2rem;
+		}
+	}
+
 	@media (min-width: 1024px) {
 		i {
 			font-size: 8rem;
 		}
 
 		.skills-container {
-			width: 85%;
+			width: 90%;
 			row-gap: 1.8rem;
 			column-gap: 1.8rem;
 		}

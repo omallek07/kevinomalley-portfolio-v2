@@ -55,6 +55,7 @@
 		background-size: 100vw 100vh;
 		overflow: hidden;
 		position: relative;
+		border-top: 2px solid rgba(0, 0, 0, 0.5);
 	}
 
 	.project-container {

@@ -7,7 +7,7 @@
 		PUBLIC_CONTACT_ME_LINK
 	} from '$env/static/public';
 
-	import Button from './Button.svelte';
+	import { Button, Logo } from '$lib';
 
 	interface Props {
 		sidebarOpen: boolean;
@@ -18,8 +18,6 @@
 	function goToContactForm() {
 		goto(PUBLIC_CONTACT_ME_LINK);
 	}
-
-	let open = $state(false);
 </script>
 
 <nav class="navbar box-shadow-bottom">
@@ -35,9 +33,7 @@
 	</div>
 
 	<div class="navbar-wrapper default-margin">
-		<a href="/" class="logo">
-			<span data-text="KO">KO</span>
-		</a>
+		<Logo onclick={toggleSidebar} />
 		<div class="navbar-links">
 			<a href={PUBLIC_ABOUT_ME_LINK} class="nav-link">
 				<span class="nav-link-bar"></span>
@@ -56,12 +52,12 @@
 	.navbar {
 		position: relative;
 		padding: 2rem 0;
-		z-index: 2;
 	}
 	.hamburger {
 		position: absolute;
 		top: 35px;
 		right: 25px;
+		z-index: 20;
 	}
 
 	.navbar-wrapper {
@@ -70,28 +66,6 @@
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 1rem;
-	}
-
-	.logo span {
-		z-index: 20;
-		font-size: 4rem;
-		letter-spacing: 0.25rem;
-		position: relative;
-		color: black;
-		font-weight: bold;
-		text-transform: uppercase;
-	}
-	.logo:hover span::before {
-		content: attr(data-text);
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 0;
-		height: 100%;
-		color: var(--red);
-		border-right: 2px solid var(--red);
-		overflow: hidden;
-		animation: animate 0.45s linear 1;
 	}
 
 	.navbar-links {
@@ -162,7 +136,7 @@
 	}
 
 	.hamburger-btn-open svg {
-		transform: scale(0.8);
+		transform: scale(1.1);
 	}
 
 	/* rotate the top line */
@@ -178,17 +152,5 @@
 	/* rotate the bottom line */
 	.hamburger-btn-open #bottom {
 		transform: translate(-12px, 6px) rotate(-45deg);
-	}
-
-	@keyframes animate {
-		0%,
-		10%,
-		100% {
-			width: 0;
-		}
-		70%,
-		90% {
-			width: 100%;
-		}
 	}
 </style>

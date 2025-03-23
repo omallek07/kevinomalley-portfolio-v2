@@ -41,6 +41,7 @@
 
 <IntersectionObserver
 	{element}
+	once
 	bind:intersecting
 	on:observe={(e) => {
 		const {

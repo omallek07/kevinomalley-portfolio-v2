@@ -14,7 +14,7 @@
 	}
 </script>
 
-<IntersectionObserver {element} bind:intersecting>
+<IntersectionObserver once {element} bind:intersecting>
 	<section class="section about-me">
 		<SectionHeadline headline="About Me" id={PUBLIC_ABOUT_ME_LINK.slice(2)} />
 
@@ -79,7 +79,7 @@
 
 	.image-container {
 		width: 10rem;
-		height: 10rem;
+		height: 125px;
 		border-radius: 0.5rem;
 		object-fit: cover;
 		float: left;
@@ -98,7 +98,7 @@
 		position: relative;
 	}
 	.fade-in {
-		animation: fadeIn 1.5s 1;
+		animation: fadeIn 1s 1 ease-out;
 	}
 
 	.flex {
@@ -110,7 +110,7 @@
 		background: rgb(255 255 255 / 25%);
 		border-radius: 1000% 1000% 0 0;
 		position: absolute;
-		width: 100%;
+		width: 200%;
 		height: 15em;
 		animation: wave 10s -3s linear infinite;
 		transform: translate3d(0, 0, 0);
@@ -151,6 +151,7 @@
 			width: 30%;
 			height: auto;
 			border-radius: 2rem;
+
 			-webkit-filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
 			filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
 			float: none;
@@ -199,7 +200,7 @@
 	@keyframes fadeIn {
 		0% {
 			opacity: 0;
-			transform: translateX(33%);
+			transform: translateX(45%);
 		}
 
 		100% {

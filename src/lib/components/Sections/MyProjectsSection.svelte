@@ -47,7 +47,7 @@
 	</article>
 {/snippet}
 
-<IntersectionObserver {element} bind:intersecting>
+<IntersectionObserver once {element} bind:intersecting>
 	<section class="my-projects-section section bg-dark">
 		<SectionHeadline headline="My Projects" id={PUBLIC_MY_PROJECTS_LINK.slice(2)} />
 		<div

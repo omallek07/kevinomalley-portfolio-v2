@@ -12,7 +12,7 @@
 		}
 	];
 
-	let highlightedIndex: number = $state(0);
+	let highlightedIndex: number = $state(stringLength);
 
 	$effect(() => {
 		setInterval(
@@ -22,8 +22,8 @@
 	});
 </script>
 
-<section class="hero box-shadow-bottom">
-	<div class="default-margin pt-m pb-m">
+<section class="hero">
+	<div class="default-margin pt-s pb-s">
 		{#each heroLabels as { label, color }, labelIndex}
 			<div class="hero-item" aria-label={label}>
 				{#each Array(stringLength).fill(null) as _, index}
@@ -40,14 +40,21 @@
 </section>
 
 <style>
+	.hero {
+		border-top: 1px solid rgba(0, 0, 0, 0.5);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+	}
 	.hero-item {
 		display: flex;
 		flex-wrap: nowrap;
-		color: hsla(0, 0%, 93%, 0);
-		filter: drop-shadow(0 0 0.2rem black);
+		color: hsla(0, 0%, 90%, 0);
+		filter: drop-shadow(0 0 0.1rem black);
+	}
+	.hero-item:first-of-type {
+		margin-bottom: 0.5rem;
 	}
 	.hero-label {
-		font-size: 3.5rem;
+		font-size: 3rem;
 		font-weight: bold;
 		white-space: nowrap;
 		margin-right: 0.5rem;
@@ -62,13 +69,22 @@
 			rgba(48, 238, 226, 1) 68%,
 			rgb(255, 153, 89) 98%
 		);
-		animation: gradient 15s ease infinite;
+		animation: gradient 25s ease infinite;
 		background-size: 400% 400%;
 		background-attachment: fixed;
 	}
 
 	/* Larger screens */
 	@media (min-width: 768px) {
+		.hero {
+			animation: gradient 15s ease infinite;
+		}
+
+		.hero-item {
+			color: hsla(0, 0%, 93%, 0);
+			filter: drop-shadow(0 0 0.2rem black);
+			margin-bottom: 0;
+		}
 		.hero-label {
 			min-width: 1rem;
 			font-size: 5rem;

@@ -31,28 +31,28 @@
 
 <style>
 	.backToTop {
-		position: fixed;
-		bottom: 2rem;
-		right: 2rem;
-		font-size: 4rem;
-		z-index: 10;
-		background: var(--green);
-		opacity: 0.4;
-		color: white;
-		cursor: pointer;
-		background: none;
-		border: none;
-		transition: all 500ms ease;
+		display: none;
 	}
-
-	.backToTop:hover {
-		opacity: 1;
-		color: var(--green);
-	}
-
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1024px) {
 		.backToTop {
-			font-size: 8rem;
+			display: block;
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			font-size: 5rem;
+			z-index: 10;
+			background: var(--green);
+			opacity: 0.4;
+			color: white;
+			cursor: pointer;
+			background: none;
+			border: none;
+			transition: all 500ms ease;
+		}
+
+		.backToTop:hover {
+			opacity: 1;
+			color: var(--green);
 		}
 	}
 </style>

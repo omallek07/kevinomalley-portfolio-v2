@@ -50,7 +50,7 @@
 	});
 </script>
 
-<IntersectionObserver {element} bind:intersecting>
+<IntersectionObserver once {element} bind:intersecting>
 	<section class="section">
 		<SectionHeadline headline="Contact Me" id={PUBLIC_CONTACT_ME_LINK.slice(2)} />
 		<div bind:this={element} class:fade-in={intersecting} class="wrapper default-margin">
@@ -143,7 +143,7 @@
 		background-color: var(--white);
 		border-radius: 8px;
 		padding: 4px 12px;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 		outline: none;
 		border: none;
 		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);

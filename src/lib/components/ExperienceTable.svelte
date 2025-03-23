@@ -143,12 +143,13 @@
 	}
 
 	.dates {
-		margin-right: 2rem;
+		margin-right: 1.5rem;
+		white-space: nowrap;
 	}
 
 	.button-icon {
 		position: absolute;
-		right: -10px;
+		right: -20px;
 		height: 37px;
 		width: 37px;
 		transition: all 400ms ease;
@@ -208,6 +209,7 @@
 
 		.button-icon {
 			font-size: 1.8rem;
+			right: -10px;
 		}
 	}
 

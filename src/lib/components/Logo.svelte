@@ -32,7 +32,7 @@
 		width: 5rem;
 		height: 5rem;
 		color: white;
-		font-size: 2rem;
+		font-size: 2.5rem;
 		font-weight: bold;
 
 		&::before {

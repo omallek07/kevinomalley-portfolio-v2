@@ -20,7 +20,7 @@
 	}
 </script>
 
-<nav class="navbar box-shadow-bottom">
+<nav class="navbar">
 	<div class="hamburger">
 		<button class="hamburger-btn" class:hamburger-btn-open={sidebarOpen} onclick={toggleSidebar}>
 			<!-- svg with 3 lines -->

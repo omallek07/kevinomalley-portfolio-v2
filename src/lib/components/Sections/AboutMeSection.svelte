@@ -98,7 +98,7 @@
 		position: relative;
 	}
 	.fade-in {
-		animation: fadeIn 1s 1 ease-out;
+		animation: fadeIn 1.5s 1 ease;
 	}
 
 	.flex {
@@ -200,7 +200,7 @@
 	@keyframes fadeIn {
 		0% {
 			opacity: 0;
-			transform: translateX(45%);
+			transform: translateX(70%);
 		}
 
 		100% {

@@ -1,38 +1,39 @@
-<script lang="ts">
-	interface Props {
-		onclick: () => void;
-	}
-	const { onclick }: Props = $props();
-</script>
-
-<div class="logo-container">
-	<a {onclick} href="/">
+<div class="load-splash">
+	<div class="logo-container">
 		<div class="center">
 			<div class="text">KO</div>
 		</div>
-	</a>
+	</div>
 </div>
 
 <style>
+	.load-splash {
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 20;
+		min-width: 100vw;
+		min-height: 100vh;
+		background: #f7f7f7;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
 	.logo-container {
 		position: relative;
 		z-index: 20;
 	}
-	.text {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		z-index: 2;
-	}
 
 	.center {
+		opacity: 0.8;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 5rem;
-		height: 5rem;
+		width: 13rem;
+		height: 13rem;
 		color: white;
-		font-size: 2.5rem;
+		font-size: clamp(5.5rem, 3vw, 6.5rem);
 		font-weight: bold;
 
 		&::before {
@@ -42,8 +43,10 @@
 			bottom: 0;
 			left: 0;
 			content: '';
-			border-radius: calc(2rem * 0.3);
-			background-color: black;
+			border-radius: 3rem;
+			mix-blend-mode: screen;
+			animation: fast 10s linear infinite;
+			background: linear-gradient(315deg, var(--green) 3%, var(--red) 38%, var(--dark-grey) 68%);
 		}
 
 		&::after {
@@ -53,20 +56,21 @@
 			bottom: 0;
 			left: 0;
 			content: '';
-			border-radius: calc(2rem * 0.3);
-		}
-	}
-
-	.center:hover {
-		&::before {
-			mix-blend-mode: screen;
-			animation: fast 10s linear infinite;
-			background: linear-gradient(315deg, var(--green) 3%, var(--red) 38%, var(--dark-grey) 68%);
-		}
-		&::after {
+			border-radius: 3rem;
 			mix-blend-mode: screen;
 			animation: slow 20s linear infinite;
 			background: linear-gradient(315deg, var(--green) 3%, var(--red) 38%, var(--dark-grey) 68%);
+		}
+	}
+
+	.text {
+		z-index: 21;
+	}
+
+	@media (min-width: 1024px) {
+		.center {
+			height: 14rem;
+			width: 14rem;
 		}
 	}
 

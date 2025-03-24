@@ -3,6 +3,7 @@ export * from './PortableText';
 export { default as Header } from './Header.svelte';
 export { default as Logo } from './Logo.svelte';
 export { default as Sidebar } from './Sidebar.svelte';
+export { default as LoadSplash } from './LoadSplash.svelte';
 export { default as Footer } from './Footer.svelte';
 export { default as Button } from './Button.svelte';
 export { default as SectionHeadline } from './SectionHeadline.svelte';

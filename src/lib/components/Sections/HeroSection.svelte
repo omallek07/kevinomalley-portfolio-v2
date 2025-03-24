@@ -13,12 +13,18 @@
 	];
 
 	let highlightedIndex: number = $state(stringLength);
+	let initialLoad = $state(true);
 
 	$effect(() => {
+		if (initialLoad) return;
 		setInterval(
 			() => (highlightedIndex = highlightedIndex === stringLength ? 0 : highlightedIndex + 1),
 			500
 		);
+	});
+
+	$effect(() => {
+		setInterval(() => (initialLoad = false), 1000);
 	});
 </script>
 
@@ -40,10 +46,6 @@
 </section>
 
 <style>
-	.hero {
-		border-top: 1px solid rgba(0, 0, 0, 0.5);
-		border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-	}
 	.hero-item {
 		display: flex;
 		flex-wrap: nowrap;
@@ -58,7 +60,7 @@
 		font-weight: bold;
 		white-space: nowrap;
 		margin-right: 0.5rem;
-		transition: color 600ms ease-in-out;
+		transition: color 0.5s ease-in-out;
 	}
 	.hero {
 		overflow: auto;
@@ -78,6 +80,7 @@
 	@media (min-width: 768px) {
 		.hero {
 			animation: gradient 15s ease infinite;
+			padding: 2rem 0;
 		}
 
 		.hero-item {
@@ -88,6 +91,10 @@
 		.hero-label {
 			min-width: 1rem;
 			font-size: 5rem;
+		}
+
+		.hero-item:first-of-type {
+			margin-bottom: -0.5rem;
 		}
 	}
 

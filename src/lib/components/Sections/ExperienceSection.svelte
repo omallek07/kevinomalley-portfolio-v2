@@ -11,7 +11,7 @@
 	let { workExperience }: Props = $props();
 </script>
 
-<section class="experience-section section bg-white box-shadow-both box-shadow-bottom">
+<section class="experience-section section bg-white box-shadow-both">
 	<SectionHeadline headline="Work Experience" id={PUBLIC_MY_EXPERIENCES_LINK.slice(2)} />
 
 	<ExperienceTable {workExperience} />

@@ -91,7 +91,6 @@
 <style>
 	.work-experience-list {
 		width: 100%;
-		margin-top: 2rem;
 	}
 	.work-item {
 		border-bottom: 1px solid var(--light-grey);
@@ -199,7 +198,6 @@
 	@media (min-width: 1024px) {
 		.work-experience-list {
 			width: 60%;
-			margin-top: 0;
 		}
 		.company-description img {
 			width: 5rem;

@@ -106,22 +106,22 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-	.wave {
-		background: rgb(255 255 255 / 25%);
-		border-radius: 1000% 1000% 0 0;
-		position: absolute;
-		width: 200%;
-		height: 15em;
-		animation: wave 10s -3s linear infinite;
-		transform: translate3d(0, 0, 0);
-		opacity: 0.8;
-		bottom: 0;
-		left: 0;
-		z-index: -1;
-	}
 
 	/* Larger screens */
 	@media (min-width: 768px) {
+		.wave {
+			background: rgb(255 255 255 / 25%);
+			border-radius: 1000% 1000% 0 0;
+			position: absolute;
+			width: 200%;
+			height: 15em;
+			animation: wave 10s -3s linear infinite;
+			transform: translate3d(0, 0, 0);
+			opacity: 0.8;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+		}
 		.image-container {
 			width: 200px;
 			height: 200px;

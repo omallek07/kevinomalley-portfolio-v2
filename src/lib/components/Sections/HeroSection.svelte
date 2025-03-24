@@ -8,7 +8,7 @@
 		},
 		{
 			label: 'Software Engineer',
-			color: 'dark-grey'
+			color: 'light-grey'
 		}
 	];
 
@@ -74,6 +74,7 @@
 		animation: gradient 25s ease infinite;
 		background-size: 400% 400%;
 		background-attachment: fixed;
+		padding: 1.5rem 0;
 	}
 
 	/* Larger screens */

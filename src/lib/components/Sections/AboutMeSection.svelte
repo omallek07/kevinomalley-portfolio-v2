@@ -79,13 +79,13 @@
 
 	.image-container {
 		width: 10rem;
-		height: 125px;
+		height: 180px;
 		border-radius: 0.5rem;
 		object-fit: cover;
 		float: left;
-		margin-right: 1rem;
+		margin-right: 1.5rem;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 		overflow: hidden;
-		border: 1px solid var(--red);
 	}
 
 	.image {
@@ -107,25 +107,27 @@
 		align-items: center;
 	}
 
+	.wave {
+		background: rgb(255 255 255 / 25%);
+		border-radius: 1000% 1000% 0 0;
+		position: absolute;
+		width: 200%;
+		height: 15em;
+		animation: wave 10s -3s linear infinite;
+		transform: translate3d(0, 0, 0);
+		opacity: 0.8;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+	}
+
 	/* Larger screens */
 	@media (min-width: 768px) {
-		.wave {
-			background: rgb(255 255 255 / 25%);
-			border-radius: 1000% 1000% 0 0;
-			position: absolute;
-			width: 200%;
-			height: 15em;
-			animation: wave 10s -3s linear infinite;
-			transform: translate3d(0, 0, 0);
-			opacity: 0.8;
-			bottom: 0;
-			left: 0;
-			z-index: -1;
-		}
 		.image-container {
-			width: 200px;
-			height: 200px;
-			border: 1px solid var(--dark-grey);
+			width: 215px;
+			height: 325px;
+			margin-right: 2rem;
+			box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 		}
 
 		.content-container {
@@ -151,7 +153,7 @@
 			width: 30%;
 			height: auto;
 			border-radius: 2rem;
-
+			box-shadow: none;
 			-webkit-filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
 			filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
 			float: none;

@@ -24,7 +24,7 @@
 	});
 
 	$effect(() => {
-		setInterval(() => (initialLoad = false), 1500);
+		setInterval(() => (initialLoad = false), 3000);
 	});
 </script>
 

@@ -78,8 +78,8 @@
 	}
 
 	.image-container {
-		width: 10rem;
-		height: 180px;
+		width: 12rem;
+		height: 195px;
 		border-radius: 0.5rem;
 		object-fit: cover;
 		float: left;

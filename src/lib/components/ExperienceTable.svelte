@@ -121,8 +121,8 @@
 		align-items: center;
 	}
 	.company-description img {
-		width: 4rem;
-		height: 4rem;
+		width: 3rem;
+		height: 3rem;
 		border-radius: 4px;
 		object-fit: cover;
 		cursor: pointer;
@@ -187,6 +187,11 @@
 
 		.dates {
 			margin-right: 4.2rem;
+		}
+
+		.company-description img {
+			width: 4rem;
+			height: 4rem;
 		}
 
 		.button-icon {

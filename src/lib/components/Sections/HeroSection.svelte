@@ -11,32 +11,14 @@
 			color: 'light-grey'
 		}
 	];
-
-	let highlightedIndex: number = $state(stringLength);
-	let initialLoad = $state(true);
-
-	$effect(() => {
-		if (initialLoad) return;
-		setInterval(
-			() => (highlightedIndex = highlightedIndex === stringLength ? 0 : highlightedIndex + 1),
-			500
-		);
-	});
-
-	$effect(() => {
-		setInterval(() => (initialLoad = false), 3000);
-	});
 </script>
 
 <section class="hero">
 	<div class="default-margin pt-s pb-s">
-		{#each heroLabels as { label, color }, labelIndex}
+		{#each heroLabels as { label, color }}
 			<div class="hero-item" aria-label={label}>
 				{#each Array(stringLength).fill(null) as _, index}
-					<span
-						class="hero-label"
-						style="color: {index <= highlightedIndex ? `var(--${color}` : 'inherit'}"
-					>
+					<span class="hero-label" style={`color: var(--${color}`}>
 						{label[index] ?? ' '}
 					</span>
 				{/each}

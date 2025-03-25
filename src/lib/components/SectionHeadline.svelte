@@ -30,4 +30,13 @@
 		background-color: var(--red);
 		width: 100%;
 	}
+	.underscore {
+		height: 2px;
+	}
+
+	@media (min-width: 768px) {
+		.underscore {
+			height: 4px;
+		}
+	}
 </style>

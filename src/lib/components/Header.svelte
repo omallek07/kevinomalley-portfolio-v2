@@ -51,7 +51,7 @@
 <style>
 	.navbar {
 		position: relative;
-		padding: 2rem 0;
+		padding: 1.5rem 0;
 	}
 	.hamburger {
 		position: absolute;
@@ -87,6 +87,9 @@
 	}
 
 	@media (min-width: 1024px) {
+		.navbar {
+			padding: 2rem 0;
+		}
 		.hamburger {
 			display: none;
 		}

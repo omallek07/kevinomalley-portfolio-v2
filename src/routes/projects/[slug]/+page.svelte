@@ -48,9 +48,9 @@
 <style>
 	.project-page {
 		background:
-			radial-gradient(farthest-side at top left, var(--dark-grey), transparent),
-			radial-gradient(farthest-side at bottom left, var(--white), transparent),
-			radial-gradient(farthest-corner at bottom right, #d6dee4, transparent) #ebf3f9;
+			radial-gradient(farthest-side at top left, #abaaaa, transparent),
+			radial-gradient(farthest-side at bottom left, #bec3c6, transparent),
+			radial-gradient(farthest-corner at bottom right, var(--white), transparent) #ebf3f9;
 		background-attachment: fixed;
 		background-size: 100vw 100vh;
 		overflow: hidden;

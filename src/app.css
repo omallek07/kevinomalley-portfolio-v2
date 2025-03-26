@@ -65,8 +65,8 @@ button {
 html {
 	background:
 		radial-gradient(farthest-side at top left, var(--white), transparent),
-		radial-gradient(farthest-side at bottom left, var(--dark-grey), transparent),
-		radial-gradient(farthest-corner at bottom right, #d6dee4, transparent) #ebf3f9;
+		radial-gradient(farthest-side at bottom left, #bdc4c8, transparent),
+		radial-gradient(farthest-corner at bottom right, #aab5bd, transparent) var(--white);
 	background-attachment: fixed;
 	background-size: 100vw 100vh;
 	font-family:

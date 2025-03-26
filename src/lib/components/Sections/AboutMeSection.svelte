@@ -24,7 +24,7 @@
 			</div>
 			<div class="text flow">
 				<p>
-					Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full Stack
+					Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full-Stack
 					JavaScript development and a passion for creating.
 				</p>
 				<p>
@@ -79,12 +79,12 @@
 
 	.image-container {
 		width: 12rem;
-		height: 195px;
-		border-radius: 0.5rem;
+		height: 216px;
+		border-radius: 0.25rem;
 		object-fit: cover;
 		float: left;
-		margin-right: 1.5rem;
-		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+		margin: 0.5rem 1rem 0 0;
+		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
 		overflow: hidden;
 	}
 
@@ -124,10 +124,9 @@
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.image-container {
-			width: 215px;
-			height: 325px;
+			width: 200px;
+			height: 320px;
 			margin-right: 2rem;
-			box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 		}
 
 		.content-container {
@@ -152,7 +151,7 @@
 		.image-container {
 			width: 30%;
 			height: auto;
-			border-radius: 2rem;
+			border-radius: 12px;
 			box-shadow: none;
 			-webkit-filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
 			filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));

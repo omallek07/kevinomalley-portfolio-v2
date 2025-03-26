@@ -151,12 +151,12 @@
 		.image-container {
 			width: 30%;
 			height: auto;
-			border-radius: 12px;
+			border-radius: 2rem;
 			box-shadow: none;
-			-webkit-filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
-			filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.25));
+			-webkit-filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
+			filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
 			float: none;
-			margin-right: 0;
+			margin: 0 0.5rem 0 0;
 			border: none;
 		}
 		.wave {

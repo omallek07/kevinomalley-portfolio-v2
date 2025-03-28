@@ -80,10 +80,10 @@
 	.image-container {
 		width: 12rem;
 		height: 216px;
-		border-radius: 0.25rem;
+		border-radius: 0.1rem;
 		object-fit: cover;
 		float: left;
-		margin: 0.5rem 1rem 0 0;
+		margin: 0.5rem 2rem 0.5rem 0;
 		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
 		overflow: hidden;
 	}

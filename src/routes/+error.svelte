@@ -9,7 +9,7 @@
 
 <main class="error-page">
 	<div class="error-container stack default-margin">
-		<h1><span class="oops-text">Oops!</span><span class="oops-line">-</span>Page Not Found!</h1>
+		<h1>Page Not Found!</h1>
 		<div class="btn-container">
 			<Button onclick={handleGoBack}>Go Back Home</Button>
 		</div>
@@ -39,15 +39,6 @@
 		-webkit-filter: drop-shadow(0 0 0.1rem black);
 		filter: drop-shadow(0 0 0.1rem black);
 	}
-
-	.oops-text {
-		color: var(--red);
-		text-decoration: underline;
-	}
-	.oops-line {
-		margin: 0 2rem;
-	}
-
 	.error-container {
 		display: flex;
 		justify-content: center;

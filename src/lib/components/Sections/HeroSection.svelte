@@ -5,7 +5,7 @@
 	const heroLabels: Record<string, string>[] = [
 		{
 			label: "Kevin O'Malley",
-			color: 'red'
+			color: 'light-grey'
 		},
 		{
 			label: 'Software Engineer',
@@ -55,16 +55,18 @@
 	}
 	.hero {
 		overflow: auto;
-		background: linear-gradient(
-			315deg,
-			rgb(246, 206, 7) 3%,
-			rgba(60, 132, 206, 1) 38%,
-			rgba(48, 238, 226, 1) 68%,
-			rgb(255, 153, 89) 98%
-		);
-		animation: gradient 25s ease infinite;
-		background-size: 400% 400%;
-		background-attachment: fixed;
+		background-size: 100% 100%;
+		background-position:
+			0px 0px,
+			0px 0px,
+			0px 0px,
+			0px 0px,
+			0px 0px;
+		background-image: repeating-linear-gradient(315deg, #00ffff2e 92%, #073aff00 100%),
+			repeating-radial-gradient(75% 75% at 238% 218%, #00ffff12 30%, #073aff14 39%),
+			radial-gradient(99% 99% at 109% 2%, #6e8f89 0%, #073aff00 100%),
+			radial-gradient(99% 99% at 21% 78%, #6e8f89 0%, #073aff00 100%),
+			radial-gradient(160% 154% at 711px -303px, #3c415b 0%, #3c415b 100%);
 		padding: 1.5rem 0;
 	}
 

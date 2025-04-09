@@ -80,35 +80,38 @@
 	}
 
 	.content-container {
+		display: flex;
 		position: relative;
 	}
 
 	.image-container {
-		width: 100%;
-		height: 250px;
-		border-radius: 0.5rem;
-		margin: 0.5rem auto 2rem auto;
+		width: 100px;
+		height: auto;
+		border-radius: 2rem;
+		-webkit-filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
+		filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
 		overflow: hidden;
-	}
-	.text-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-	}
-
-	.text {
-		padding-left: 2rem;
-	}
-
-	.button-container {
-		margin-top: 2rem;
+		position: absolute;
 	}
 
 	.image {
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
-		object-position: 0px 0px;
+	}
+
+	.text-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 100%;
+	}
+	.text p {
+		margin-left: 120px;
+	}
+
+	.button-container {
+		margin-top: 2rem;
 	}
 
 	.fade-in {
@@ -138,19 +141,9 @@
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.image-container {
-			width: 40%;
 			height: auto;
-			border-radius: 2rem;
-			box-shadow: none;
-			-webkit-filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
-			filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
-			float: none;
-			margin: 0 0.5rem 0 0;
-			border: none;
-		}
-
-		.text {
-			padding-left: 0;
+			width: 40%;
+			position: inherit;
 		}
 
 		.image {
@@ -158,9 +151,12 @@
 		}
 
 		.text-container {
-			text-align: left;
 			width: 60%;
-			margin-left: 5rem;
+			margin-left: 4rem;
+		}
+
+		.text p {
+			margin-left: 0;
 		}
 
 		.content-container {
@@ -172,6 +168,7 @@
 	@media (min-width: 1024px) {
 		.image-container {
 			width: 30%;
+			height: 100%;
 		}
 		.text-container {
 			width: 70%;

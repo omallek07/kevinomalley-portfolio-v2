@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IntersectionObserver from 'svelte-intersection-observer';
 	const stringLength = 17;
 
 	const heroLabels: Record<string, string>[] = [
@@ -11,23 +12,31 @@
 			color: 'light-grey'
 		}
 	];
+
+	let element: HTMLDivElement | undefined = $state();
+	let intersecting: boolean = $state(false);
 </script>
 
-<section class="hero">
-	<div class="default-margin pt-s pb-s">
-		{#each heroLabels as { label, color }}
-			<div class="hero-item" aria-label={label}>
-				{#each Array(stringLength).fill(null) as _, index}
-					<span class="hero-label" style={`color: var(--${color}`}>
-						{label[index] ?? ' '}
-					</span>
-				{/each}
-			</div>
-		{/each}
-	</div>
-</section>
+<IntersectionObserver once {element} bind:intersecting>
+	<section class="hero">
+		<div bind:this={element} class="default-margin pt-s pb-s" class:fade-in={intersecting}>
+			{#each heroLabels as { label, color }}
+				<div class="hero-item" aria-label={label}>
+					{#each Array(stringLength).fill(null) as _, index}
+						<span class="hero-label" style={`color: var(--${color}`}>
+							{label[index] ?? ' '}
+						</span>
+					{/each}
+				</div>
+			{/each}
+		</div>
+	</section>
+</IntersectionObserver>
 
 <style>
+	.fade-in {
+		animation: fadeIn 1.5s 1 ease;
+	}
 	.hero-item {
 		display: flex;
 		flex-wrap: nowrap;
@@ -63,7 +72,7 @@
 	@media (min-width: 768px) {
 		.hero {
 			animation: gradient 15s ease infinite;
-			padding: 2rem 0;
+			padding: 1rem 0;
 		}
 
 		.hero-item {
@@ -97,6 +106,18 @@
 		}
 		100% {
 			background-position: 0% 0%;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateX(-30%);
+		}
+
+		100% {
+			opacity: 100%;
+			transform: translateX(0);
 		}
 	}
 </style>

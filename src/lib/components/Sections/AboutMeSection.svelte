@@ -22,35 +22,37 @@
 			<div class="image-container">
 				<img src={image} alt="About Me" class="image" />
 			</div>
-			<div class="text flow">
-				<p>
-					Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full-Stack
-					JavaScript development and a passion for creating.
-				</p>
-				<p>
-					Over the past 8 years, I pivoted from a career in psychology into the world of technology.
-					My journey started with a complete immersion of JavaScript in <a
-						class="link"
-						href="https://www.fullstackacademy.com/"
-						target="_blank">Fullstack Academy</a
-					> and has led me through a variety of professional fields - international e-commerce, trivia
-					entertainment, and billing and insurance in the Healthcare industry.
-				</p>
-				<p>
-					When I'm not coding, you can find me spending my free time with my two boys, Liam and
-					Charlie, or continuously expanding my knowledge in software development through personal
-					projects and online courses. For example, to better learn <a
-						class="link"
-						href="https://svelte.dev/"
-						target="_blank">Svelte</a
-					>, I built my
-					<a
-						class="link"
-						target="_blank"
-						href="https://github.com/omallek07/kevinomalley-portfolio-v2">portfolio</a
-					> with it!
-				</p>
-				<div class="flex mt-m">
+			<div class="text-container">
+				<div class="flow text">
+					<p>
+						Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full-Stack
+						JavaScript development and a passion for creating.
+					</p>
+					<p>
+						Over the past 8 years, I pivoted from a career in psychology into the world of
+						technology. My journey started with a complete immersion of JavaScript in <a
+							class="link"
+							href="https://www.fullstackacademy.com/"
+							target="_blank">Fullstack Academy</a
+						> and has led me through a variety of professional fields - international e-commerce, trivia
+						entertainment, and billing and insurance in the Healthcare industry.
+					</p>
+					<p>
+						When I'm not coding, you can find me spending my free time with my two boys, Liam and
+						Charlie, or continuously expanding my knowledge in software development through personal
+						projects and online courses. For example, to better learn <a
+							class="link"
+							href="https://svelte.dev/"
+							target="_blank">Svelte</a
+						>, I built my
+						<a
+							class="link"
+							target="_blank"
+							href="https://github.com/omallek07/kevinomalley-portfolio-v2">portfolio</a
+						> with it!
+					</p>
+				</div>
+				<div class="button-container flex">
 					<Button {onclick}>Contact Me</Button>
 					<Icons />
 				</div>
@@ -77,28 +79,40 @@
 		text-decoration: underline;
 	}
 
+	.content-container {
+		position: relative;
+	}
+
 	.image-container {
-		width: 12rem;
-		height: 216px;
-		border-radius: 0.1rem;
-		object-fit: cover;
-		float: left;
-		margin: 0.5rem 2rem 0.5rem 0;
-		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
+		width: 100%;
+		height: 250px;
+		border-radius: 0.5rem;
+		margin: 0.5rem auto 2rem auto;
 		overflow: hidden;
+	}
+	.text-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+
+	.text {
+		padding-left: 2rem;
+	}
+
+	.button-container {
+		margin-top: 2rem;
 	}
 
 	.image {
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
+		object-position: 0px 0px;
 	}
 
-	.content-container {
-		position: relative;
-	}
 	.fade-in {
-		animation: fadeIn 1.5s 1 ease;
+		animation: fadeInMobile 2s 1 ease;
 	}
 
 	.flex {
@@ -112,7 +126,7 @@
 		border-radius: 1000% 1000% 0 0;
 		position: absolute;
 		width: 200%;
-		height: 15em;
+		height: 10em;
 		animation: wave 10s -3s linear infinite;
 		transform: translate3d(0, 0, 0);
 		opacity: 0.8;
@@ -124,32 +138,7 @@
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.image-container {
-			width: 200px;
-			height: 320px;
-			margin-right: 2rem;
-		}
-
-		.content-container {
-			justify-content: space-between;
-			align-items: stretch;
-		}
-
-		.wave {
-			width: 150%;
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.content-container {
-			display: flex;
-		}
-		.text {
-			text-align: left;
-			width: 70%;
-			margin-left: 5rem;
-		}
-		.image-container {
-			width: 30%;
+			width: 40%;
 			height: auto;
 			border-radius: 2rem;
 			box-shadow: none;
@@ -158,6 +147,41 @@
 			float: none;
 			margin: 0 0.5rem 0 0;
 			border: none;
+		}
+
+		.text {
+			padding-left: 0;
+		}
+
+		.image {
+			object-position: initial;
+		}
+
+		.text-container {
+			text-align: left;
+			width: 60%;
+			margin-left: 5rem;
+		}
+
+		.content-container {
+			display: flex;
+			align-items: stretch;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.image-container {
+			width: 30%;
+		}
+		.text-container {
+			width: 70%;
+		}
+		.button-container {
+			margin-top: 0;
+			margin-bottom: 3.5rem;
+		}
+		.fade-in {
+			animation: fadeIn 1.25s 1 ease;
 		}
 		.wave {
 			width: 200%;
@@ -201,12 +225,24 @@
 	@keyframes fadeIn {
 		0% {
 			opacity: 0;
-			transform: translateX(70%);
+			transform: translateY(70%);
 		}
 
 		100% {
 			opacity: 100%;
-			transform: translateX(0);
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeInMobile {
+		0% {
+			opacity: 0;
+			transform: translateY(40%);
+		}
+
+		100% {
+			opacity: 100%;
+			transform: translateY(0);
 		}
 	}
 </style>

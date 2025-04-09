@@ -88,7 +88,7 @@
 
 	@media (min-width: 1024px) {
 		.navbar {
-			padding: 2rem 0 3rem 0;
+			padding: 2rem 0;
 		}
 		.hamburger {
 			display: none;

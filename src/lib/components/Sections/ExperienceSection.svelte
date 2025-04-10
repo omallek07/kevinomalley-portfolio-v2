@@ -22,6 +22,12 @@
 	.experience-section {
 		position: relative;
 		overflow: hidden;
-		padding-bottom: 0;
+		padding-bottom: 3rem;
+	}
+
+	@media (min-width: 1024px) {
+		.experience-section {
+			padding-bottom: 0;
+		}
 	}
 </style>

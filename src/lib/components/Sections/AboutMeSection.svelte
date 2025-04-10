@@ -14,6 +14,68 @@
 	}
 </script>
 
+{#snippet paragraphOne()}
+	<p>
+		Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full-Stack
+		JavaScript development and a passion for creating.
+	</p>
+{/snippet}
+
+{#snippet paragraphTwo()}
+	<p>
+		Over the past 8 years, I pivoted from a career in psychology into the world of technology. My
+		journey started with a complete immersion of JavaScript in <a
+			class="link"
+			href="https://www.fullstackacademy.com/"
+			target="_blank">Fullstack Academy</a
+		> and has led me through a variety of professional fields - international e-commerce, trivia entertainment,
+		and billing and insurance in the Healthcare industry.
+	</p>
+{/snippet}
+
+{#snippet paragraphThree()}
+	<p>
+		When I'm not coding, you can find me spending my free time with my two boys, Liam and Charlie,
+		or continuously expanding my knowledge in software development through personal projects and
+		online courses. For example, to better learn <a
+			class="link"
+			href="https://svelte.dev/"
+			target="_blank">Svelte</a
+		>, I built my
+		<a class="link" target="_blank" href="https://github.com/omallek07/kevinomalley-portfolio-v2"
+			>portfolio</a
+		> with it!
+	</p>
+{/snippet}
+
+{#snippet mobileLayout()}
+	<div class="mobile flow text">
+		{@render paragraphOne()}
+		{@render paragraphTwo()}
+		{@render paragraphThree()}
+	</div>
+	<div class="mobile">
+		<div class="button-container flex">
+			<Button {onclick}>Contact Me</Button>
+			<Icons />
+		</div>
+	</div>
+{/snippet}
+
+{#snippet laptopLayout()}
+	<div class="laptop text-container">
+		<div class="flow text">
+			{@render paragraphOne()}
+			{@render paragraphTwo()}
+			{@render paragraphThree()}
+		</div>
+		<div class="button-container flex">
+			<Button {onclick}>Contact Me</Button>
+			<Icons />
+		</div>
+	</div>
+{/snippet}
+
 <IntersectionObserver once {element} bind:intersecting>
 	<section class="section about-me">
 		<SectionHeadline headline="About Me" id={PUBLIC_ABOUT_ME_LINK.slice(2)} />
@@ -22,41 +84,8 @@
 			<div class="image-container">
 				<img src={image} alt="About Me" class="image" />
 			</div>
-			<div class="text-container">
-				<div class="flow text">
-					<p>
-						Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full-Stack
-						JavaScript development and a passion for creating.
-					</p>
-					<p>
-						Over the past 8 years, I pivoted from a career in psychology into the world of
-						technology. My journey started with a complete immersion of JavaScript in <a
-							class="link"
-							href="https://www.fullstackacademy.com/"
-							target="_blank">Fullstack Academy</a
-						> and has led me through a variety of professional fields - international e-commerce, trivia
-						entertainment, and billing and insurance in the Healthcare industry.
-					</p>
-					<p>
-						When I'm not coding, you can find me spending my free time with my two boys, Liam and
-						Charlie, or continuously expanding my knowledge in software development through personal
-						projects and online courses. For example, to better learn <a
-							class="link"
-							href="https://svelte.dev/"
-							target="_blank">Svelte</a
-						>, I built my
-						<a
-							class="link"
-							target="_blank"
-							href="https://github.com/omallek07/kevinomalley-portfolio-v2">portfolio</a
-						> with it!
-					</p>
-				</div>
-				<div class="button-container flex">
-					<Button {onclick}>Contact Me</Button>
-					<Icons />
-				</div>
-			</div>
+			{@render mobileLayout()}
+			{@render laptopLayout()}
 		</div>
 		<div class="wave"></div>
 		<div class="wave"></div>
@@ -71,6 +100,10 @@
 		position: relative;
 	}
 
+	.laptop {
+		display: none;
+	}
+
 	.link {
 		text-decoration: none;
 	}
@@ -79,35 +112,22 @@
 		text-decoration: underline;
 	}
 
-	.content-container {
-		display: flex;
-		position: relative;
-	}
-
 	.image-container {
-		width: 100px;
+		width: 110px;
 		height: auto;
-		border-radius: 2rem;
-		-webkit-filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
-		filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
-		overflow: hidden;
-		position: absolute;
+		border-radius: 0.5rem;
+
+		margin: 0.5rem 2rem -0.5rem 0;
+		float: left;
 	}
 
 	.image {
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
-	}
-
-	.text-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		width: 100%;
-	}
-	.text p {
-		margin-left: 120px;
+		border-radius: 0.5rem;
+		-webkit-filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
+		filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
 	}
 
 	.button-container {
@@ -115,7 +135,7 @@
 	}
 
 	.fade-in {
-		animation: fadeInMobile 2s 1 ease;
+		animation: fadeInMobile 1.25s 1 ease;
 	}
 
 	.flex {
@@ -138,50 +158,46 @@
 		z-index: -1;
 	}
 
-	/* Larger screens */
 	@media (min-width: 768px) {
 		.image-container {
-			height: auto;
-			width: 40%;
-			position: inherit;
-		}
-
-		.image {
-			object-position: initial;
-		}
-
-		.text-container {
-			width: 60%;
-			margin-left: 4rem;
-		}
-
-		.text p {
-			margin-left: 0;
-		}
-
-		.content-container {
-			display: flex;
-			align-items: stretch;
+			width: 160px;
 		}
 	}
 
 	@media (min-width: 1024px) {
+		.content-container {
+			display: flex;
+		}
 		.image-container {
 			width: 30%;
 			height: 100%;
+			margin: 0;
+			float: none;
 		}
-		.text-container {
+		.image {
+			border-radius: 2rem;
+		}
+		.laptop.text-container {
 			width: 70%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			margin-left: 5rem;
 		}
 		.button-container {
+			display: flex;
+			justify-content: space-between;
 			margin-top: 0;
 			margin-bottom: 3.5rem;
 		}
 		.fade-in {
-			animation: fadeIn 1.25s 1 ease;
+			animation: fadeIn 1.4s 1 ease;
 		}
 		.wave {
 			width: 200%;
+		}
+		.mobile {
+			display: none;
 		}
 	}
 
@@ -234,7 +250,7 @@
 	@keyframes fadeInMobile {
 		0% {
 			opacity: 0;
-			transform: translateY(40%);
+			transform: translateY(20%);
 		}
 
 		100% {

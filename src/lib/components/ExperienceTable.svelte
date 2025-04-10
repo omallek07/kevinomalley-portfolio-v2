@@ -53,12 +53,22 @@
 								onclick={() => handleShowWorkDescription(index)}
 							>
 								<p class="dates dark-grey">
-									{job.startDate.slice(0, 7)}
-									{#if job.endDate}
-										/ {job.endDate.slice(0, 7)}
-									{:else}
-										/ present
-									{/if}
+									<span class="mobile">
+										{job.startDate.slice(0, 4)}
+										{#if job.endDate}
+											- {job.endDate.slice(0, 4)}
+										{:else}
+											- present
+										{/if}
+									</span>
+									<span class="laptop">
+										{job.startDate.slice(0, 7)}
+										{#if job.endDate}
+											/ {job.endDate.slice(0, 7)}
+										{:else}
+											/ present
+										{/if}
+									</span>
 								</p>
 								<img
 									alt="arrow"
@@ -158,13 +168,17 @@
 		animation: shake 2s 1;
 	}
 
+	.laptop {
+		display: none;
+	}
+
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.work-experience-list {
 			width: 85%;
-			height: 67rem;
 			overflow-y: scroll;
 			overflow-x: hidden;
+			height: 52rem;
 			padding-right: 2rem;
 			position: relative;
 			z-index: 2;
@@ -198,11 +212,18 @@
 			height: 50px;
 			width: 50px;
 		}
+		.laptop {
+			display: inline;
+		}
+		.mobile {
+			display: none;
+		}
 	}
 
 	@media (min-width: 1024px) {
 		.work-experience-list {
 			width: 60%;
+			height: 67rem;
 		}
 		.company-description img {
 			width: 5rem;

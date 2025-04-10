@@ -3,7 +3,7 @@
 	let showBtn = $state(false);
 
 	function onClick() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		window.scrollTo({ top: 1, behavior: 'smooth' });
 	}
 
 	function scrollContainer() {

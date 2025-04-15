@@ -24,7 +24,7 @@
 <style>
 	.underscore,
 	.headline {
-		transition: all 1s ease;
+		transition: all 1.5s ease;
 	}
 	.underscore.focus {
 		background-color: var(--red);
@@ -37,6 +37,11 @@
 	@media (min-width: 768px) {
 		.underscore {
 			height: 4px;
+		}
+	}
+	@media (min-width: 1024px) {
+		.headline {
+			transition: all 1s ease;
 		}
 	}
 </style>

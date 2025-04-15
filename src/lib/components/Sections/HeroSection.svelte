@@ -51,7 +51,6 @@
 		font-weight: bold;
 		white-space: nowrap;
 		margin-right: 0.5rem;
-		transition: color 0.5s ease-in-out;
 	}
 	.hero {
 		overflow: auto;
@@ -73,7 +72,6 @@
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.hero {
-			animation: gradient 15s ease infinite;
 			padding: 1rem 0;
 		}
 
@@ -96,18 +94,6 @@
 		.hero-label {
 			min-width: 2rem;
 			font-size: 8rem;
-		}
-	}
-
-	@keyframes gradient {
-		0% {
-			background-position: 0% 0%;
-		}
-		50% {
-			background-position: 100% 100%;
-		}
-		100% {
-			background-position: 0% 0%;
 		}
 	}
 

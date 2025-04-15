@@ -135,7 +135,7 @@
 	}
 
 	.fade-in {
-		animation: fadeInMobile 1.25s 1 ease;
+		animation: fadeInMobile 1.5s 1 ease;
 	}
 
 	.flex {
@@ -191,7 +191,7 @@
 			margin-bottom: 3.5rem;
 		}
 		.fade-in {
-			animation: fadeIn 1.4s 1 ease;
+			animation: fadeIn 1.5s 1 ease;
 		}
 		.wave {
 			width: 200%;
@@ -250,7 +250,7 @@
 	@keyframes fadeInMobile {
 		0% {
 			opacity: 0;
-			transform: translateY(20%);
+			transform: translateY(30%);
 		}
 
 		100% {

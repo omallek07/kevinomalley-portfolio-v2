@@ -25,7 +25,7 @@
 		z-index: 20;
 	}
 
-	.center {
+	.load-splash .center {
 		opacity: 0.8;
 		display: flex;
 		align-items: center;
@@ -68,7 +68,7 @@
 	}
 
 	@media (min-width: 1024px) {
-		.center {
+		.load-splash .center {
 			height: 14rem;
 			width: 14rem;
 		}

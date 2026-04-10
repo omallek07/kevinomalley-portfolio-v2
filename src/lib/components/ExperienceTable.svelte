@@ -33,7 +33,7 @@
 			{#each workExperience as job, index}
 				<li class="work-item">
 					<article>
-						<h3 class="semi-bold mb-xs">
+						<h3 class="semi-bold mb-xs {openedWorkDescriptionIndex === index ? 'opened' : ''}">
 							{job.jobTitle}
 						</h3>
 						<div class="flex-space-between">
@@ -111,6 +111,15 @@
 	}
 	.work-item p {
 		margin-bottom: 0;
+	}
+
+	h3.opened {
+		background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+		background-size: 200%;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: animate-gradient 4s linear infinite;
 	}
 
 	.company-description:hover p {
@@ -265,6 +274,12 @@
 			transform: scale(1) rotate(0deg);
 			filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(140deg) brightness(104%)
 				contrast(105%);
+		}
+	}
+
+	@keyframes animate-gradient {
+		to {
+			background-position: 200%;
 		}
 	}
 </style>

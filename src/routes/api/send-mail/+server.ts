@@ -9,9 +9,6 @@ const brevo = new BrevoClient({
 
 export async function POST({ request }) {
 	const { name, email, message } = await request.json();
-	console.log('name:', name);
-	console.log('email:', email);
-	console.log('message:', message);
 
 	if (!name || !email || !message) {
 		return json(
@@ -24,11 +21,38 @@ export async function POST({ request }) {
 		);
 	}
 
+	if (!email.includes('@')) {
+		return json(
+			{
+				message: 'Could not send email. Invalid email address.'
+			},
+			{
+				status: 400
+			}
+		);
+	}
+
+	const senders = await brevo.senders.getSenders({});
+	const sender = senders?.senders?.find((s) => s.email === EMAIL_ADDRESS);
+
+	if (!sender) {
+		return json(
+			{
+				message: 'Could not send email. Sender email address not found in Brevo account.'
+			},
+			{
+				status: 500
+			}
+		);
+	}
 	const emailDraft = {
-		to: [{ email: EMAIL_ADDRESS }],
-		sender: { name, email: email },
-		subject: 'Somebody reached out from your portfolio!',
-		htmlContent: `Somebody used the contact form on your site. <br /> Here are the details: <br />
+		to: [{ name: sender.name, email: sender.email }],
+		subject: `${name} reached out from your portfolio!`,
+		sender: {
+			name: name,
+			email: EMAIL_ADDRESS
+		},
+		htmlContent: `${name} used the contact form on your site. <br /> Here are the details: <br />
 		<strong>Name:</strong> ${name} <br />
 		<strong>Email:</strong> ${email} <br />
 		<strong>Message:</strong> ${message}`

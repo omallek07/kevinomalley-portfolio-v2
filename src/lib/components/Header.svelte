@@ -4,7 +4,8 @@
 	import {
 		PUBLIC_ABOUT_ME_LINK,
 		PUBLIC_MY_PROJECTS_LINK,
-		PUBLIC_CONTACT_ME_LINK
+		PUBLIC_CONTACT_ME_LINK,
+		PUBLIC_PORTFOLIO_LINK
 	} from '$env/static/public';
 
 	import { Button, Logo } from '$lib';
@@ -38,6 +39,10 @@
 			<a href={PUBLIC_ABOUT_ME_LINK} class="nav-link">
 				<span class="nav-link-bar"></span>
 				<span class="nav-link-label semi-bold">About Me</span>
+			</a>
+			<a href={PUBLIC_PORTFOLIO_LINK} class="nav-link">
+				<span class="nav-link-bar"></span>
+				<span class="nav-link-label semi-bold">Portfolio</span>
 			</a>
 			<a href={PUBLIC_MY_PROJECTS_LINK} class="nav-link">
 				<span class="nav-link-bar"></span>
@@ -95,7 +100,7 @@
 		}
 		.navbar-links {
 			display: inherit;
-			gap: 1rem 4rem;
+			gap: 1rem 2rem;
 		}
 		.nav-link-bar {
 			transform: translateY(41px);

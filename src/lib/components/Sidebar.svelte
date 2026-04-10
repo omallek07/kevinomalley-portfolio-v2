@@ -4,7 +4,8 @@
 	import {
 		PUBLIC_ABOUT_ME_LINK,
 		PUBLIC_MY_PROJECTS_LINK,
-		PUBLIC_CONTACT_ME_LINK
+		PUBLIC_CONTACT_ME_LINK,
+		PUBLIC_PORTFOLIO_LINK
 	} from '$env/static/public';
 
 	interface Props {
@@ -34,6 +35,15 @@
 			</li>
 			<li class="list-item list-item-two">
 				<button
+					data-text="Portfolio"
+					onclick={() => handleLinkClick(PUBLIC_PORTFOLIO_LINK)}
+					class="nav-link"
+				>
+					Portfolio
+				</button>
+			</li>
+			<li class="list-item list-item-three">
+				<button
 					data-text="Projects"
 					onclick={() => handleLinkClick(PUBLIC_MY_PROJECTS_LINK)}
 					class="nav-link"
@@ -41,7 +51,7 @@
 					Projects
 				</button>
 			</li>
-			<li class="list-item list-item-three">
+			<li class="list-item list-item-four">
 				<button
 					data-text="Contact Me"
 					onclick={() => handleLinkClick(PUBLIC_CONTACT_ME_LINK)}
@@ -159,6 +169,16 @@
 	}
 	.list-item-three button {
 		background: linear-gradient(var(--yellow) 0 100%) left / 0 no-repeat;
+		color: transparent;
+		background-clip: text;
+		-webkit-background-clip: text;
+	}
+
+	.list-item-four::before {
+		background: var(--orange);
+	}
+	.list-item-four button {
+		background: linear-gradient(var(--orange) 0 100%) left / 0 no-repeat;
 		color: transparent;
 		background-clip: text;
 		-webkit-background-clip: text;

@@ -58,8 +58,8 @@
 	</div>
 	<div class="mobile">
 		<div class="button-container flex">
-			<Button {onclick}>Contact Me</Button>
 			<Icons />
+			<Button {onclick}>Contact Me</Button>
 		</div>
 	</div>
 {/snippet}
@@ -123,8 +123,8 @@
 	}
 
 	.image-container {
-		width: 120px;
-		height: 190px;
+		width: 100px;
+		height: 400px;
 		border-radius: 0.25rem;
 
 		margin: 0.5rem 2rem -0.5rem 0;
@@ -142,6 +142,7 @@
 
 	.button-container {
 		margin-top: 2rem;
+		align-items: flex-end;
 	}
 
 	.fade-in {
@@ -151,7 +152,6 @@
 	.flex {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
 	}
 
 	.wave {
@@ -163,9 +163,17 @@
 		animation: wave 10s -3s linear infinite;
 		transform: translate3d(0, 0, 0);
 		opacity: 0.2;
-		bottom: 0;
+		bottom: -2rem;
 		left: 0;
 		z-index: -1;
+	}
+
+	.wave:nth-of-type(2) {
+		bottom: 1rem;
+	}
+
+	.wave:nth-of-type(3) {
+		bottom: 0.4rem;
 	}
 
 	@media (min-width: 768px) {
@@ -176,12 +184,15 @@
 	}
 
 	@media (min-width: 1024px) {
+		p {
+			line-height: 1.9;
+		}
 		.content-container {
 			display: flex;
 		}
 		.image-container {
 			width: 285px;
-			height: auto;
+			height: 520px;
 			margin: 0;
 			float: none;
 		}
@@ -210,18 +221,22 @@
 		.mobile {
 			display: none;
 		}
-	}
 
-	.wave:nth-of-type(2) {
-		bottom: -1.25em;
-		animation: wave 18s linear reverse infinite;
-		opacity: 0.3;
-	}
+		.wave {
+			bottom: 0;
+		}
 
-	.wave:nth-of-type(3) {
-		bottom: -2.5em;
-		animation: wave 20s -1s reverse infinite;
-		opacity: 0.7;
+		.wave:nth-of-type(2) {
+			bottom: -1.25em;
+			animation: wave 18s linear reverse infinite;
+			opacity: 0.3;
+		}
+
+		.wave:nth-of-type(3) {
+			bottom: -2.5em;
+			animation: wave 20s -1s reverse infinite;
+			opacity: 0.7;
+		}
 	}
 
 	@keyframes wave {

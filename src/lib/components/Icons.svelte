@@ -50,7 +50,7 @@
 	}
 
 	.icon-label {
-		padding-bottom: 1.5rem;
+		padding-bottom: 1rem;
 		font-size: 1.5rem;
 		letter-spacing: 1.2px;
 		background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
@@ -90,6 +90,10 @@
 		.icon {
 			width: 50px;
 			height: 50px;
+		}
+
+		.icon-label {
+			padding-bottom: 1.5rem;
 		}
 	}
 

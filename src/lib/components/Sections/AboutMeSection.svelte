@@ -16,8 +16,8 @@
 
 {#snippet paragraphOne()}
 	<p>
-		Thank you for stopping by! I'm Kevin, a software engineer with expertise in Full-Stack
-		JavaScript development and a passion for creating.
+		Thank you for stopping by! I'm Kevin, a software engineer with expertise in full-stack and
+		front-end JavaScript development and a passion for creating.
 	</p>
 {/snippet}
 
@@ -28,20 +28,23 @@
 			class="link"
 			href="https://www.fullstackacademy.com/"
 			target="_blank">Fullstack Academy</a
-		> and has led me through a variety of professional fields - international e-commerce, trivia entertainment,
-		and billing and insurance in the Healthcare industry.
+		> and has led me through a variety of professional fields - global e-commerce, live event trivia,
+		and specialty healthcare.
 	</p>
 {/snippet}
 
 {#snippet paragraphThree()}
 	<p>
-		When I'm not coding, you can find me spending my free time with my two boys, Liam and Charlie,
-		or continuously expanding my knowledge in software development through personal projects and
-		online courses. For example, to better learn <a
+		When I'm not coding, you can find me spending my free time with my two boys, Liam and Charlie.
+		When I am coding, I am continuously expanding my knowledge in software development through
+		personal projects and online courses. For example, to better learn <a
 			class="link"
 			href="https://svelte.dev/"
 			target="_blank">Svelte</a
-		>, I built my
+		>
+		and
+		<a class="link" href="https://www.sanity.io/" target="_blank">Sanity.io</a>
+		, I built my
 		<a
 			class="link highlight-link"
 			target="_blank"

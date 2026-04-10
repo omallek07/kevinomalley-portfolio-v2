@@ -9,6 +9,15 @@
 	--white: #fff;
 	--light-grey: #f0eded;
 
+	/* Dark Theme Colors */
+	--dark-bg: #0f172a /*darkest*/;
+	--dark-surface: #1e293b /*cards, panels*/;
+	--dark-elevated: #334155 /*hover states*/;
+	--dark-border: #475569 /*dividers*/;
+	--dark-text-triary: #cbd5e1 /*captions, labels*/;
+	--dark-text-secondary: #94a3b8 /*secondary text*/;
+	--dark-text-primary: #f1f5f9 /*main content*/;
+
 	/* Utility */
 	--spacing-xs: 6px;
 	--spacing-s: 10px;
@@ -63,9 +72,15 @@ button {
 }
 
 html {
-	background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+	background-image: linear-gradient(
+		to top,
+		var(--dark-bg) 0%,
+		var(--dark-surface) 52%,
+		var(--dark-bg) 100%
+	);
 	background-attachment: fixed;
 	background-size: 100vw 100vh;
+	color: var(--dark-text-primary);
 	font-family:
 		'Inter Tight',
 		system-ui,
@@ -124,7 +139,7 @@ h4 {
 }
 p,
 li {
-	font-size: clamp(1.8rem, 3vw, 2rem);
+	font-size: clamp(1.9rem, 3vw, 2.1rem);
 	line-height: 1.6;
 }
 
@@ -147,11 +162,11 @@ p {
 /* UTILITY CLASSES */
 
 .bg-white {
-	background: #fff;
+	background: var(--dark-bg);
 }
 
 .bg-dark {
-	background: rgba(255, 255, 255, 0.5);
+	background: var(--dark-surface);
 }
 
 .border-top-line {
@@ -201,7 +216,7 @@ p {
 }
 
 .default-margin {
-	max-width: 100rem;
+	max-width: 115rem;
 	margin-left: 5vw;
 	margin-right: 5vw;
 }

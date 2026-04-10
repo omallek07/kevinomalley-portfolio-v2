@@ -31,7 +31,7 @@
 		justify-content: center;
 		width: 5rem;
 		height: 5rem;
-		color: white;
+		color: var(--dark-bg);
 		font-size: 2.5rem;
 		font-weight: bold;
 
@@ -43,7 +43,7 @@
 			left: 0;
 			content: '';
 			border-radius: calc(2rem * 0.3);
-			background-color: black;
+			background-color: var(--dark-text-primary);
 		}
 
 		&::after {
@@ -58,14 +58,15 @@
 	}
 
 	.center:hover {
+		color: var(--dark-text-primary);
 		&::before {
 			mix-blend-mode: screen;
-			animation: fast 10s linear infinite;
+			animation: fast 13s linear infinite;
 			background: linear-gradient(315deg, var(--green) 3%, var(--red) 38%, var(--dark-grey) 68%);
 		}
 		&::after {
 			mix-blend-mode: screen;
-			animation: slow 20s linear infinite;
+			animation: slow 33s linear infinite;
 			background: linear-gradient(315deg, var(--green) 3%, var(--red) 38%, var(--dark-grey) 68%);
 		}
 	}

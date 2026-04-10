@@ -98,7 +98,7 @@
 			gap: 1rem 4rem;
 		}
 		.nav-link-bar {
-			transform: translateY(38px);
+			transform: translateY(41px);
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -111,7 +111,7 @@
 			position: relative;
 			padding: 0.5rem 1rem;
 			line-height: 1.5;
-			border-radius: 4px;
+			border-radius: 2px;
 			transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 		}
 		.nav-link:hover {
@@ -129,7 +129,7 @@
 
 	.hamburger svg line {
 		/* `currentColor` means inherit color from the text color */
-		stroke: currentColor;
+		stroke: var(--dark-text-primary);
 		stroke-width: 3;
 		transition: transform 0.3s ease-in-out;
 	}

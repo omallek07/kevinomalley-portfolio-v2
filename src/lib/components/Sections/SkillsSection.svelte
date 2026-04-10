@@ -106,7 +106,7 @@
 
 	i {
 		font-size: 6rem;
-		color: black;
+		color: var(--text-secondary);
 	}
 	.skill-container i,
 	.skill-container span {
@@ -115,7 +115,7 @@
 
 	.skill-container.animate i,
 	.skill-container.animate span {
-		color: var(--red);
+		color: var(--dark-text-secondary);
 	}
 
 	.skill-container.animate i {

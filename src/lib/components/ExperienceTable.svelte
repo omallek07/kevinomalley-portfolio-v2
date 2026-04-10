@@ -52,7 +52,7 @@
 								class="flex toggle-description-btn"
 								onclick={() => handleShowWorkDescription(index)}
 							>
-								<p class="dates dark-grey">
+								<p class="dates">
 									<span class="mobile">
 										{job.startDate.slice(0, 4)}
 										{#if job.endDate}
@@ -103,7 +103,7 @@
 		width: 100%;
 	}
 	.work-item {
-		border-bottom: 1px solid var(--light-grey);
+		border-bottom: 1px solid var(--dark-border);
 		padding-bottom: 1.2rem;
 	}
 	.work-item:not(:first-of-type) {
@@ -154,6 +154,7 @@
 	.dates {
 		margin-right: 1.5rem;
 		white-space: nowrap;
+		color: var(--dark-text-secondary);
 	}
 
 	.button-icon {
@@ -162,6 +163,7 @@
 		height: 37px;
 		width: 37px;
 		transition: all 400ms ease;
+		filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(140deg) brightness(104%) contrast(105%);
 	}
 
 	.button-icon.focus {
@@ -191,7 +193,7 @@
 
 		/* Handle */
 		::-webkit-scrollbar-thumb {
-			background: var(--light-grey);
+			background: var(--dark-text-primary);
 		}
 
 		/* Handle on hover */
@@ -256,11 +258,13 @@
 		}
 		80% {
 			transform: scale(1) rotate(0deg);
-			filter: none;
+			filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(140deg) brightness(104%)
+				contrast(105%);
 		}
 		100% {
 			transform: scale(1) rotate(0deg);
-			filter: none;
+			filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(140deg) brightness(104%)
+				contrast(105%);
 		}
 	}
 </style>

@@ -146,7 +146,7 @@
 		margin-bottom: 2rem;
 		outline: none;
 		border: none;
-		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+		box-shadow: 0px 1px 4px white;
 		transition: box-shadow 400ms ease;
 	}
 
@@ -156,7 +156,7 @@
 
 	textarea:focus-visible,
 	input:focus-visible {
-		box-shadow: 0px 1px 4px 2px var(--red);
+		outline: 4px solid var(--red);
 	}
 
 	textarea {
@@ -188,8 +188,8 @@
 		color: white;
 	}
 	.spinner {
-		border: 4px solid rgba(0, 0, 0, 0.1);
-		border-left-color: black;
+		border: 4px solid white;
+		border-left-color: var(--dark-elevated);
 		border-radius: 50%;
 		width: 2.3rem;
 		height: 2.3rem;

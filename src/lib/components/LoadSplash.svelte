@@ -14,7 +14,7 @@
 		z-index: 20;
 		min-width: 100vw;
 		min-height: 100vh;
-		background: #f7f7f7;
+		background: var(--dark-surface);
 		display: flex;
 		justify-content: center;
 		align-items: center;

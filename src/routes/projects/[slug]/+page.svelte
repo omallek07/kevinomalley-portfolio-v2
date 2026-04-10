@@ -48,14 +48,15 @@
 <style>
 	.project-page {
 		background:
-			radial-gradient(farthest-side at top left, #abaaaa, transparent),
-			radial-gradient(farthest-side at bottom left, #bec3c6, transparent),
-			radial-gradient(farthest-corner at bottom right, var(--white), transparent) #ebf3f9;
+			radial-gradient(farthest-side at top left, var(--dark-surface), transparent),
+			radial-gradient(farthest-side at bottom left, var(--dark-elevated), transparent),
+			radial-gradient(farthest-corner at bottom right, var(--dark-surface), transparent)
+				var(--dark-bg);
 		background-attachment: fixed;
 		background-size: 100vw 100vh;
 		overflow: hidden;
 		position: relative;
-		border-top: 1px solid black;
+		border-top: 1px solid var(--dark-border);
 	}
 
 	.project-container {
@@ -79,16 +80,16 @@
 
 	h2,
 	h3 {
-		color: var(--white);
-		-webkit-filter: drop-shadow(0 0 0.25rem black);
-		filter: drop-shadow(0 0 0.25rem black);
+		color: var(--dark-text-primary);
+		-webkit-filter: drop-shadow(0 0 0.05rem white);
+		filter: drop-shadow(0 0 0.05rem white);
 	}
 	.project-image {
 		width: 100%;
 		max-height: 45rem;
 		object-fit: cover;
 		border-radius: 6px;
-		border: 1px solid black;
+		border: 1px solid white;
 	}
 	.project-lower-container {
 		display: flex;

@@ -24,7 +24,9 @@
 <style>
 	.underscore,
 	.headline {
+		color: var(--dark-text-primary);
 		transition: all 1.5s ease;
+		text-transform: uppercase;
 	}
 	.underscore.focus {
 		background-color: var(--red);

@@ -21,7 +21,7 @@
 		font-family: 'Inter Tight', sans-serif;
 		font-weight: 500;
 		color: black;
-		background-color: white;
+		background-color: var(--dark-text-primary);
 		font-size: clamp(1.5rem, 3vw, 2.2rem);
 		padding: 1rem 2rem;
 		border-radius: 6px;
@@ -55,7 +55,7 @@
 
 		.btn-bar {
 			background-color: var(--green);
-			transform: translateY(52px);
+			transform: translateY(53px);
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -77,7 +77,7 @@
 		}
 
 		.small-btn .btn-bar {
-			transform: translateY(40px);
+			transform: translateY(42px);
 		}
 
 		.go-back .btn-bar {

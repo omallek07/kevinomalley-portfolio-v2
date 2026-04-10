@@ -1,11 +1,17 @@
-import { EMAIL_ADDRESS, SENDGRID_API_KEY } from '$env/static/private';
-import sgMail from '@sendgrid/mail';
+import { EMAIL_ADDRESS, BREVO_EMAIL_API_KEY } from '$env/static/private';
 import { json } from '@sveltejs/kit';
+import { BrevoClient } from '@getbrevo/brevo';
 
-sgMail.setApiKey(SENDGRID_API_KEY);
+const brevo = new BrevoClient({
+	apiKey: BREVO_EMAIL_API_KEY,
+	maxRetries: 3 // Default: 2
+});
 
 export async function POST({ request }) {
 	const { name, email, message } = await request.json();
+	console.log('name:', name);
+	console.log('email:', email);
+	console.log('message:', message);
 
 	if (!name || !email || !message) {
 		return json(
@@ -19,17 +25,17 @@ export async function POST({ request }) {
 	}
 
 	const emailDraft = {
-		to: EMAIL_ADDRESS,
-		from: EMAIL_ADDRESS,
+		to: [{ email: EMAIL_ADDRESS }],
+		sender: { name, email: email },
 		subject: 'Somebody reached out from your portfolio!',
-		html: `Somebody used the contact form on your site. <br />
-		Name: ${name},
-		Email: ${email},
-		Message: ${message}`
+		htmlContent: `Somebody used the contact form on your site. <br /> Here are the details: <br />
+		<strong>Name:</strong> ${name} <br />
+		<strong>Email:</strong> ${email} <br />
+		<strong>Message:</strong> ${message}`
 	};
 
 	try {
-		await sgMail.send(emailDraft);
+		await brevo.transactionalEmails.sendTransacEmail(emailDraft);
 		return json({
 			emailSentSuccessfully: true
 		});

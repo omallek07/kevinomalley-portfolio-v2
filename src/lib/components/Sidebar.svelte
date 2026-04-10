@@ -62,7 +62,7 @@
 		z-index: 15;
 		min-width: 100vw;
 		min-height: 100vh;
-		background: #f7f7f7;
+		background: var(--dark-surface);
 		opacity: 0.97;
 		right: -100%;
 		transition: right 0.3s ease-in-out;
@@ -95,8 +95,8 @@
 		position: absolute;
 		content: '';
 		top: 0;
-		left: -1.5rem;
-		width: 0.5rem;
+		left: -2rem;
+		width: 1rem;
 		height: 100%;
 		transition: 0.6s;
 	}
@@ -120,7 +120,7 @@
 	}
 
 	.list-item button::before {
-		color: var(--dark-grey);
+		color: var(--dark-text-primary);
 		position: absolute;
 		content: attr(data-text);
 		z-index: -1;

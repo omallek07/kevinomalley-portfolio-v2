@@ -17,7 +17,7 @@
 
 <style>
 	a {
-		color: black;
+		color: var(--dark-text-secondary);
 		font-weight: bold;
 	}
 	a:hover {

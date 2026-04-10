@@ -20,9 +20,10 @@
 <style>
 	.error-page {
 		background:
-			radial-gradient(farthest-side at top left, var(--dark-grey), transparent),
-			radial-gradient(farthest-side at bottom left, var(--white), transparent),
-			radial-gradient(farthest-corner at bottom right, #d6dee4, transparent) #ebf3f9;
+			radial-gradient(farthest-side at top left, var(--dark-surface), transparent),
+			radial-gradient(farthest-side at bottom left, var(--dark-elevated), transparent),
+			radial-gradient(farthest-corner at bottom right, var(--dark-surface), transparent)
+				var(--dark-bg);
 		background-attachment: fixed;
 		background-size: 100vw 100vh;
 		overflow: hidden;

@@ -39,7 +39,7 @@
 			<div class="project-info">
 				<div class="title-and-company">
 					<h3 class="semi-bold">{project.name}</h3>
-					<p class="company dark-grey">{project.company}</p>
+					<p class="company">{project.company}</p>
 				</div>
 				<button class="btn-to-article">→</button>
 			</div>
@@ -95,11 +95,11 @@
 
 	.card {
 		overflow: hidden;
-		background: var(--white);
+		background: var(--dark-elevated);
 		transition:
 			transform 600ms ease,
 			box-shadow 1s ease;
-		outline: 1px solid var(--red);
+		outline: 1px solid var(--dark-border);
 		border-radius: 5px;
 		margin-bottom: 3rem;
 	}
@@ -108,12 +108,14 @@
 	}
 	.card:hover {
 		transform: scale(1.05);
-		box-shadow: 0px 7px 6px -2px hsl(from var(--red) h s l / 60%);
 	}
 	.card.shrink {
 		transform: scale(0.95);
 	}
 
+	.company {
+		color: var(--dark-text-secondary);
+	}
 	.project-info {
 		display: flex;
 		justify-content: space-between;
@@ -124,6 +126,7 @@
 	.btn-to-article {
 		display: block;
 		font-family: inherit;
+		color: white;
 		font-size: 4rem;
 		transition: all 300ms ease;
 	}

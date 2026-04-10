@@ -3,7 +3,7 @@
 
 	import { PUBLIC_ABOUT_ME_LINK, PUBLIC_CONTACT_ME_LINK } from '$env/static/public';
 	import { SectionHeadline, Icons, Button } from '$lib';
-	import image from '$assets/about-me.jpg';
+	import image from '$assets/Headshot2026.webp';
 	import { goto } from '$app/navigation';
 
 	let element: HTMLDivElement | undefined = $state();
@@ -42,8 +42,10 @@
 			href="https://svelte.dev/"
 			target="_blank">Svelte</a
 		>, I built my
-		<a class="link" target="_blank" href="https://github.com/omallek07/kevinomalley-portfolio-v2"
-			>portfolio</a
+		<a
+			class="link highlight-link"
+			target="_blank"
+			href="https://github.com/omallek07/kevinomalley-portfolio-v2">portfolio</a
 		> with it!
 	</p>
 {/snippet}
@@ -70,7 +72,6 @@
 			{@render paragraphThree()}
 		</div>
 		<div class="button-container flex">
-			<Button {onclick}>Contact Me</Button>
 			<Icons />
 		</div>
 	</div>
@@ -95,6 +96,10 @@
 
 <style>
 	/* Mobile-first (default styles) */
+	p {
+		color: var(--dark-text-triary);
+		line-height: 1.75;
+	}
 	.about-me {
 		overflow: hidden;
 		position: relative;
@@ -108,14 +113,19 @@
 		text-decoration: none;
 	}
 
-	.link:hover {
+	.highlight-link {
 		text-decoration: underline;
 	}
 
+	.link:hover {
+		text-decoration: underline;
+		color: var(--dark-text-secondary);
+	}
+
 	.image-container {
-		width: 110px;
-		height: auto;
-		border-radius: 0.5rem;
+		width: 120px;
+		height: 190px;
+		border-radius: 0.25rem;
 
 		margin: 0.5rem 2rem -0.5rem 0;
 		float: left;
@@ -125,9 +135,9 @@
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
-		border-radius: 0.5rem;
-		-webkit-filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
-		filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.3));
+		border-radius: 0.25rem;
+		-webkit-filter: drop-shadow(0 0 0.15rem white);
+		filter: drop-shadow(0 0 0.15rem white, 0.3);
 	}
 
 	.button-container {
@@ -145,14 +155,14 @@
 	}
 
 	.wave {
-		background: rgb(255 255 255 / 25%);
+		background: var(--dark-border);
 		border-radius: 1000% 1000% 0 0;
 		position: absolute;
 		width: 200%;
 		height: 10em;
 		animation: wave 10s -3s linear infinite;
 		transform: translate3d(0, 0, 0);
-		opacity: 0.8;
+		opacity: 0.2;
 		bottom: 0;
 		left: 0;
 		z-index: -1;
@@ -160,7 +170,8 @@
 
 	@media (min-width: 768px) {
 		.image-container {
-			width: 160px;
+			width: 200px;
+			height: auto;
 		}
 	}
 
@@ -169,16 +180,16 @@
 			display: flex;
 		}
 		.image-container {
-			width: 30%;
-			height: 100%;
+			width: 285px;
+			height: auto;
 			margin: 0;
 			float: none;
 		}
 		.image {
-			border-radius: 2rem;
+			border-radius: 0.25rem;
 		}
 		.laptop.text-container {
-			width: 70%;
+			width: 75%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
@@ -186,9 +197,9 @@
 		}
 		.button-container {
 			display: flex;
-			justify-content: space-between;
+			justify-content: flex-end;
 			margin-top: 0;
-			margin-bottom: 3.5rem;
+			margin-bottom: 0;
 		}
 		.fade-in {
 			animation: fadeIn 1.5s 1 ease;
@@ -204,13 +215,13 @@
 	.wave:nth-of-type(2) {
 		bottom: -1.25em;
 		animation: wave 18s linear reverse infinite;
-		opacity: 0.8;
+		opacity: 0.3;
 	}
 
 	.wave:nth-of-type(3) {
 		bottom: -2.5em;
 		animation: wave 20s -1s reverse infinite;
-		opacity: 0.9;
+		opacity: 0.7;
 	}
 
 	@keyframes wave {

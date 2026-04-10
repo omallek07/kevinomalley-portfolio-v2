@@ -42,9 +42,7 @@
 			href="https://svelte.dev/"
 			target="_blank">Svelte</a
 		>
-		and
-		<a class="link" href="https://www.sanity.io/" target="_blank">Sanity.io</a>
-		, I built my
+		and <a class="link" href="https://www.sanity.io/" target="_blank">Sanity.io</a>, I built my
 		<a
 			class="link highlight-link"
 			target="_blank"

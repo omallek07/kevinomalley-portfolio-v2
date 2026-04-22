@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { Button, CirclesBg } from '$lib';
-	import image from '$assets/KevinOMalleyResumeNoContacts2026.jpg';
+	import image from '$assets/portfolio-resume-2026.jpg';
 
 	function handleGoBack() {
 		goto('/');

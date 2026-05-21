@@ -7,14 +7,14 @@
 
 <div class="icons">
 	<div class="icon-container">
-		<div class="icon-label gradient-color"><span>GitHub</span></div>
+		<div class="icon-label"><span>GitHub</span></div>
 		<div class="icon icon-round">
 			<a href={PUBLIC_GITHUB_LINK} target="_blank">
 				<img src={githubIcon} alt="Github" class="icon-img" />
 			</a>
 		</div>
 	</div>
-	<div class="icon-container gradient-color">
+	<div class="icon-container">
 		<div class="icon-label"><span>LinkedIn</span></div>
 		<div class="icon">
 			<a href={PUBLIC_LINKEDIN_LINK} target="_blank">
@@ -28,12 +28,12 @@
 	.icons {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
-		padding: 0 1rem;
+		gap: 0.75rem;
 	}
 
 	.icon-container {
 		display: flex;
+		padding: 1rem;
 		flex-direction: column;
 		align-items: center;
 	}
@@ -53,6 +53,7 @@
 		padding-bottom: 1rem;
 		font-size: 1.5rem;
 		letter-spacing: 1.2px;
+		color: var(--dark-text-primary);
 	}
 
 	.icon:hover {

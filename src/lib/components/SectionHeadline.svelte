@@ -22,6 +22,11 @@
 </IntersectionObserver>
 
 <style>
+	.headline {
+		text-align: center;
+		font-size: 3rem;
+		padding: 2rem 0;
+	}
 	.underscore,
 	.headline {
 		color: var(--dark-text-primary);
@@ -37,6 +42,11 @@
 	}
 
 	@media (min-width: 768px) {
+		.headline {
+			font-size: 4rem;
+			text-align: left;
+			padding: 0;
+		}
 		.underscore {
 			height: 4px;
 		}

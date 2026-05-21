@@ -1,14 +1,27 @@
 <script lang="ts">
 	import IntersectionObserver from 'svelte-intersection-observer';
 
+	import { Icons } from '$lib';
 	let element: HTMLDivElement | undefined = $state();
 	let intersecting: boolean = $state(false);
 </script>
 
+{#snippet mobileLayout()}
+	<h1 class="mobile hero-label gradient-color">Kevin O'Malley</h1>
+{/snippet}
+
+{#snippet laptopLayout()}
+	<div class="laptop hero-container">
+		<h1 class="hero-label gradient-color">Kevin O'Malley</h1>
+		<Icons />
+	</div>
+{/snippet}
+
 <IntersectionObserver once {element} bind:intersecting>
 	<section class="hero">
 		<div bind:this={element} class="default-margin pt-m pb-m" class:fade-in={intersecting}>
-			<h1 class="hero-label gradient-color">Kevin O'Malley</h1>
+			{@render mobileLayout()}
+			{@render laptopLayout()}
 		</div>
 	</section>
 </IntersectionObserver>
@@ -20,7 +33,8 @@
 
 	.hero {
 		background-color: var(--dark-surface);
-		padding: 3rem 0;
+		padding: 2rem 0;
+		text-align: center;
 	}
 	.hero-label {
 		font-size: 3.25rem;
@@ -41,6 +55,12 @@
 	}
 
 	@media (min-width: 1024px) {
+		.hero-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
 		.hero {
 			padding: 0;
 		}

@@ -172,10 +172,6 @@
 		animation: shake 2s 1;
 	}
 
-	.laptop {
-		display: none;
-	}
-
 	/* Larger screens */
 	@media (min-width: 768px) {
 		.work-experience-list {
@@ -215,12 +211,6 @@
 		.button-icon {
 			height: 50px;
 			width: 50px;
-		}
-		.laptop {
-			display: inline;
-		}
-		.mobile {
-			display: none;
 		}
 	}
 

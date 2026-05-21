@@ -38,7 +38,12 @@
 			<img src={project.projectImageUrl} alt={project.name} />
 			<div class="project-info">
 				<div class="title-and-company">
-					<h3 class:gradient-color={hoveredProject} class="semi-bold">{project.name}</h3>
+					<h3
+						class:gradient-color={hoveredProject && project.name === hoveredProject}
+						class="semi-bold"
+					>
+						{project.name}
+					</h3>
 					<p class="company">{project.company}</p>
 					<div class="meta-data">
 						<ul class="skill-container">
@@ -48,7 +53,10 @@
 						</ul>
 					</div>
 				</div>
-				<button class="btn-to-article">→</button>
+				<button
+					class:gradient-color={hoveredProject && project.name === hoveredProject}
+					class="btn-to-article">→</button
+				>
 			</div>
 		</a>
 	</article>
@@ -136,6 +144,7 @@
 		color: white;
 		font-size: 4rem;
 		transition: all 300ms ease;
+		margin-left: 1rem;
 	}
 	.card:hover .btn-to-article {
 		transform: scale(1.2);
@@ -146,7 +155,7 @@
 	}
 
 	.meta-data * {
-		font-size: 1rem;
+		font-size: 1.25rem;
 	}
 
 	.skill-container {
@@ -157,7 +166,7 @@
 	}
 
 	.skill {
-		padding: 2px 4px;
+		padding: 3px 6px;
 		color: var(--dark-text-secondary);
 		background-color: var(--dark-border);
 		border-radius: 5px;
@@ -170,6 +179,18 @@
 		.card.shrink {
 			transform: scale(0.9);
 		}
+		.meta-data {
+			margin-top: 1rem;
+		}
+		.meta-data * {
+			font-size: 1.5rem;
+		}
+		.skill-container {
+			gap: 1rem;
+		}
+		.skill {
+			padding: 4px 6px;
+		}
 	}
 	@media (min-width: 1024px) {
 		.card.main-project {
@@ -181,7 +202,7 @@
 			margin-bottom: 0rem;
 		}
 		.project {
-			width: 40%;
+			width: 45%;
 		}
 	}
 

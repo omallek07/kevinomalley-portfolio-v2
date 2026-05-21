@@ -171,6 +171,21 @@ p {
 	animation: animate-gradient 4s linear infinite;
 }
 
+.gradient-btn {
+	background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+	background-size: 200%;
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: animate-gradient 4s linear infinite;
+	border: 1px solid var(--white) !important;
+	border-radius: 6px;
+	padding: 1rem 2rem;
+	font-size: clamp(3rem, 3vw, 4rem);
+	font-weight: 500;
+}
+
 @keyframes animate-gradient {
 	to {
 		background-position: 200%;
@@ -293,7 +308,30 @@ p {
 	padding-bottom: var(--spacing-l);
 }
 
+.mobile {
+	display: block;
+}
+
+.mobile.inline {
+	display: inline;
+}
+
+.laptop,
+.laptop.inline {
+	display: none;
+}
+
 @media (min-width: 1024px) {
+	.laptop {
+		display: block;
+	}
+	.laptop.inline {
+		display: inline;
+	}
+	.mobile-inline,
+	.mobile {
+		display: none;
+	}
 	.default-margin {
 		margin-left: 15vw;
 		margin-right: 15vw;

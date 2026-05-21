@@ -57,10 +57,10 @@
 		{@render paragraphTwo()}
 		{@render paragraphThree()}
 	</div>
-	<div class="mobile">
-		<div class="button-container flex">
+	<div class="mobile-inline">
+		<div class="button-container">
 			<Icons />
-			<Button {onclick}>Contact Me</Button>
+			<Button {onclick} className="gradient-btn">Contact Me</Button>
 		</div>
 	</div>
 {/snippet}
@@ -71,9 +71,6 @@
 			{@render paragraphOne()}
 			{@render paragraphTwo()}
 			{@render paragraphThree()}
-		</div>
-		<div class="button-container flex">
-			<Icons />
 		</div>
 	</div>
 {/snippet}
@@ -105,11 +102,6 @@
 		overflow: hidden;
 		position: relative;
 	}
-
-	.laptop {
-		display: none;
-	}
-
 	.link {
 		text-decoration: none;
 	}
@@ -143,16 +135,15 @@
 
 	.button-container {
 		margin-top: 2rem;
-		align-items: flex-end;
+		display: flex;
+		gap: 2rem;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.fade-in {
 		animation: fadeInMobile 1.5s 1 ease;
-	}
-
-	.flex {
-		display: flex;
-		justify-content: space-between;
 	}
 
 	@media (min-width: 768px) {
@@ -203,14 +194,7 @@
 			width: 75%;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-around;
 			margin-left: 5rem;
-		}
-		.button-container {
-			display: flex;
-			justify-content: flex-end;
-			margin-top: 0;
-			margin-bottom: 0;
 		}
 		.fade-in {
 			animation: fadeIn 1.5s 1 ease;

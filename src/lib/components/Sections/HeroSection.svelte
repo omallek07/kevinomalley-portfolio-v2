@@ -8,7 +8,7 @@
 <IntersectionObserver once {element} bind:intersecting>
 	<section class="hero">
 		<div bind:this={element} class="default-margin pt-m pb-m" class:fade-in={intersecting}>
-			<h1 class="hero-label">Kevin O'Malley</h1>
+			<h1 class="hero-label gradient-color">Kevin O'Malley</h1>
 		</div>
 	</section>
 </IntersectionObserver>
@@ -28,12 +28,6 @@
 		color: var(--dark-text-primary);
 		text-transform: uppercase;
 		letter-spacing: 4px;
-		background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
-		background-size: 200%;
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: animate-gradient 4s linear infinite;
 	}
 
 	/* Larger screens */
@@ -64,12 +58,6 @@
 		100% {
 			opacity: 100%;
 			transform: translateX(0);
-		}
-	}
-
-	@keyframes animate-gradient {
-		to {
-			background-position: 200%;
 		}
 	}
 </style>

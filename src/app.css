@@ -162,6 +162,21 @@ p {
 
 /* UTILITY CLASSES */
 
+.gradient-color {
+	background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+	background-size: 200%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: animate-gradient 4s linear infinite;
+}
+
+@keyframes animate-gradient {
+	to {
+		background-position: 200%;
+	}
+}
+
 .bg-white {
 	background: var(--dark-bg);
 }
@@ -208,6 +223,10 @@ p {
 
 .semi-bold {
 	font-weight: 500;
+}
+
+.italic {
+	font-style: italic;
 }
 
 .underscore {

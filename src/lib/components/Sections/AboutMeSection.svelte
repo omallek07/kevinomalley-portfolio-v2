@@ -155,28 +155,6 @@
 		justify-content: space-between;
 	}
 
-	.wave {
-		background: var(--dark-border);
-		border-radius: 1000% 1000% 0 0;
-		position: absolute;
-		width: 200%;
-		height: 10em;
-		animation: wave 10s -3s linear infinite;
-		transform: translate3d(0, 0, 0);
-		opacity: 0.2;
-		bottom: -2rem;
-		left: 0;
-		z-index: -1;
-	}
-
-	.wave:nth-of-type(2) {
-		bottom: 1rem;
-	}
-
-	.wave:nth-of-type(3) {
-		bottom: 0.4rem;
-	}
-
 	@media (min-width: 768px) {
 		.image-container {
 			width: 200px;
@@ -185,6 +163,27 @@
 	}
 
 	@media (min-width: 1024px) {
+		.wave {
+			background: var(--dark-border);
+			border-radius: 1000% 1000% 0 0;
+			position: absolute;
+			width: 200%;
+			height: 10em;
+			animation: wave 10s -3s linear infinite;
+			transform: translate3d(0, 0, 0);
+			opacity: 0.2;
+			bottom: -2rem;
+			left: 0;
+			z-index: -1;
+		}
+
+		.wave:nth-of-type(2) {
+			bottom: 1rem;
+		}
+
+		.wave:nth-of-type(3) {
+			bottom: 0.4rem;
+		}
 		p {
 			line-height: 1.9;
 		}

@@ -38,8 +38,15 @@
 			<img src={project.projectImageUrl} alt={project.name} />
 			<div class="project-info">
 				<div class="title-and-company">
-					<h3 class="semi-bold">{project.name}</h3>
+					<h3 class:gradient-color={hoveredProject} class="semi-bold">{project.name}</h3>
 					<p class="company">{project.company}</p>
+					<div class="meta-data">
+						<ul class="skill-container">
+							{#each project.stack as skill}
+								<li class="skill">{skill}</li>
+							{/each}
+						</ul>
+					</div>
 				</div>
 				<button class="btn-to-article">→</button>
 			</div>
@@ -136,6 +143,23 @@
 	.company {
 		font-size: 1.8rem;
 		margin-bottom: 0;
+	}
+
+	.meta-data * {
+		font-size: 1rem;
+	}
+
+	.skill-container {
+		margin-top: 10px;
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.skill {
+		padding: 2px 4px;
+		color: var(--dark-text-secondary);
+		background-color: var(--dark-border);
+		border-radius: 5px;
 	}
 
 	@media (min-width: 768px) {

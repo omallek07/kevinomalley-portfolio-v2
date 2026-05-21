@@ -7,14 +7,14 @@
 
 <div class="icons">
 	<div class="icon-container">
-		<div class="icon-label"><span>GitHub</span></div>
+		<div class="icon-label gradient-color"><span>GitHub</span></div>
 		<div class="icon icon-round">
 			<a href={PUBLIC_GITHUB_LINK} target="_blank">
 				<img src={githubIcon} alt="Github" class="icon-img" />
 			</a>
 		</div>
 	</div>
-	<div class="icon-container">
+	<div class="icon-container gradient-color">
 		<div class="icon-label"><span>LinkedIn</span></div>
 		<div class="icon">
 			<a href={PUBLIC_LINKEDIN_LINK} target="_blank">
@@ -53,12 +53,6 @@
 		padding-bottom: 1rem;
 		font-size: 1.5rem;
 		letter-spacing: 1.2px;
-		background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
-		background-size: 200%;
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: animate-gradient 4s linear infinite;
 	}
 
 	.icon:hover {
@@ -94,12 +88,6 @@
 
 		.icon-label {
 			padding-bottom: 1.5rem;
-		}
-	}
-
-	@keyframes animate-gradient {
-		to {
-			background-position: 200%;
 		}
 	}
 </style>

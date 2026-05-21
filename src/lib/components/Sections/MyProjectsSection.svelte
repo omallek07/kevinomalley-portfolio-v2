@@ -152,6 +152,7 @@
 	.skill-container {
 		margin-top: 10px;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
 

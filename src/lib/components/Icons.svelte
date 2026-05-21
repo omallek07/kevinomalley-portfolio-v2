@@ -88,7 +88,7 @@
 		}
 
 		.icon-label {
-			padding-bottom: 1.5rem;
+			display: none;
 		}
 	}
 </style>

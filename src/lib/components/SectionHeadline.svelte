@@ -25,7 +25,7 @@
 	.headline {
 		text-align: center;
 		font-size: 3rem;
-		padding: 2rem 0;
+		padding: 0.5rem 0 2rem 0;
 	}
 	.underscore,
 	.headline {

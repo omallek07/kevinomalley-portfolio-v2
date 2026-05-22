@@ -106,10 +106,10 @@
 	}
 	.work-item {
 		border-bottom: 1px solid var(--dark-border);
-		padding-bottom: 1.2rem;
+		padding-bottom: 2rem;
 	}
 	.work-item:not(:first-of-type) {
-		padding-top: 1.6rem;
+		padding-top: 3rem;
 	}
 	.work-item p {
 		margin-bottom: 0;
@@ -182,6 +182,13 @@
 			padding-right: 2rem;
 			position: relative;
 			z-index: 2;
+		}
+
+		.work-item {
+			padding-bottom: 1.2rem;
+		}
+		.work-item:not(:first-of-type) {
+			padding-top: 1.6rem;
 		}
 
 		/* width */

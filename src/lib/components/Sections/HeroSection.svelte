@@ -33,7 +33,7 @@
 
 	.hero {
 		background-color: var(--dark-surface);
-		padding: 2rem 0;
+		padding: 4rem 0 1rem 0;
 		text-align: center;
 	}
 	.hero-label {

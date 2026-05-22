@@ -34,7 +34,9 @@
 	</div>
 
 	<div class="navbar-wrapper default-margin">
-		<Logo onclick={toggleSidebar} />
+		<div class="logo">
+			<Logo onclick={toggleSidebar} />
+		</div>
 		<div class="navbar-links">
 			<a href={PUBLIC_ABOUT_ME_LINK} class="nav-link">
 				<span class="nav-link-bar"></span>
@@ -56,13 +58,17 @@
 <style>
 	.navbar {
 		position: relative;
-		padding: 1.5rem 0 2rem 0;
+		padding: 0;
 	}
 	.hamburger {
-		position: absolute;
-		top: 30px;
-		right: 25px;
+		position: fixed;
+		top: 10px;
+		right: 10px;
 		z-index: 20;
+	}
+
+	.logo {
+		display: none;
 	}
 
 	.navbar-wrapper {
@@ -94,6 +100,10 @@
 	@media (min-width: 1024px) {
 		.navbar {
 			padding: 2rem 0;
+		}
+
+		.logo {
+			display: block;
 		}
 		.hamburger {
 			display: none;
@@ -135,6 +145,7 @@
 	.hamburger svg line {
 		/* `currentColor` means inherit color from the text color */
 		stroke: var(--dark-text-primary);
+		stroke-opacity: 0.2;
 		stroke-width: 3;
 		transition: transform 0.3s ease-in-out;
 	}

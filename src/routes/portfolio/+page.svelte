@@ -35,6 +35,7 @@
 		display: flex;
 		justify-content: center;
 		margin-bottom: 1rem;
+		padding-top: 4rem;
 	}
 
 	.portfolio-container {
@@ -75,6 +76,9 @@
 	}
 
 	@media (min-width: 1024px) {
+		.portfolio-page {
+			padding-top: 0rem;
+		}
 		.top-container {
 			padding: 0 1rem;
 		}

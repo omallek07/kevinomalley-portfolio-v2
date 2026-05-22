@@ -46,7 +46,7 @@
 					</h3>
 					<p class="company">{project.company}</p>
 					<div class="meta-data">
-						<ul class="skill-container">
+						<ul class="skills-container">
 							{#each project.stack as skill}
 								<li class="skill">{skill}</li>
 							{/each}
@@ -158,7 +158,7 @@
 		font-size: 1.25rem;
 	}
 
-	.skill-container {
+	.skills-container {
 		margin-top: 10px;
 		display: flex;
 		flex-wrap: wrap;

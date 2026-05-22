@@ -24,18 +24,24 @@
 		<h4>{company}</h4>
 		<div class="underscore"></div>
 		<div class="name-container flex mb-s">
-			<h2 class="project-name">{name}</h2>
+			<h2 class="project-name gradient-color">{name}</h2>
 			<Button className="small-btn go-back" onclick={handleGoBack}>Go Back</Button>
 		</div>
 		<img src={projectImageUrl} alt={name} class="project-image" />
 		<div class="project-lower-container mt-m">
 			<div class="meta-data">
-				<h3 class="semi-bold">Date</h3>
-				<p>{dateAccomplished.slice(0, 7)}</p>
-				<h3 class="semi-bold mt-m">Tech Stack</h3>
-				{#each stack as skill}
-					<li>{skill}</li>
-				{/each}
+				<div class="meta-data-row">
+					<h3 class="semi-bold gradient-color">Date</h3>
+					<p>{dateAccomplished.slice(0, 7)}</p>
+				</div>
+				<div class="meta-data-row">
+					<h3 class="semi-bold mt-m gradient-color">Tech Stack</h3>
+					<ul class="skills-container">
+						{#each stack as skill}
+							<li class="skill">{skill}</li>
+						{/each}
+					</ul>
+				</div>
 			</div>
 			<div class="project-text">
 				<PortableText value={content} />
@@ -93,9 +99,35 @@
 	}
 	.project-lower-container {
 		display: flex;
+		flex-direction: column;
 	}
+
 	.meta-data {
-		min-width: 12rem;
+		display: flex;
+		flex-direction: column;
+		margin: 1rem 0 2rem 0;
+	}
+	.meta-data-row {
+		display: flex;
+		align-items: center;
+	}
+
+	.meta-data-row h3 {
+		display: none;
+	}
+
+	.skills-container {
+		margin-top: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.skill {
+		padding: 3px 6px;
+		color: var(--dark-text-secondary);
+		background-color: var(--dark-border);
+		border-radius: 5px;
 	}
 
 	@media (min-width: 768px) {
@@ -103,18 +135,39 @@
 			padding-top: 4rem;
 			padding-bottom: 10rem;
 		}
-		.meta-data {
-			min-width: 15rem;
-		}
 	}
 
 	@media (min-width: 1024px) {
+		.project-lower-container {
+			flex-direction: row;
+		}
 		.project-page {
 			padding-top: 6rem;
 			padding-bottom: 14rem;
 		}
 		.meta-data {
+			display: block;
 			min-width: 20rem;
+			margin: 0;
+		}
+		.meta-data-row h3 {
+			display: block;
+		}
+		.meta-data-row {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.skills-container {
+			margin-top: 0;
+			display: block;
+		}
+
+		.skill {
+			padding: 3px 6px;
+			color: var(--white);
+			background-color: inherit;
+			border-radius: 0;
 		}
 	}
 </style>

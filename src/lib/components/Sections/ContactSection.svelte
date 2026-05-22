@@ -92,7 +92,10 @@
 						placeholder="Your Message"
 						bind:value={contactMessage}
 					></textarea>
-					<div class="btn-wrapper">
+					<div class="btn-wrapper mobile">
+						<Button className="gradient-btn" onclick={onSubmit}>Submit</Button>
+					</div>
+					<div class="btn-wrapper laptop">
 						<Button onclick={onSubmit}>Submit</Button>
 					</div>
 				</form>

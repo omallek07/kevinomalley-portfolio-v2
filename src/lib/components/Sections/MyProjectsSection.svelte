@@ -53,10 +53,15 @@
 						</ul>
 					</div>
 				</div>
-				<button
-					class:gradient-color={hoveredProject && project.name === hoveredProject}
-					class="btn-to-article">→</button
-				>
+				<div class="mobile">
+					<button class="btn-to-article gradient-color">→</button>
+				</div>
+				<div class="laptop">
+					<button
+						class:gradient-color={hoveredProject && project.name === hoveredProject}
+						class="btn-to-article">→</button
+					>
+				</div>
 			</div>
 		</a>
 	</article>
@@ -127,10 +132,6 @@
 	.card.shrink {
 		transform: scale(0.95);
 	}
-
-	.company {
-		color: var(--dark-text-secondary);
-	}
 	.project-info {
 		display: flex;
 		justify-content: space-between;
@@ -150,7 +151,8 @@
 		transform: scale(1.2);
 	}
 	.company {
-		font-size: 1.8rem;
+		color: var(--dark-text-secondary);
+		font-size: 1.4rem;
 		margin-bottom: 0;
 	}
 
@@ -203,6 +205,9 @@
 		}
 		.project {
 			width: 45%;
+		}
+		.company {
+			font-size: 1.8rem;
 		}
 	}
 

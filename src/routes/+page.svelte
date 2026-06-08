@@ -13,7 +13,7 @@
 	} from '$lib';
 
 	const { data } = $props();
-	let { workExperience, projects, skills } = data;
+	let { workExperience, projects, skills } = $derived(data);
 
 	let showLoadSplash = $state(true);
 

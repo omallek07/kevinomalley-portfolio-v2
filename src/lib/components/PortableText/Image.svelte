@@ -8,7 +8,7 @@
 	};
 
 	let { portableText }: Props = $props();
-	let imageUrl = imageBuilder(portableText.value);
+	let imageUrl = $derived(imageBuilder(portableText.value));
 </script>
 
 {#if imageUrl}

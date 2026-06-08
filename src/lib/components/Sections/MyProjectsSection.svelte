@@ -1,8 +1,10 @@
 <script lang="ts">
+	import image from '$assets/coding-image.png';
 	import IntersectionObserver from 'svelte-intersection-observer';
 	import { PUBLIC_MY_PROJECTS_LINK } from '$env/static/public';
 	import type { ProcessedProject } from '$lib/types/sanity';
 	import SectionHeadline from '$lib/components/SectionHeadline.svelte';
+	import ActivityCalendar from '$lib/components/ActivityCalendar.svelte';
 
 	interface Props {
 		projects: ProcessedProject[];
@@ -11,8 +13,10 @@
 	let { projects }: Props = $props();
 
 	const mainProjectName = 'Cleverdocs';
-	const mainProject = projects.find((project) => project.name === mainProjectName);
-	const additionalProjects = projects.filter((project) => project.name !== mainProjectName);
+	const mainProject = $derived(projects.find((project) => project.name === mainProjectName));
+	const additionalProjects = $derived(
+		projects.filter((project) => project.name !== mainProjectName)
+	);
 
 	let hoveredProject = $state('');
 	let element: HTMLDivElement | undefined = $state();
@@ -67,6 +71,33 @@
 	</article>
 {/snippet}
 
+{#snippet calendarWidget()}
+	<article
+		class:shrink={hoveredProject && hoveredProject !== 'calendar-widget'}
+		class="project card calendar-widget-card"
+		onfocus={() => handleHoveredProject('calendar-widget', true)}
+		onblur={() => handleHoveredProject('calendar-widget', false)}
+		onmouseover={() => handleHoveredProject('calendar-widget', true)}
+		onmouseleave={() => handleHoveredProject('calendar-widget', false)}
+	>
+		<img class="calendar-widget-image" src={image} alt={'Github Calendar'} />
+		<div class="project-info calendar-widget">
+			<div class="title-and-company">
+				<h3
+					class:gradient-color={hoveredProject && 'calendar-widget' === hoveredProject}
+					class="semi-bold"
+				>
+					My GitHub Activity
+				</h3>
+				<p class="company">Kevin O'Malley</p>
+			</div>
+		</div>
+		<div class="calendar-widget-container">
+			<ActivityCalendar />
+		</div>
+	</article>
+{/snippet}
+
 <IntersectionObserver once {element} bind:intersecting>
 	<section class="my-projects-section section bg-dark">
 		<SectionHeadline headline="My Projects" id={PUBLIC_MY_PROJECTS_LINK.slice(2)} />
@@ -82,6 +113,7 @@
 				{#each additionalProjects as project}
 					{@render projectDisplay(project)}
 				{/each}
+				{@render calendarWidget()}
 			</div>
 		</div>
 	</section>
@@ -123,6 +155,11 @@
 		border-radius: 5px;
 		margin-bottom: 3rem;
 	}
+
+	.card.calendar-widget-card {
+		background: var(--dark-surface);
+	}
+
 	.card:not(.main-project):last-child {
 		margin-bottom: 0;
 	}
@@ -172,6 +209,15 @@
 		color: var(--dark-text-secondary);
 		background-color: var(--dark-border);
 		border-radius: 5px;
+	}
+
+	.calendar-widget-image {
+		cursor: default;
+	}
+
+	.calendar-widget-container {
+		margin-top: -1rem;
+		margin-bottom: 2rem;
 	}
 
 	@media (min-width: 768px) {

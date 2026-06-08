@@ -7,7 +7,9 @@
 
 	const { data } = $props();
 	$inspect(data);
-	const { company, name, dateAccomplished, stack, projectImageUrl, content } = data.project;
+	const { company, name, dateAccomplished, stack, projectImageUrl, content } = $derived(
+		data.project
+	);
 	$inspect(content);
 
 	function handleGoBack() {
